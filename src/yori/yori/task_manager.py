@@ -134,7 +134,7 @@ class TaskManager(Node):
         
 	# 새로운 요리 시작
         if self.current_order_id != order_id:
-            self.update_status(order_id, 'In Progress', 'order')
+            self.update_status(order_id, 'Processing', 'order')
 	    # 이전 요리 종료
 	    if self.current_order_id is not None:
 	        self.update_status(self.current_order_id, 'Completed', 'order')

@@ -45,7 +45,7 @@ class DBManagerNode(Node):
         self.get_logger().info(f"Received order_id: {order_id}")
 
         try:
-        query = """
+            query = """
 		    SELECT 
 		        order_detail.order_detail_id AS order_detail_id,
 		        menu.name AS menu_name,
@@ -61,21 +61,18 @@ class DBManagerNode(Node):
 		"""
             self.cursor.execute(query, (order_id,))
             results = self.cursor.fetchall()
-
-	    response.details = [
+            response.details = [
 	        self.create_order_detail(
 	            result["order_detail_id"],
 	            result["menu_name"],
 	            result["table_num"]
-	        )
-	        for result in results
-	    ]
+	        ) for result in results]
 
-            self.get_logger().info(f"Query Results: {menu_names}")
+            self.get_logger().info(f"Query Results: {response.details}")
 
         except Exception as e:
             self.get_logger().error(f"Error retrieving order details: {e}")
-            response.menu_names = []
+            response.details = []
 
         return response
         
