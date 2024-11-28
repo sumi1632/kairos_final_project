@@ -1,4 +1,6 @@
 [console_scripts]
 db_manager_node = yori.db_manager:main
+mycobot_controller = yori.mycobot_controller:main
 nav2_controller = yori.nav2_controller:main
+task_manager_node = yori.task_manager:main
 

@@ -1,1 +1,1 @@
-/home/soomi/project_ws/build/my_custom_msgs/rosidl_generator_cpp/my_custom_msgs/srv/receive_order.hpp
+/home/soomi/yori/build/my_custom_msgs/rosidl_generator_cpp/my_custom_msgs/srv/receive_order.hpp

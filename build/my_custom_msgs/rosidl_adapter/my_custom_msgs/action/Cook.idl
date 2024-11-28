@@ -9,10 +9,10 @@ module my_custom_msgs {
       string menu_name;
     };
     struct Cook_Result {
-      string cook_status;
+      string cook_result;
     };
     struct Cook_Feedback {
-      string cook_result;
+      string cook_status;
     };
   };
 };

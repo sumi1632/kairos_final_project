@@ -158,14 +158,14 @@ void Cook_Result_fini_function(void * message_memory)
 
 static const ::rosidl_typesupport_introspection_cpp::MessageMember Cook_Result_message_member_array[1] = {
   {
-    "cook_status",  // name
+    "cook_result",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_STRING,  // type
     0,  // upper bound of string
     nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
-    offsetof(my_custom_msgs::action::Cook_Result, cook_status),  // bytes offset in struct
+    offsetof(my_custom_msgs::action::Cook_Result, cook_result),  // bytes offset in struct
     nullptr,  // default value
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
@@ -277,14 +277,14 @@ void Cook_Feedback_fini_function(void * message_memory)
 
 static const ::rosidl_typesupport_introspection_cpp::MessageMember Cook_Feedback_message_member_array[1] = {
   {
-    "cook_result",  // name
+    "cook_status",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_STRING,  // type
     0,  // upper bound of string
     nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
-    offsetof(my_custom_msgs::action::Cook_Feedback, cook_result),  // bytes offset in struct
+    offsetof(my_custom_msgs::action::Cook_Feedback, cook_status),  // bytes offset in struct
     nullptr,  // default value
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer

@@ -1,1 +1,1 @@
-/home/soomi/project_ws/build/my_custom_msgs/ament_cmake_environment_hooks/local_setup.zsh
+/home/soomi/yori/build/my_custom_msgs/ament_cmake_environment_hooks/local_setup.zsh

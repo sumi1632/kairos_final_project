@@ -1,8 +1,8 @@
-# Install script for directory: /home/soomi/project_ws/build/my_custom_msgs/my_custom_msgs__py
+# Install script for directory: /home/soomi/yori/build/my_custom_msgs/my_custom_msgs__py
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/soomi/project_ws/install/my_custom_msgs")
+  set(CMAKE_INSTALL_PREFIX "/home/soomi/yori/install/my_custom_msgs")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

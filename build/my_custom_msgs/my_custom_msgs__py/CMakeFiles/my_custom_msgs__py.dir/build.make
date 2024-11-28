@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/soomi/project_ws/src/my_custom_msgs
+CMAKE_SOURCE_DIR = /home/soomi/yori/src/my_custom_msgs
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/soomi/project_ws/build/my_custom_msgs
+CMAKE_BINARY_DIR = /home/soomi/yori/build/my_custom_msgs
 
 # Utility rule file for my_custom_msgs__py.
 
@@ -135,8 +135,8 @@ rosidl_generator_py/my_custom_msgs/_my_custom_msgs_s.ep.rosidl_typesupport_intro
 rosidl_generator_py/my_custom_msgs/_my_custom_msgs_s.ep.rosidl_typesupport_introspection_c.c: /home/soomi/ros2_humble/install/action_msgs/share/action_msgs/msg/GoalStatusArray.idl
 rosidl_generator_py/my_custom_msgs/_my_custom_msgs_s.ep.rosidl_typesupport_introspection_c.c: /home/soomi/ros2_humble/install/action_msgs/share/action_msgs/srv/CancelGoal.idl
 rosidl_generator_py/my_custom_msgs/_my_custom_msgs_s.ep.rosidl_typesupport_introspection_c.c: /home/soomi/ros2_humble/install/unique_identifier_msgs/share/unique_identifier_msgs/msg/UUID.idl
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/soomi/project_ws/build/my_custom_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python code for ROS interfaces"
-	cd /home/soomi/project_ws/build/my_custom_msgs/my_custom_msgs__py && /usr/bin/python3 /home/soomi/ros2_humble/install/rosidl_generator_py/share/rosidl_generator_py/cmake/../../../lib/rosidl_generator_py/rosidl_generator_py --generator-arguments-file /home/soomi/project_ws/build/my_custom_msgs/rosidl_generator_py__arguments.json --typesupport-impls "rosidl_typesupport_introspection_c;rosidl_typesupport_fastrtps_c;rosidl_typesupport_c"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/soomi/yori/build/my_custom_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python code for ROS interfaces"
+	cd /home/soomi/yori/build/my_custom_msgs/my_custom_msgs__py && /usr/bin/python3 /home/soomi/ros2_humble/install/rosidl_generator_py/share/rosidl_generator_py/cmake/../../../lib/rosidl_generator_py/rosidl_generator_py --generator-arguments-file /home/soomi/yori/build/my_custom_msgs/rosidl_generator_py__arguments.json --typesupport-impls "rosidl_typesupport_introspection_c;rosidl_typesupport_fastrtps_c;rosidl_typesupport_c"
 
 rosidl_generator_py/my_custom_msgs/_my_custom_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_generator_py/my_custom_msgs/_my_custom_msgs_s.ep.rosidl_typesupport_introspection_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/my_custom_msgs/_my_custom_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
@@ -200,10 +200,10 @@ my_custom_msgs__py/CMakeFiles/my_custom_msgs__py.dir/build: my_custom_msgs__py
 .PHONY : my_custom_msgs__py/CMakeFiles/my_custom_msgs__py.dir/build
 
 my_custom_msgs__py/CMakeFiles/my_custom_msgs__py.dir/clean:
-	cd /home/soomi/project_ws/build/my_custom_msgs/my_custom_msgs__py && $(CMAKE_COMMAND) -P CMakeFiles/my_custom_msgs__py.dir/cmake_clean.cmake
+	cd /home/soomi/yori/build/my_custom_msgs/my_custom_msgs__py && $(CMAKE_COMMAND) -P CMakeFiles/my_custom_msgs__py.dir/cmake_clean.cmake
 .PHONY : my_custom_msgs__py/CMakeFiles/my_custom_msgs__py.dir/clean
 
 my_custom_msgs__py/CMakeFiles/my_custom_msgs__py.dir/depend:
-	cd /home/soomi/project_ws/build/my_custom_msgs && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/soomi/project_ws/src/my_custom_msgs /home/soomi/project_ws/build/my_custom_msgs/my_custom_msgs__py /home/soomi/project_ws/build/my_custom_msgs /home/soomi/project_ws/build/my_custom_msgs/my_custom_msgs__py /home/soomi/project_ws/build/my_custom_msgs/my_custom_msgs__py/CMakeFiles/my_custom_msgs__py.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/soomi/yori/build/my_custom_msgs && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/soomi/yori/src/my_custom_msgs /home/soomi/yori/build/my_custom_msgs/my_custom_msgs__py /home/soomi/yori/build/my_custom_msgs /home/soomi/yori/build/my_custom_msgs/my_custom_msgs__py /home/soomi/yori/build/my_custom_msgs/my_custom_msgs__py/CMakeFiles/my_custom_msgs__py.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : my_custom_msgs__py/CMakeFiles/my_custom_msgs__py.dir/depend
 

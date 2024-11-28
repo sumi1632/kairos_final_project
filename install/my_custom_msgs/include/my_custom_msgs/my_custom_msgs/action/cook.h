@@ -1,1 +1,1 @@
-/home/soomi/project_ws/build/my_custom_msgs/rosidl_generator_c/my_custom_msgs/action/cook.h
+/home/soomi/yori/build/my_custom_msgs/rosidl_generator_c/my_custom_msgs/action/cook.h

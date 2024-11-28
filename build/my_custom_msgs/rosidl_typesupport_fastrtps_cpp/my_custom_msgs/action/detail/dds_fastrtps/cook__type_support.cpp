@@ -246,8 +246,8 @@ cdr_serialize(
   const my_custom_msgs::action::Cook_Result & ros_message,
   eprosima::fastcdr::Cdr & cdr)
 {
-  // Member: cook_status
-  cdr << ros_message.cook_status;
+  // Member: cook_result
+  cdr << ros_message.cook_result;
   return true;
 }
 
@@ -257,8 +257,8 @@ cdr_deserialize(
   eprosima::fastcdr::Cdr & cdr,
   my_custom_msgs::action::Cook_Result & ros_message)
 {
-  // Member: cook_status
-  cdr >> ros_message.cook_status;
+  // Member: cook_result
+  cdr >> ros_message.cook_result;
 
   return true;
 }
@@ -276,10 +276,10 @@ get_serialized_size(
   (void)padding;
   (void)wchar_size;
 
-  // Member: cook_status
+  // Member: cook_result
   current_alignment += padding +
     eprosima::fastcdr::Cdr::alignment(current_alignment, padding) +
-    (ros_message.cook_status.size() + 1);
+    (ros_message.cook_result.size() + 1);
 
   return current_alignment - initial_alignment;
 }
@@ -304,7 +304,7 @@ max_serialized_size_Cook_Result(
   is_plain = true;
 
 
-  // Member: cook_status
+  // Member: cook_result
   {
     size_t array_size = 1;
 
@@ -325,7 +325,7 @@ max_serialized_size_Cook_Result(
     using DataType = my_custom_msgs::action::Cook_Result;
     is_plain =
       (
-      offsetof(DataType, cook_status) +
+      offsetof(DataType, cook_result) +
       last_member_size
       ) == ret_val;
   }
@@ -460,8 +460,8 @@ cdr_serialize(
   const my_custom_msgs::action::Cook_Feedback & ros_message,
   eprosima::fastcdr::Cdr & cdr)
 {
-  // Member: cook_result
-  cdr << ros_message.cook_result;
+  // Member: cook_status
+  cdr << ros_message.cook_status;
   return true;
 }
 
@@ -471,8 +471,8 @@ cdr_deserialize(
   eprosima::fastcdr::Cdr & cdr,
   my_custom_msgs::action::Cook_Feedback & ros_message)
 {
-  // Member: cook_result
-  cdr >> ros_message.cook_result;
+  // Member: cook_status
+  cdr >> ros_message.cook_status;
 
   return true;
 }
@@ -490,10 +490,10 @@ get_serialized_size(
   (void)padding;
   (void)wchar_size;
 
-  // Member: cook_result
+  // Member: cook_status
   current_alignment += padding +
     eprosima::fastcdr::Cdr::alignment(current_alignment, padding) +
-    (ros_message.cook_result.size() + 1);
+    (ros_message.cook_status.size() + 1);
 
   return current_alignment - initial_alignment;
 }
@@ -518,7 +518,7 @@ max_serialized_size_Cook_Feedback(
   is_plain = true;
 
 
-  // Member: cook_result
+  // Member: cook_status
   {
     size_t array_size = 1;
 
@@ -539,7 +539,7 @@ max_serialized_size_Cook_Feedback(
     using DataType = my_custom_msgs::action::Cook_Feedback;
     is_plain =
       (
-      offsetof(DataType, cook_result) +
+      offsetof(DataType, cook_status) +
       last_member_size
       ) == ret_val;
   }

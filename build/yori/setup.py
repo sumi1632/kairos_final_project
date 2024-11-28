@@ -1,1 +1,1 @@
-/home/soomi/project_ws/src/yori/setup.py
+/home/soomi/yori/src/yori/setup.py

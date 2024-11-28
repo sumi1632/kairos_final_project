@@ -1,1 +1,1 @@
-/home/soomi/project_ws/build/my_custom_msgs/rosidl_cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+/home/soomi/yori/build/my_custom_msgs/rosidl_cmake/rosidl_cmake_export_typesupport_targets-extras.cmake

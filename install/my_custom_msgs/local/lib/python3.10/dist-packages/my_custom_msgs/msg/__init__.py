@@ -1,1 +1,1 @@
-/home/soomi/project_ws/build/my_custom_msgs/rosidl_generator_py/my_custom_msgs/msg/__init__.py
+/home/soomi/yori/build/my_custom_msgs/rosidl_generator_py/my_custom_msgs/msg/__init__.py

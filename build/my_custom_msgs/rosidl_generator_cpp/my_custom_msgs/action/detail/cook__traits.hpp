@@ -117,10 +117,10 @@ inline void to_flow_style_yaml(
   std::ostream & out)
 {
   out << "{";
-  // member: cook_status
+  // member: cook_result
   {
-    out << "cook_status: ";
-    rosidl_generator_traits::value_to_yaml(msg.cook_status, out);
+    out << "cook_result: ";
+    rosidl_generator_traits::value_to_yaml(msg.cook_result, out);
   }
   out << "}";
 }  // NOLINT(readability/fn_size)
@@ -129,13 +129,13 @@ inline void to_block_style_yaml(
   const Cook_Result & msg,
   std::ostream & out, size_t indentation = 0)
 {
-  // member: cook_status
+  // member: cook_result
   {
     if (indentation > 0) {
       out << std::string(indentation, ' ');
     }
-    out << "cook_status: ";
-    rosidl_generator_traits::value_to_yaml(msg.cook_status, out);
+    out << "cook_result: ";
+    rosidl_generator_traits::value_to_yaml(msg.cook_result, out);
     out << "\n";
   }
 }  // NOLINT(readability/fn_size)
@@ -209,10 +209,10 @@ inline void to_flow_style_yaml(
   std::ostream & out)
 {
   out << "{";
-  // member: cook_result
+  // member: cook_status
   {
-    out << "cook_result: ";
-    rosidl_generator_traits::value_to_yaml(msg.cook_result, out);
+    out << "cook_status: ";
+    rosidl_generator_traits::value_to_yaml(msg.cook_status, out);
   }
   out << "}";
 }  // NOLINT(readability/fn_size)
@@ -221,13 +221,13 @@ inline void to_block_style_yaml(
   const Cook_Feedback & msg,
   std::ostream & out, size_t indentation = 0)
 {
-  // member: cook_result
+  // member: cook_status
   {
     if (indentation > 0) {
       out << std::string(indentation, ' ');
     }
-    out << "cook_result: ";
-    rosidl_generator_traits::value_to_yaml(msg.cook_result, out);
+    out << "cook_status: ";
+    rosidl_generator_traits::value_to_yaml(msg.cook_status, out);
     out << "\n";
   }
 }  // NOLINT(readability/fn_size)

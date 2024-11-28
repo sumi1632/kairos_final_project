@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/soomi/project_ws/src/my_custom_msgs
+CMAKE_SOURCE_DIR = /home/soomi/yori/src/my_custom_msgs
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/soomi/project_ws/build/my_custom_msgs
+CMAKE_BINARY_DIR = /home/soomi/yori/build/my_custom_msgs
 
 # Utility rule file for my_custom_msgs__cpp.
 
@@ -144,8 +144,8 @@ rosidl_generator_cpp/my_custom_msgs/msg/update_status.hpp: /home/soomi/ros2_humb
 rosidl_generator_cpp/my_custom_msgs/msg/update_status.hpp: /home/soomi/ros2_humble/install/action_msgs/share/action_msgs/msg/GoalStatusArray.idl
 rosidl_generator_cpp/my_custom_msgs/msg/update_status.hpp: /home/soomi/ros2_humble/install/action_msgs/share/action_msgs/srv/CancelGoal.idl
 rosidl_generator_cpp/my_custom_msgs/msg/update_status.hpp: /home/soomi/ros2_humble/install/unique_identifier_msgs/share/unique_identifier_msgs/msg/UUID.idl
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/soomi/project_ws/build/my_custom_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code for ROS interfaces"
-	/usr/bin/python3 /home/soomi/ros2_humble/install/rosidl_generator_cpp/share/rosidl_generator_cpp/cmake/../../../lib/rosidl_generator_cpp/rosidl_generator_cpp --generator-arguments-file /home/soomi/project_ws/build/my_custom_msgs/rosidl_generator_cpp__arguments.json
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/soomi/yori/build/my_custom_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code for ROS interfaces"
+	/usr/bin/python3 /home/soomi/ros2_humble/install/rosidl_generator_cpp/share/rosidl_generator_cpp/cmake/../../../lib/rosidl_generator_cpp/rosidl_generator_cpp --generator-arguments-file /home/soomi/yori/build/my_custom_msgs/rosidl_generator_cpp__arguments.json
 
 rosidl_generator_cpp/my_custom_msgs/msg/detail/update_status__builder.hpp: rosidl_generator_cpp/my_custom_msgs/msg/update_status.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/my_custom_msgs/msg/detail/update_status__builder.hpp
@@ -237,6 +237,6 @@ CMakeFiles/my_custom_msgs__cpp.dir/clean:
 .PHONY : CMakeFiles/my_custom_msgs__cpp.dir/clean
 
 CMakeFiles/my_custom_msgs__cpp.dir/depend:
-	cd /home/soomi/project_ws/build/my_custom_msgs && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/soomi/project_ws/src/my_custom_msgs /home/soomi/project_ws/src/my_custom_msgs /home/soomi/project_ws/build/my_custom_msgs /home/soomi/project_ws/build/my_custom_msgs /home/soomi/project_ws/build/my_custom_msgs/CMakeFiles/my_custom_msgs__cpp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/soomi/yori/build/my_custom_msgs && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/soomi/yori/src/my_custom_msgs /home/soomi/yori/src/my_custom_msgs /home/soomi/yori/build/my_custom_msgs /home/soomi/yori/build/my_custom_msgs /home/soomi/yori/build/my_custom_msgs/CMakeFiles/my_custom_msgs__cpp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/my_custom_msgs__cpp.dir/depend
 

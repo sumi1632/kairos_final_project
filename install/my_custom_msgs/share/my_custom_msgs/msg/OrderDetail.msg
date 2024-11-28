@@ -1,1 +1,1 @@
-/home/soomi/project_ws/src/my_custom_msgs/msg/OrderDetail.msg
+/home/soomi/yori/src/my_custom_msgs/msg/OrderDetail.msg

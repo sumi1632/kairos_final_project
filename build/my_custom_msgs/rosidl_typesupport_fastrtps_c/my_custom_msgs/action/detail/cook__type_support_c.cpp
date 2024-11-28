@@ -253,9 +253,9 @@ extern "C"
 #endif
 
 // already included above
-// #include "rosidl_runtime_c/string.h"  // cook_status
+// #include "rosidl_runtime_c/string.h"  // cook_result
 // already included above
-// #include "rosidl_runtime_c/string_functions.h"  // cook_status
+// #include "rosidl_runtime_c/string_functions.h"  // cook_result
 
 // forward declare type support functions
 
@@ -271,9 +271,9 @@ static bool _Cook_Result__cdr_serialize(
     return false;
   }
   const _Cook_Result__ros_msg_type * ros_message = static_cast<const _Cook_Result__ros_msg_type *>(untyped_ros_message);
-  // Field name: cook_status
+  // Field name: cook_result
   {
-    const rosidl_runtime_c__String * str = &ros_message->cook_status;
+    const rosidl_runtime_c__String * str = &ros_message->cook_result;
     if (str->capacity == 0 || str->capacity <= str->size) {
       fprintf(stderr, "string capacity not greater than size\n");
       return false;
@@ -297,18 +297,18 @@ static bool _Cook_Result__cdr_deserialize(
     return false;
   }
   _Cook_Result__ros_msg_type * ros_message = static_cast<_Cook_Result__ros_msg_type *>(untyped_ros_message);
-  // Field name: cook_status
+  // Field name: cook_result
   {
     std::string tmp;
     cdr >> tmp;
-    if (!ros_message->cook_status.data) {
-      rosidl_runtime_c__String__init(&ros_message->cook_status);
+    if (!ros_message->cook_result.data) {
+      rosidl_runtime_c__String__init(&ros_message->cook_result);
     }
     bool succeeded = rosidl_runtime_c__String__assign(
-      &ros_message->cook_status,
+      &ros_message->cook_result,
       tmp.c_str());
     if (!succeeded) {
-      fprintf(stderr, "failed to assign string into field 'cook_status'\n");
+      fprintf(stderr, "failed to assign string into field 'cook_result'\n");
       return false;
     }
   }
@@ -330,10 +330,10 @@ size_t get_serialized_size_my_custom_msgs__action__Cook_Result(
   (void)padding;
   (void)wchar_size;
 
-  // field.name cook_status
+  // field.name cook_result
   current_alignment += padding +
     eprosima::fastcdr::Cdr::alignment(current_alignment, padding) +
-    (ros_message->cook_status.size + 1);
+    (ros_message->cook_result.size + 1);
 
   return current_alignment - initial_alignment;
 }
@@ -363,7 +363,7 @@ size_t max_serialized_size_my_custom_msgs__action__Cook_Result(
   full_bounded = true;
   is_plain = true;
 
-  // member: cook_status
+  // member: cook_result
   {
     size_t array_size = 1;
 
@@ -384,7 +384,7 @@ size_t max_serialized_size_my_custom_msgs__action__Cook_Result(
     using DataType = my_custom_msgs__action__Cook_Result;
     is_plain =
       (
-      offsetof(DataType, cook_status) +
+      offsetof(DataType, cook_result) +
       last_member_size
       ) == ret_val;
   }
@@ -473,9 +473,9 @@ extern "C"
 #endif
 
 // already included above
-// #include "rosidl_runtime_c/string.h"  // cook_result
+// #include "rosidl_runtime_c/string.h"  // cook_status
 // already included above
-// #include "rosidl_runtime_c/string_functions.h"  // cook_result
+// #include "rosidl_runtime_c/string_functions.h"  // cook_status
 
 // forward declare type support functions
 
@@ -491,9 +491,9 @@ static bool _Cook_Feedback__cdr_serialize(
     return false;
   }
   const _Cook_Feedback__ros_msg_type * ros_message = static_cast<const _Cook_Feedback__ros_msg_type *>(untyped_ros_message);
-  // Field name: cook_result
+  // Field name: cook_status
   {
-    const rosidl_runtime_c__String * str = &ros_message->cook_result;
+    const rosidl_runtime_c__String * str = &ros_message->cook_status;
     if (str->capacity == 0 || str->capacity <= str->size) {
       fprintf(stderr, "string capacity not greater than size\n");
       return false;
@@ -517,18 +517,18 @@ static bool _Cook_Feedback__cdr_deserialize(
     return false;
   }
   _Cook_Feedback__ros_msg_type * ros_message = static_cast<_Cook_Feedback__ros_msg_type *>(untyped_ros_message);
-  // Field name: cook_result
+  // Field name: cook_status
   {
     std::string tmp;
     cdr >> tmp;
-    if (!ros_message->cook_result.data) {
-      rosidl_runtime_c__String__init(&ros_message->cook_result);
+    if (!ros_message->cook_status.data) {
+      rosidl_runtime_c__String__init(&ros_message->cook_status);
     }
     bool succeeded = rosidl_runtime_c__String__assign(
-      &ros_message->cook_result,
+      &ros_message->cook_status,
       tmp.c_str());
     if (!succeeded) {
-      fprintf(stderr, "failed to assign string into field 'cook_result'\n");
+      fprintf(stderr, "failed to assign string into field 'cook_status'\n");
       return false;
     }
   }
@@ -550,10 +550,10 @@ size_t get_serialized_size_my_custom_msgs__action__Cook_Feedback(
   (void)padding;
   (void)wchar_size;
 
-  // field.name cook_result
+  // field.name cook_status
   current_alignment += padding +
     eprosima::fastcdr::Cdr::alignment(current_alignment, padding) +
-    (ros_message->cook_result.size + 1);
+    (ros_message->cook_status.size + 1);
 
   return current_alignment - initial_alignment;
 }
@@ -583,7 +583,7 @@ size_t max_serialized_size_my_custom_msgs__action__Cook_Feedback(
   full_bounded = true;
   is_plain = true;
 
-  // member: cook_result
+  // member: cook_status
   {
     size_t array_size = 1;
 
@@ -604,7 +604,7 @@ size_t max_serialized_size_my_custom_msgs__action__Cook_Feedback(
     using DataType = my_custom_msgs__action__Cook_Feedback;
     is_plain =
       (
-      offsetof(DataType, cook_result) +
+      offsetof(DataType, cook_status) +
       last_member_size
       ) == ret_val;
   }

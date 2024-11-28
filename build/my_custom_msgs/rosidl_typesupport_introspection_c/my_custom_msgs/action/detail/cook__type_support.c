@@ -105,7 +105,7 @@ ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspecti
 
 
 // Include directives for member types
-// Member `cook_status`
+// Member `cook_result`
 // already included above
 // #include "rosidl_runtime_c/string_functions.h"
 
@@ -130,14 +130,14 @@ void my_custom_msgs__action__Cook_Result__rosidl_typesupport_introspection_c__Co
 
 static rosidl_typesupport_introspection_c__MessageMember my_custom_msgs__action__Cook_Result__rosidl_typesupport_introspection_c__Cook_Result_message_member_array[1] = {
   {
-    "cook_status",  // name
+    "cook_result",  // name
     rosidl_typesupport_introspection_c__ROS_TYPE_STRING,  // type
     0,  // upper bound of string
     NULL,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
-    offsetof(my_custom_msgs__action__Cook_Result, cook_status),  // bytes offset in struct
+    offsetof(my_custom_msgs__action__Cook_Result, cook_result),  // bytes offset in struct
     NULL,  // default value
     NULL,  // size() function pointer
     NULL,  // get_const(index) function pointer
@@ -198,7 +198,7 @@ ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspecti
 
 
 // Include directives for member types
-// Member `cook_result`
+// Member `cook_status`
 // already included above
 // #include "rosidl_runtime_c/string_functions.h"
 
@@ -223,14 +223,14 @@ void my_custom_msgs__action__Cook_Feedback__rosidl_typesupport_introspection_c__
 
 static rosidl_typesupport_introspection_c__MessageMember my_custom_msgs__action__Cook_Feedback__rosidl_typesupport_introspection_c__Cook_Feedback_message_member_array[1] = {
   {
-    "cook_result",  // name
+    "cook_status",  // name
     rosidl_typesupport_introspection_c__ROS_TYPE_STRING,  // type
     0,  // upper bound of string
     NULL,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
-    offsetof(my_custom_msgs__action__Cook_Feedback, cook_result),  // bytes offset in struct
+    offsetof(my_custom_msgs__action__Cook_Feedback, cook_status),  // bytes offset in struct
     NULL,  // default value
     NULL,  // size() function pointer
     NULL,  // get_const(index) function pointer

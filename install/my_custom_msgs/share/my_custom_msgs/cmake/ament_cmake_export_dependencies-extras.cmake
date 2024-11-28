@@ -1,1 +1,1 @@
-/home/soomi/project_ws/build/my_custom_msgs/ament_cmake_export_dependencies/ament_cmake_export_dependencies-extras.cmake
+/home/soomi/yori/build/my_custom_msgs/ament_cmake_export_dependencies/ament_cmake_export_dependencies-extras.cmake

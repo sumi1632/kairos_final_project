@@ -152,30 +152,30 @@ struct Cook_Result_
     if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
     {
-      this->cook_status = "";
+      this->cook_result = "";
     }
   }
 
   explicit Cook_Result_(const ContainerAllocator & _alloc, rosidl_runtime_cpp::MessageInitialization _init = rosidl_runtime_cpp::MessageInitialization::ALL)
-  : cook_status(_alloc)
+  : cook_result(_alloc)
   {
     if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
     {
-      this->cook_status = "";
+      this->cook_result = "";
     }
   }
 
   // field types and members
-  using _cook_status_type =
+  using _cook_result_type =
     std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>>;
-  _cook_status_type cook_status;
+  _cook_result_type cook_result;
 
   // setters for named parameter idiom
-  Type & set__cook_status(
+  Type & set__cook_result(
     const std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>> & _arg)
   {
-    this->cook_status = _arg;
+    this->cook_result = _arg;
     return *this;
   }
 
@@ -221,7 +221,7 @@ struct Cook_Result_
   // comparison operators
   bool operator==(const Cook_Result_ & other) const
   {
-    if (this->cook_status != other.cook_status) {
+    if (this->cook_result != other.cook_result) {
       return false;
     }
     return true;
@@ -266,30 +266,30 @@ struct Cook_Feedback_
     if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
     {
-      this->cook_result = "";
+      this->cook_status = "";
     }
   }
 
   explicit Cook_Feedback_(const ContainerAllocator & _alloc, rosidl_runtime_cpp::MessageInitialization _init = rosidl_runtime_cpp::MessageInitialization::ALL)
-  : cook_result(_alloc)
+  : cook_status(_alloc)
   {
     if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
     {
-      this->cook_result = "";
+      this->cook_status = "";
     }
   }
 
   // field types and members
-  using _cook_result_type =
+  using _cook_status_type =
     std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>>;
-  _cook_result_type cook_result;
+  _cook_status_type cook_status;
 
   // setters for named parameter idiom
-  Type & set__cook_result(
+  Type & set__cook_status(
     const std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>> & _arg)
   {
-    this->cook_result = _arg;
+    this->cook_status = _arg;
     return *this;
   }
 
@@ -335,7 +335,7 @@ struct Cook_Feedback_
   // comparison operators
   bool operator==(const Cook_Feedback_ & other) const
   {
-    if (this->cook_result != other.cook_result) {
+    if (this->cook_status != other.cook_status) {
       return false;
     }
     return true;

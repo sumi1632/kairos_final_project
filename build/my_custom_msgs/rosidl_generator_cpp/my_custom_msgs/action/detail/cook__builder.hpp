@@ -63,15 +63,15 @@ namespace action
 namespace builder
 {
 
-class Init_Cook_Result_cook_status
+class Init_Cook_Result_cook_result
 {
 public:
-  Init_Cook_Result_cook_status()
+  Init_Cook_Result_cook_result()
   : msg_(::rosidl_runtime_cpp::MessageInitialization::SKIP)
   {}
-  ::my_custom_msgs::action::Cook_Result cook_status(::my_custom_msgs::action::Cook_Result::_cook_status_type arg)
+  ::my_custom_msgs::action::Cook_Result cook_result(::my_custom_msgs::action::Cook_Result::_cook_result_type arg)
   {
-    msg_.cook_status = std::move(arg);
+    msg_.cook_result = std::move(arg);
     return std::move(msg_);
   }
 
@@ -90,7 +90,7 @@ template<>
 inline
 auto build<::my_custom_msgs::action::Cook_Result>()
 {
-  return my_custom_msgs::action::builder::Init_Cook_Result_cook_status();
+  return my_custom_msgs::action::builder::Init_Cook_Result_cook_result();
 }
 
 }  // namespace my_custom_msgs
@@ -105,15 +105,15 @@ namespace action
 namespace builder
 {
 
-class Init_Cook_Feedback_cook_result
+class Init_Cook_Feedback_cook_status
 {
 public:
-  Init_Cook_Feedback_cook_result()
+  Init_Cook_Feedback_cook_status()
   : msg_(::rosidl_runtime_cpp::MessageInitialization::SKIP)
   {}
-  ::my_custom_msgs::action::Cook_Feedback cook_result(::my_custom_msgs::action::Cook_Feedback::_cook_result_type arg)
+  ::my_custom_msgs::action::Cook_Feedback cook_status(::my_custom_msgs::action::Cook_Feedback::_cook_status_type arg)
   {
-    msg_.cook_result = std::move(arg);
+    msg_.cook_status = std::move(arg);
     return std::move(msg_);
   }
 
@@ -132,7 +132,7 @@ template<>
 inline
 auto build<::my_custom_msgs::action::Cook_Feedback>()
 {
-  return my_custom_msgs::action::builder::Init_Cook_Feedback_cook_result();
+  return my_custom_msgs::action::builder::Init_Cook_Feedback_cook_status();
 }
 
 }  // namespace my_custom_msgs

@@ -1,8 +1,8 @@
-# Install script for directory: /home/soomi/project_ws/src/my_custom_msgs
+# Install script for directory: /home/soomi/yori/src/my_custom_msgs
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/soomi/project_ws/install/my_custom_msgs")
+  set(CMAKE_INSTALL_PREFIX "/home/soomi/yori/install/my_custom_msgs")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -43,7 +43,7 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  include("/home/soomi/project_ws/build/my_custom_msgs/ament_cmake_symlink_install/ament_cmake_symlink_install.cmake")
+  include("/home/soomi/yori/build/my_custom_msgs/ament_cmake_symlink_install/ament_cmake_symlink_install.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -53,7 +53,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmy_custom_msgs__rosidl_generator_c.so"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/soomi/project_ws/build/my_custom_msgs/libmy_custom_msgs__rosidl_generator_c.so")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/soomi/yori/build/my_custom_msgs/libmy_custom_msgs__rosidl_generator_c.so")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmy_custom_msgs__rosidl_generator_c.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmy_custom_msgs__rosidl_generator_c.so")
     file(RPATH_CHANGE
@@ -76,12 +76,12 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmy_custom_msgs__rosidl_typesupport_introspection_c.so"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/soomi/project_ws/build/my_custom_msgs/libmy_custom_msgs__rosidl_typesupport_introspection_c.so")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/soomi/yori/build/my_custom_msgs/libmy_custom_msgs__rosidl_typesupport_introspection_c.so")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmy_custom_msgs__rosidl_typesupport_introspection_c.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmy_custom_msgs__rosidl_typesupport_introspection_c.so")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmy_custom_msgs__rosidl_typesupport_introspection_c.so"
-         OLD_RPATH "/home/soomi/project_ws/build/my_custom_msgs:/home/soomi/ros2_humble/install/std_msgs/lib:/home/soomi/ros2_humble/install/action_msgs/lib:/home/soomi/ros2_humble/install/unique_identifier_msgs/lib:/home/soomi/ros2_humble/install/builtin_interfaces/lib:/home/soomi/ros2_humble/install/rosidl_typesupport_introspection_c/lib:/home/soomi/ros2_humble/install/rosidl_runtime_c/lib:/home/soomi/ros2_humble/install/rcutils/lib:"
+         OLD_RPATH "/home/soomi/yori/build/my_custom_msgs:/home/soomi/ros2_humble/install/std_msgs/lib:/home/soomi/ros2_humble/install/action_msgs/lib:/home/soomi/ros2_humble/install/unique_identifier_msgs/lib:/home/soomi/ros2_humble/install/builtin_interfaces/lib:/home/soomi/ros2_humble/install/rosidl_typesupport_introspection_c/lib:/home/soomi/ros2_humble/install/rosidl_runtime_c/lib:/home/soomi/ros2_humble/install/rcutils/lib:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmy_custom_msgs__rosidl_typesupport_introspection_c.so")
@@ -99,12 +99,12 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmy_custom_msgs__rosidl_typesupport_fastrtps_c.so"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/soomi/project_ws/build/my_custom_msgs/libmy_custom_msgs__rosidl_typesupport_fastrtps_c.so")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/soomi/yori/build/my_custom_msgs/libmy_custom_msgs__rosidl_typesupport_fastrtps_c.so")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmy_custom_msgs__rosidl_typesupport_fastrtps_c.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmy_custom_msgs__rosidl_typesupport_fastrtps_c.so")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmy_custom_msgs__rosidl_typesupport_fastrtps_c.so"
-         OLD_RPATH "/home/soomi/project_ws/build/my_custom_msgs:/home/soomi/ros2_humble/install/std_msgs/lib:/home/soomi/ros2_humble/install/action_msgs/lib:/home/soomi/ros2_humble/install/unique_identifier_msgs/lib:/home/soomi/ros2_humble/install/builtin_interfaces/lib:/home/soomi/ros2_humble/install/rosidl_typesupport_fastrtps_cpp/lib:/home/soomi/ros2_humble/install/fastcdr/lib:/home/soomi/ros2_humble/install/rmw/lib:/home/soomi/ros2_humble/install/rosidl_typesupport_fastrtps_c/lib:/home/soomi/ros2_humble/install/rosidl_runtime_c/lib:/home/soomi/ros2_humble/install/rcutils/lib:"
+         OLD_RPATH "/home/soomi/yori/build/my_custom_msgs:/home/soomi/ros2_humble/install/std_msgs/lib:/home/soomi/ros2_humble/install/action_msgs/lib:/home/soomi/ros2_humble/install/unique_identifier_msgs/lib:/home/soomi/ros2_humble/install/builtin_interfaces/lib:/home/soomi/ros2_humble/install/rosidl_typesupport_fastrtps_cpp/lib:/home/soomi/ros2_humble/install/fastcdr/lib:/home/soomi/ros2_humble/install/rmw/lib:/home/soomi/ros2_humble/install/rosidl_typesupport_fastrtps_c/lib:/home/soomi/ros2_humble/install/rosidl_runtime_c/lib:/home/soomi/ros2_humble/install/rcutils/lib:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmy_custom_msgs__rosidl_typesupport_fastrtps_c.so")
@@ -122,12 +122,12 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmy_custom_msgs__rosidl_typesupport_c.so"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/soomi/project_ws/build/my_custom_msgs/libmy_custom_msgs__rosidl_typesupport_c.so")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/soomi/yori/build/my_custom_msgs/libmy_custom_msgs__rosidl_typesupport_c.so")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmy_custom_msgs__rosidl_typesupport_c.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmy_custom_msgs__rosidl_typesupport_c.so")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmy_custom_msgs__rosidl_typesupport_c.so"
-         OLD_RPATH "/home/soomi/project_ws/build/my_custom_msgs:/home/soomi/ros2_humble/install/std_msgs/lib:/home/soomi/ros2_humble/install/action_msgs/lib:/home/soomi/ros2_humble/install/unique_identifier_msgs/lib:/home/soomi/ros2_humble/install/builtin_interfaces/lib:/home/soomi/ros2_humble/install/rosidl_typesupport_c/lib:/home/soomi/ros2_humble/install/rcpputils/lib:/home/soomi/ros2_humble/install/rosidl_runtime_c/lib:/home/soomi/ros2_humble/install/rcutils/lib:"
+         OLD_RPATH "/home/soomi/yori/build/my_custom_msgs:/home/soomi/ros2_humble/install/std_msgs/lib:/home/soomi/ros2_humble/install/action_msgs/lib:/home/soomi/ros2_humble/install/unique_identifier_msgs/lib:/home/soomi/ros2_humble/install/builtin_interfaces/lib:/home/soomi/ros2_humble/install/rosidl_typesupport_c/lib:/home/soomi/ros2_humble/install/rcpputils/lib:/home/soomi/ros2_humble/install/rosidl_runtime_c/lib:/home/soomi/ros2_humble/install/rcutils/lib:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmy_custom_msgs__rosidl_typesupport_c.so")
@@ -145,7 +145,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmy_custom_msgs__rosidl_typesupport_introspection_cpp.so"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/soomi/project_ws/build/my_custom_msgs/libmy_custom_msgs__rosidl_typesupport_introspection_cpp.so")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/soomi/yori/build/my_custom_msgs/libmy_custom_msgs__rosidl_typesupport_introspection_cpp.so")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmy_custom_msgs__rosidl_typesupport_introspection_cpp.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmy_custom_msgs__rosidl_typesupport_introspection_cpp.so")
     file(RPATH_CHANGE
@@ -168,7 +168,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmy_custom_msgs__rosidl_typesupport_fastrtps_cpp.so"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/soomi/project_ws/build/my_custom_msgs/libmy_custom_msgs__rosidl_typesupport_fastrtps_cpp.so")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/soomi/yori/build/my_custom_msgs/libmy_custom_msgs__rosidl_typesupport_fastrtps_cpp.so")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmy_custom_msgs__rosidl_typesupport_fastrtps_cpp.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmy_custom_msgs__rosidl_typesupport_fastrtps_cpp.so")
     file(RPATH_CHANGE
@@ -191,7 +191,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmy_custom_msgs__rosidl_typesupport_cpp.so"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/soomi/project_ws/build/my_custom_msgs/libmy_custom_msgs__rosidl_typesupport_cpp.so")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/soomi/yori/build/my_custom_msgs/libmy_custom_msgs__rosidl_typesupport_cpp.so")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmy_custom_msgs__rosidl_typesupport_cpp.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmy_custom_msgs__rosidl_typesupport_cpp.so")
     file(RPATH_CHANGE
@@ -211,7 +211,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   execute_process(
         COMMAND
         "/usr/bin/python3" "-m" "compileall"
-        "/home/soomi/project_ws/install/my_custom_msgs/local/lib/python3.10/dist-packages/my_custom_msgs"
+        "/home/soomi/yori/install/my_custom_msgs/local/lib/python3.10/dist-packages/my_custom_msgs"
       )
 endif()
 
@@ -222,12 +222,12 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmy_custom_msgs__rosidl_generator_py.so"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/soomi/project_ws/build/my_custom_msgs/rosidl_generator_py/my_custom_msgs/libmy_custom_msgs__rosidl_generator_py.so")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/soomi/yori/build/my_custom_msgs/rosidl_generator_py/my_custom_msgs/libmy_custom_msgs__rosidl_generator_py.so")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmy_custom_msgs__rosidl_generator_py.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmy_custom_msgs__rosidl_generator_py.so")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmy_custom_msgs__rosidl_generator_py.so"
-         OLD_RPATH "/home/soomi/project_ws/build/my_custom_msgs:/home/soomi/ros2_humble/install/std_msgs/lib:/home/soomi/ros2_humble/install/action_msgs/lib:/home/soomi/ros2_humble/install/unique_identifier_msgs/lib:/home/soomi/ros2_humble/install/builtin_interfaces/lib:/home/soomi/ros2_humble/install/rosidl_typesupport_c/lib:/home/soomi/ros2_humble/install/rosidl_runtime_c/lib:/home/soomi/ros2_humble/install/rcpputils/lib:/home/soomi/ros2_humble/install/rcutils/lib:"
+         OLD_RPATH "/home/soomi/yori/build/my_custom_msgs:/home/soomi/ros2_humble/install/std_msgs/lib:/home/soomi/ros2_humble/install/action_msgs/lib:/home/soomi/ros2_humble/install/unique_identifier_msgs/lib:/home/soomi/ros2_humble/install/builtin_interfaces/lib:/home/soomi/ros2_humble/install/rosidl_typesupport_c/lib:/home/soomi/ros2_humble/install/rosidl_runtime_c/lib:/home/soomi/ros2_humble/install/rcpputils/lib:/home/soomi/ros2_humble/install/rcutils/lib:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmy_custom_msgs__rosidl_generator_py.so")
@@ -242,7 +242,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake/export_my_custom_msgs__rosidl_generator_cExport.cmake")
     file(DIFFERENT EXPORT_FILE_CHANGED FILES
          "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake/export_my_custom_msgs__rosidl_generator_cExport.cmake"
-         "/home/soomi/project_ws/build/my_custom_msgs/CMakeFiles/Export/share/my_custom_msgs/cmake/export_my_custom_msgs__rosidl_generator_cExport.cmake")
+         "/home/soomi/yori/build/my_custom_msgs/CMakeFiles/Export/share/my_custom_msgs/cmake/export_my_custom_msgs__rosidl_generator_cExport.cmake")
     if(EXPORT_FILE_CHANGED)
       file(GLOB OLD_CONFIG_FILES "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake/export_my_custom_msgs__rosidl_generator_cExport-*.cmake")
       if(OLD_CONFIG_FILES)
@@ -251,9 +251,9 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
       endif()
     endif()
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake" TYPE FILE FILES "/home/soomi/project_ws/build/my_custom_msgs/CMakeFiles/Export/share/my_custom_msgs/cmake/export_my_custom_msgs__rosidl_generator_cExport.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake" TYPE FILE FILES "/home/soomi/yori/build/my_custom_msgs/CMakeFiles/Export/share/my_custom_msgs/cmake/export_my_custom_msgs__rosidl_generator_cExport.cmake")
   if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^()$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake" TYPE FILE FILES "/home/soomi/project_ws/build/my_custom_msgs/CMakeFiles/Export/share/my_custom_msgs/cmake/export_my_custom_msgs__rosidl_generator_cExport-noconfig.cmake")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake" TYPE FILE FILES "/home/soomi/yori/build/my_custom_msgs/CMakeFiles/Export/share/my_custom_msgs/cmake/export_my_custom_msgs__rosidl_generator_cExport-noconfig.cmake")
   endif()
 endif()
 
@@ -261,7 +261,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake/my_custom_msgs__rosidl_typesupport_introspection_cExport.cmake")
     file(DIFFERENT EXPORT_FILE_CHANGED FILES
          "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake/my_custom_msgs__rosidl_typesupport_introspection_cExport.cmake"
-         "/home/soomi/project_ws/build/my_custom_msgs/CMakeFiles/Export/share/my_custom_msgs/cmake/my_custom_msgs__rosidl_typesupport_introspection_cExport.cmake")
+         "/home/soomi/yori/build/my_custom_msgs/CMakeFiles/Export/share/my_custom_msgs/cmake/my_custom_msgs__rosidl_typesupport_introspection_cExport.cmake")
     if(EXPORT_FILE_CHANGED)
       file(GLOB OLD_CONFIG_FILES "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake/my_custom_msgs__rosidl_typesupport_introspection_cExport-*.cmake")
       if(OLD_CONFIG_FILES)
@@ -270,9 +270,9 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
       endif()
     endif()
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake" TYPE FILE FILES "/home/soomi/project_ws/build/my_custom_msgs/CMakeFiles/Export/share/my_custom_msgs/cmake/my_custom_msgs__rosidl_typesupport_introspection_cExport.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake" TYPE FILE FILES "/home/soomi/yori/build/my_custom_msgs/CMakeFiles/Export/share/my_custom_msgs/cmake/my_custom_msgs__rosidl_typesupport_introspection_cExport.cmake")
   if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^()$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake" TYPE FILE FILES "/home/soomi/project_ws/build/my_custom_msgs/CMakeFiles/Export/share/my_custom_msgs/cmake/my_custom_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake" TYPE FILE FILES "/home/soomi/yori/build/my_custom_msgs/CMakeFiles/Export/share/my_custom_msgs/cmake/my_custom_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake")
   endif()
 endif()
 
@@ -280,7 +280,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake/export_my_custom_msgs__rosidl_typesupport_fastrtps_cExport.cmake")
     file(DIFFERENT EXPORT_FILE_CHANGED FILES
          "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake/export_my_custom_msgs__rosidl_typesupport_fastrtps_cExport.cmake"
-         "/home/soomi/project_ws/build/my_custom_msgs/CMakeFiles/Export/share/my_custom_msgs/cmake/export_my_custom_msgs__rosidl_typesupport_fastrtps_cExport.cmake")
+         "/home/soomi/yori/build/my_custom_msgs/CMakeFiles/Export/share/my_custom_msgs/cmake/export_my_custom_msgs__rosidl_typesupport_fastrtps_cExport.cmake")
     if(EXPORT_FILE_CHANGED)
       file(GLOB OLD_CONFIG_FILES "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake/export_my_custom_msgs__rosidl_typesupport_fastrtps_cExport-*.cmake")
       if(OLD_CONFIG_FILES)
@@ -289,9 +289,9 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
       endif()
     endif()
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake" TYPE FILE FILES "/home/soomi/project_ws/build/my_custom_msgs/CMakeFiles/Export/share/my_custom_msgs/cmake/export_my_custom_msgs__rosidl_typesupport_fastrtps_cExport.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake" TYPE FILE FILES "/home/soomi/yori/build/my_custom_msgs/CMakeFiles/Export/share/my_custom_msgs/cmake/export_my_custom_msgs__rosidl_typesupport_fastrtps_cExport.cmake")
   if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^()$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake" TYPE FILE FILES "/home/soomi/project_ws/build/my_custom_msgs/CMakeFiles/Export/share/my_custom_msgs/cmake/export_my_custom_msgs__rosidl_typesupport_fastrtps_cExport-noconfig.cmake")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake" TYPE FILE FILES "/home/soomi/yori/build/my_custom_msgs/CMakeFiles/Export/share/my_custom_msgs/cmake/export_my_custom_msgs__rosidl_typesupport_fastrtps_cExport-noconfig.cmake")
   endif()
 endif()
 
@@ -299,7 +299,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake/my_custom_msgs__rosidl_typesupport_cExport.cmake")
     file(DIFFERENT EXPORT_FILE_CHANGED FILES
          "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake/my_custom_msgs__rosidl_typesupport_cExport.cmake"
-         "/home/soomi/project_ws/build/my_custom_msgs/CMakeFiles/Export/share/my_custom_msgs/cmake/my_custom_msgs__rosidl_typesupport_cExport.cmake")
+         "/home/soomi/yori/build/my_custom_msgs/CMakeFiles/Export/share/my_custom_msgs/cmake/my_custom_msgs__rosidl_typesupport_cExport.cmake")
     if(EXPORT_FILE_CHANGED)
       file(GLOB OLD_CONFIG_FILES "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake/my_custom_msgs__rosidl_typesupport_cExport-*.cmake")
       if(OLD_CONFIG_FILES)
@@ -308,9 +308,9 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
       endif()
     endif()
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake" TYPE FILE FILES "/home/soomi/project_ws/build/my_custom_msgs/CMakeFiles/Export/share/my_custom_msgs/cmake/my_custom_msgs__rosidl_typesupport_cExport.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake" TYPE FILE FILES "/home/soomi/yori/build/my_custom_msgs/CMakeFiles/Export/share/my_custom_msgs/cmake/my_custom_msgs__rosidl_typesupport_cExport.cmake")
   if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^()$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake" TYPE FILE FILES "/home/soomi/project_ws/build/my_custom_msgs/CMakeFiles/Export/share/my_custom_msgs/cmake/my_custom_msgs__rosidl_typesupport_cExport-noconfig.cmake")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake" TYPE FILE FILES "/home/soomi/yori/build/my_custom_msgs/CMakeFiles/Export/share/my_custom_msgs/cmake/my_custom_msgs__rosidl_typesupport_cExport-noconfig.cmake")
   endif()
 endif()
 
@@ -318,7 +318,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake/export_my_custom_msgs__rosidl_generator_cppExport.cmake")
     file(DIFFERENT EXPORT_FILE_CHANGED FILES
          "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake/export_my_custom_msgs__rosidl_generator_cppExport.cmake"
-         "/home/soomi/project_ws/build/my_custom_msgs/CMakeFiles/Export/share/my_custom_msgs/cmake/export_my_custom_msgs__rosidl_generator_cppExport.cmake")
+         "/home/soomi/yori/build/my_custom_msgs/CMakeFiles/Export/share/my_custom_msgs/cmake/export_my_custom_msgs__rosidl_generator_cppExport.cmake")
     if(EXPORT_FILE_CHANGED)
       file(GLOB OLD_CONFIG_FILES "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake/export_my_custom_msgs__rosidl_generator_cppExport-*.cmake")
       if(OLD_CONFIG_FILES)
@@ -327,14 +327,14 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
       endif()
     endif()
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake" TYPE FILE FILES "/home/soomi/project_ws/build/my_custom_msgs/CMakeFiles/Export/share/my_custom_msgs/cmake/export_my_custom_msgs__rosidl_generator_cppExport.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake" TYPE FILE FILES "/home/soomi/yori/build/my_custom_msgs/CMakeFiles/Export/share/my_custom_msgs/cmake/export_my_custom_msgs__rosidl_generator_cppExport.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake/my_custom_msgs__rosidl_typesupport_introspection_cppExport.cmake")
     file(DIFFERENT EXPORT_FILE_CHANGED FILES
          "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake/my_custom_msgs__rosidl_typesupport_introspection_cppExport.cmake"
-         "/home/soomi/project_ws/build/my_custom_msgs/CMakeFiles/Export/share/my_custom_msgs/cmake/my_custom_msgs__rosidl_typesupport_introspection_cppExport.cmake")
+         "/home/soomi/yori/build/my_custom_msgs/CMakeFiles/Export/share/my_custom_msgs/cmake/my_custom_msgs__rosidl_typesupport_introspection_cppExport.cmake")
     if(EXPORT_FILE_CHANGED)
       file(GLOB OLD_CONFIG_FILES "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake/my_custom_msgs__rosidl_typesupport_introspection_cppExport-*.cmake")
       if(OLD_CONFIG_FILES)
@@ -343,9 +343,9 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
       endif()
     endif()
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake" TYPE FILE FILES "/home/soomi/project_ws/build/my_custom_msgs/CMakeFiles/Export/share/my_custom_msgs/cmake/my_custom_msgs__rosidl_typesupport_introspection_cppExport.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake" TYPE FILE FILES "/home/soomi/yori/build/my_custom_msgs/CMakeFiles/Export/share/my_custom_msgs/cmake/my_custom_msgs__rosidl_typesupport_introspection_cppExport.cmake")
   if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^()$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake" TYPE FILE FILES "/home/soomi/project_ws/build/my_custom_msgs/CMakeFiles/Export/share/my_custom_msgs/cmake/my_custom_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake" TYPE FILE FILES "/home/soomi/yori/build/my_custom_msgs/CMakeFiles/Export/share/my_custom_msgs/cmake/my_custom_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake")
   endif()
 endif()
 
@@ -353,7 +353,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake/export_my_custom_msgs__rosidl_typesupport_fastrtps_cppExport.cmake")
     file(DIFFERENT EXPORT_FILE_CHANGED FILES
          "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake/export_my_custom_msgs__rosidl_typesupport_fastrtps_cppExport.cmake"
-         "/home/soomi/project_ws/build/my_custom_msgs/CMakeFiles/Export/share/my_custom_msgs/cmake/export_my_custom_msgs__rosidl_typesupport_fastrtps_cppExport.cmake")
+         "/home/soomi/yori/build/my_custom_msgs/CMakeFiles/Export/share/my_custom_msgs/cmake/export_my_custom_msgs__rosidl_typesupport_fastrtps_cppExport.cmake")
     if(EXPORT_FILE_CHANGED)
       file(GLOB OLD_CONFIG_FILES "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake/export_my_custom_msgs__rosidl_typesupport_fastrtps_cppExport-*.cmake")
       if(OLD_CONFIG_FILES)
@@ -362,9 +362,9 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
       endif()
     endif()
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake" TYPE FILE FILES "/home/soomi/project_ws/build/my_custom_msgs/CMakeFiles/Export/share/my_custom_msgs/cmake/export_my_custom_msgs__rosidl_typesupport_fastrtps_cppExport.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake" TYPE FILE FILES "/home/soomi/yori/build/my_custom_msgs/CMakeFiles/Export/share/my_custom_msgs/cmake/export_my_custom_msgs__rosidl_typesupport_fastrtps_cppExport.cmake")
   if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^()$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake" TYPE FILE FILES "/home/soomi/project_ws/build/my_custom_msgs/CMakeFiles/Export/share/my_custom_msgs/cmake/export_my_custom_msgs__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake" TYPE FILE FILES "/home/soomi/yori/build/my_custom_msgs/CMakeFiles/Export/share/my_custom_msgs/cmake/export_my_custom_msgs__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake")
   endif()
 endif()
 
@@ -372,7 +372,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake/my_custom_msgs__rosidl_typesupport_cppExport.cmake")
     file(DIFFERENT EXPORT_FILE_CHANGED FILES
          "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake/my_custom_msgs__rosidl_typesupport_cppExport.cmake"
-         "/home/soomi/project_ws/build/my_custom_msgs/CMakeFiles/Export/share/my_custom_msgs/cmake/my_custom_msgs__rosidl_typesupport_cppExport.cmake")
+         "/home/soomi/yori/build/my_custom_msgs/CMakeFiles/Export/share/my_custom_msgs/cmake/my_custom_msgs__rosidl_typesupport_cppExport.cmake")
     if(EXPORT_FILE_CHANGED)
       file(GLOB OLD_CONFIG_FILES "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake/my_custom_msgs__rosidl_typesupport_cppExport-*.cmake")
       if(OLD_CONFIG_FILES)
@@ -381,9 +381,9 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
       endif()
     endif()
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake" TYPE FILE FILES "/home/soomi/project_ws/build/my_custom_msgs/CMakeFiles/Export/share/my_custom_msgs/cmake/my_custom_msgs__rosidl_typesupport_cppExport.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake" TYPE FILE FILES "/home/soomi/yori/build/my_custom_msgs/CMakeFiles/Export/share/my_custom_msgs/cmake/my_custom_msgs__rosidl_typesupport_cppExport.cmake")
   if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^()$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake" TYPE FILE FILES "/home/soomi/project_ws/build/my_custom_msgs/CMakeFiles/Export/share/my_custom_msgs/cmake/my_custom_msgs__rosidl_typesupport_cppExport-noconfig.cmake")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake" TYPE FILE FILES "/home/soomi/yori/build/my_custom_msgs/CMakeFiles/Export/share/my_custom_msgs/cmake/my_custom_msgs__rosidl_typesupport_cppExport-noconfig.cmake")
   endif()
 endif()
 
@@ -391,7 +391,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake/export_my_custom_msgs__rosidl_generator_pyExport.cmake")
     file(DIFFERENT EXPORT_FILE_CHANGED FILES
          "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake/export_my_custom_msgs__rosidl_generator_pyExport.cmake"
-         "/home/soomi/project_ws/build/my_custom_msgs/CMakeFiles/Export/share/my_custom_msgs/cmake/export_my_custom_msgs__rosidl_generator_pyExport.cmake")
+         "/home/soomi/yori/build/my_custom_msgs/CMakeFiles/Export/share/my_custom_msgs/cmake/export_my_custom_msgs__rosidl_generator_pyExport.cmake")
     if(EXPORT_FILE_CHANGED)
       file(GLOB OLD_CONFIG_FILES "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake/export_my_custom_msgs__rosidl_generator_pyExport-*.cmake")
       if(OLD_CONFIG_FILES)
@@ -400,15 +400,15 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
       endif()
     endif()
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake" TYPE FILE FILES "/home/soomi/project_ws/build/my_custom_msgs/CMakeFiles/Export/share/my_custom_msgs/cmake/export_my_custom_msgs__rosidl_generator_pyExport.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake" TYPE FILE FILES "/home/soomi/yori/build/my_custom_msgs/CMakeFiles/Export/share/my_custom_msgs/cmake/export_my_custom_msgs__rosidl_generator_pyExport.cmake")
   if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^()$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake" TYPE FILE FILES "/home/soomi/project_ws/build/my_custom_msgs/CMakeFiles/Export/share/my_custom_msgs/cmake/export_my_custom_msgs__rosidl_generator_pyExport-noconfig.cmake")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/my_custom_msgs/cmake" TYPE FILE FILES "/home/soomi/yori/build/my_custom_msgs/CMakeFiles/Export/share/my_custom_msgs/cmake/export_my_custom_msgs__rosidl_generator_pyExport-noconfig.cmake")
   endif()
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/soomi/project_ws/build/my_custom_msgs/my_custom_msgs__py/cmake_install.cmake")
+  include("/home/soomi/yori/build/my_custom_msgs/my_custom_msgs__py/cmake_install.cmake")
 
 endif()
 
@@ -420,5 +420,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/soomi/project_ws/build/my_custom_msgs/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/soomi/yori/build/my_custom_msgs/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

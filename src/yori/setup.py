@@ -29,6 +29,8 @@ setup(
         'console_scripts': [
        	    'nav2_controller=yori.nav2_controller:main',
        	    'db_manager_node=yori.db_manager:main',
+       	    'task_manager_node=yori.task_manager:main',
+       	    'mycobot_controller=yori.mycobot_controller:main',
         ],
     },
 )

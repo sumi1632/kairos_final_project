@@ -165,8 +165,8 @@ bool my_custom_msgs__action__cook__result__convert_from_py(PyObject * _pymsg, vo
     assert(strncmp("my_custom_msgs.action._cook.Cook_Result", full_classname_dest, 39) == 0);
   }
   my_custom_msgs__action__Cook_Result * ros_message = _ros_message;
-  {  // cook_status
-    PyObject * field = PyObject_GetAttrString(_pymsg, "cook_status");
+  {  // cook_result
+    PyObject * field = PyObject_GetAttrString(_pymsg, "cook_result");
     if (!field) {
       return false;
     }
@@ -176,7 +176,7 @@ bool my_custom_msgs__action__cook__result__convert_from_py(PyObject * _pymsg, vo
       Py_DECREF(field);
       return false;
     }
-    rosidl_runtime_c__String__assign(&ros_message->cook_status, PyBytes_AS_STRING(encoded_field));
+    rosidl_runtime_c__String__assign(&ros_message->cook_result, PyBytes_AS_STRING(encoded_field));
     Py_DECREF(encoded_field);
     Py_DECREF(field);
   }
@@ -202,17 +202,17 @@ PyObject * my_custom_msgs__action__cook__result__convert_to_py(void * raw_ros_me
     }
   }
   my_custom_msgs__action__Cook_Result * ros_message = (my_custom_msgs__action__Cook_Result *)raw_ros_message;
-  {  // cook_status
+  {  // cook_result
     PyObject * field = NULL;
     field = PyUnicode_DecodeUTF8(
-      ros_message->cook_status.data,
-      strlen(ros_message->cook_status.data),
+      ros_message->cook_result.data,
+      strlen(ros_message->cook_result.data),
       "replace");
     if (!field) {
       return NULL;
     }
     {
-      int rc = PyObject_SetAttrString(_pymessage, "cook_status", field);
+      int rc = PyObject_SetAttrString(_pymessage, "cook_result", field);
       Py_DECREF(field);
       if (rc) {
         return NULL;
@@ -277,8 +277,8 @@ bool my_custom_msgs__action__cook__feedback__convert_from_py(PyObject * _pymsg, 
     assert(strncmp("my_custom_msgs.action._cook.Cook_Feedback", full_classname_dest, 41) == 0);
   }
   my_custom_msgs__action__Cook_Feedback * ros_message = _ros_message;
-  {  // cook_result
-    PyObject * field = PyObject_GetAttrString(_pymsg, "cook_result");
+  {  // cook_status
+    PyObject * field = PyObject_GetAttrString(_pymsg, "cook_status");
     if (!field) {
       return false;
     }
@@ -288,7 +288,7 @@ bool my_custom_msgs__action__cook__feedback__convert_from_py(PyObject * _pymsg, 
       Py_DECREF(field);
       return false;
     }
-    rosidl_runtime_c__String__assign(&ros_message->cook_result, PyBytes_AS_STRING(encoded_field));
+    rosidl_runtime_c__String__assign(&ros_message->cook_status, PyBytes_AS_STRING(encoded_field));
     Py_DECREF(encoded_field);
     Py_DECREF(field);
   }
@@ -314,17 +314,17 @@ PyObject * my_custom_msgs__action__cook__feedback__convert_to_py(void * raw_ros_
     }
   }
   my_custom_msgs__action__Cook_Feedback * ros_message = (my_custom_msgs__action__Cook_Feedback *)raw_ros_message;
-  {  // cook_result
+  {  // cook_status
     PyObject * field = NULL;
     field = PyUnicode_DecodeUTF8(
-      ros_message->cook_result.data,
-      strlen(ros_message->cook_result.data),
+      ros_message->cook_status.data,
+      strlen(ros_message->cook_status.data),
       "replace");
     if (!field) {
       return NULL;
     }
     {
-      int rc = PyObject_SetAttrString(_pymessage, "cook_result", field);
+      int rc = PyObject_SetAttrString(_pymessage, "cook_status", field);
       Py_DECREF(field);
       if (rc) {
         return NULL;

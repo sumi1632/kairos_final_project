@@ -252,7 +252,7 @@ my_custom_msgs__action__Cook_Goal__Sequence__copy(
 
 
 // Include directives for member types
-// Member `cook_status`
+// Member `cook_result`
 // already included above
 // #include "rosidl_runtime_c/string_functions.h"
 
@@ -262,8 +262,8 @@ my_custom_msgs__action__Cook_Result__init(my_custom_msgs__action__Cook_Result * 
   if (!msg) {
     return false;
   }
-  // cook_status
-  if (!rosidl_runtime_c__String__init(&msg->cook_status)) {
+  // cook_result
+  if (!rosidl_runtime_c__String__init(&msg->cook_result)) {
     my_custom_msgs__action__Cook_Result__fini(msg);
     return false;
   }
@@ -276,8 +276,8 @@ my_custom_msgs__action__Cook_Result__fini(my_custom_msgs__action__Cook_Result * 
   if (!msg) {
     return;
   }
-  // cook_status
-  rosidl_runtime_c__String__fini(&msg->cook_status);
+  // cook_result
+  rosidl_runtime_c__String__fini(&msg->cook_result);
 }
 
 bool
@@ -286,9 +286,9 @@ my_custom_msgs__action__Cook_Result__are_equal(const my_custom_msgs__action__Coo
   if (!lhs || !rhs) {
     return false;
   }
-  // cook_status
+  // cook_result
   if (!rosidl_runtime_c__String__are_equal(
-      &(lhs->cook_status), &(rhs->cook_status)))
+      &(lhs->cook_result), &(rhs->cook_result)))
   {
     return false;
   }
@@ -303,9 +303,9 @@ my_custom_msgs__action__Cook_Result__copy(
   if (!input || !output) {
     return false;
   }
-  // cook_status
+  // cook_result
   if (!rosidl_runtime_c__String__copy(
-      &(input->cook_status), &(output->cook_status)))
+      &(input->cook_result), &(output->cook_result)))
   {
     return false;
   }
@@ -493,7 +493,7 @@ my_custom_msgs__action__Cook_Result__Sequence__copy(
 
 
 // Include directives for member types
-// Member `cook_result`
+// Member `cook_status`
 // already included above
 // #include "rosidl_runtime_c/string_functions.h"
 
@@ -503,8 +503,8 @@ my_custom_msgs__action__Cook_Feedback__init(my_custom_msgs__action__Cook_Feedbac
   if (!msg) {
     return false;
   }
-  // cook_result
-  if (!rosidl_runtime_c__String__init(&msg->cook_result)) {
+  // cook_status
+  if (!rosidl_runtime_c__String__init(&msg->cook_status)) {
     my_custom_msgs__action__Cook_Feedback__fini(msg);
     return false;
   }
@@ -517,8 +517,8 @@ my_custom_msgs__action__Cook_Feedback__fini(my_custom_msgs__action__Cook_Feedbac
   if (!msg) {
     return;
   }
-  // cook_result
-  rosidl_runtime_c__String__fini(&msg->cook_result);
+  // cook_status
+  rosidl_runtime_c__String__fini(&msg->cook_status);
 }
 
 bool
@@ -527,9 +527,9 @@ my_custom_msgs__action__Cook_Feedback__are_equal(const my_custom_msgs__action__C
   if (!lhs || !rhs) {
     return false;
   }
-  // cook_result
+  // cook_status
   if (!rosidl_runtime_c__String__are_equal(
-      &(lhs->cook_result), &(rhs->cook_result)))
+      &(lhs->cook_status), &(rhs->cook_status)))
   {
     return false;
   }
@@ -544,9 +544,9 @@ my_custom_msgs__action__Cook_Feedback__copy(
   if (!input || !output) {
     return false;
   }
-  // cook_result
+  // cook_status
   if (!rosidl_runtime_c__String__copy(
-      &(input->cook_result), &(output->cook_result)))
+      &(input->cook_status), &(output->cook_status)))
   {
     return false;
   }

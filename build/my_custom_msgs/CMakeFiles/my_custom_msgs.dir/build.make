@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/soomi/project_ws/src/my_custom_msgs
+CMAKE_SOURCE_DIR = /home/soomi/yori/src/my_custom_msgs
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/soomi/project_ws/build/my_custom_msgs
+CMAKE_BINARY_DIR = /home/soomi/yori/build/my_custom_msgs
 
 # Utility rule file for my_custom_msgs.
 
@@ -66,12 +66,12 @@ include CMakeFiles/my_custom_msgs.dir/compiler_depend.make
 # Include the progress variables for this target.
 include CMakeFiles/my_custom_msgs.dir/progress.make
 
-CMakeFiles/my_custom_msgs: /home/soomi/project_ws/src/my_custom_msgs/msg/UpdateStatus.msg
-CMakeFiles/my_custom_msgs: /home/soomi/project_ws/src/my_custom_msgs/msg/OrderDetail.msg
-CMakeFiles/my_custom_msgs: /home/soomi/project_ws/src/my_custom_msgs/srv/ReceiveOrder.srv
+CMakeFiles/my_custom_msgs: /home/soomi/yori/src/my_custom_msgs/msg/UpdateStatus.msg
+CMakeFiles/my_custom_msgs: /home/soomi/yori/src/my_custom_msgs/msg/OrderDetail.msg
+CMakeFiles/my_custom_msgs: /home/soomi/yori/src/my_custom_msgs/srv/ReceiveOrder.srv
 CMakeFiles/my_custom_msgs: rosidl_cmake/srv/ReceiveOrder_Request.msg
 CMakeFiles/my_custom_msgs: rosidl_cmake/srv/ReceiveOrder_Response.msg
-CMakeFiles/my_custom_msgs: /home/soomi/project_ws/src/my_custom_msgs/action/Cook.action
+CMakeFiles/my_custom_msgs: /home/soomi/yori/src/my_custom_msgs/action/Cook.action
 CMakeFiles/my_custom_msgs: /home/soomi/ros2_humble/install/std_msgs/share/std_msgs/msg/Bool.idl
 CMakeFiles/my_custom_msgs: /home/soomi/ros2_humble/install/std_msgs/share/std_msgs/msg/Byte.idl
 CMakeFiles/my_custom_msgs: /home/soomi/ros2_humble/install/std_msgs/share/std_msgs/msg/ByteMultiArray.idl
@@ -120,6 +120,6 @@ CMakeFiles/my_custom_msgs.dir/clean:
 .PHONY : CMakeFiles/my_custom_msgs.dir/clean
 
 CMakeFiles/my_custom_msgs.dir/depend:
-	cd /home/soomi/project_ws/build/my_custom_msgs && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/soomi/project_ws/src/my_custom_msgs /home/soomi/project_ws/src/my_custom_msgs /home/soomi/project_ws/build/my_custom_msgs /home/soomi/project_ws/build/my_custom_msgs /home/soomi/project_ws/build/my_custom_msgs/CMakeFiles/my_custom_msgs.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/soomi/yori/build/my_custom_msgs && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/soomi/yori/src/my_custom_msgs /home/soomi/yori/src/my_custom_msgs /home/soomi/yori/build/my_custom_msgs /home/soomi/yori/build/my_custom_msgs /home/soomi/yori/build/my_custom_msgs/CMakeFiles/my_custom_msgs.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/my_custom_msgs.dir/depend
 

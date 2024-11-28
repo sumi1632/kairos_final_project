@@ -1,12 +1,12 @@
 {
   "package_name": "my_custom_msgs",
-  "output_dir": "/home/soomi/project_ws/build/my_custom_msgs/rosidl_typesupport_fastrtps_cpp/my_custom_msgs",
+  "output_dir": "/home/soomi/yori/build/my_custom_msgs/rosidl_typesupport_fastrtps_cpp/my_custom_msgs",
   "template_dir": "/home/soomi/ros2_humble/install/rosidl_typesupport_fastrtps_cpp/share/rosidl_typesupport_fastrtps_cpp/resource",
   "idl_tuples": [
-    "/home/soomi/project_ws/build/my_custom_msgs/rosidl_adapter/my_custom_msgs:msg/UpdateStatus.idl",
-    "/home/soomi/project_ws/build/my_custom_msgs/rosidl_adapter/my_custom_msgs:msg/OrderDetail.idl",
-    "/home/soomi/project_ws/build/my_custom_msgs/rosidl_adapter/my_custom_msgs:srv/ReceiveOrder.idl",
-    "/home/soomi/project_ws/build/my_custom_msgs/rosidl_adapter/my_custom_msgs:action/Cook.idl"
+    "/home/soomi/yori/build/my_custom_msgs/rosidl_adapter/my_custom_msgs:msg/UpdateStatus.idl",
+    "/home/soomi/yori/build/my_custom_msgs/rosidl_adapter/my_custom_msgs:msg/OrderDetail.idl",
+    "/home/soomi/yori/build/my_custom_msgs/rosidl_adapter/my_custom_msgs:srv/ReceiveOrder.idl",
+    "/home/soomi/yori/build/my_custom_msgs/rosidl_adapter/my_custom_msgs:action/Cook.idl"
   ],
   "ros_interface_dependencies": [
     "std_msgs:/home/soomi/ros2_humble/install/std_msgs/share/std_msgs/msg/Bool.idl",
@@ -56,10 +56,10 @@
     "/home/soomi/ros2_humble/install/rosidl_typesupport_fastrtps_cpp/share/rosidl_typesupport_fastrtps_cpp/resource/msg__type_support.cpp.em",
     "/home/soomi/ros2_humble/install/rosidl_typesupport_fastrtps_cpp/share/rosidl_typesupport_fastrtps_cpp/resource/srv__rosidl_typesupport_fastrtps_cpp.hpp.em",
     "/home/soomi/ros2_humble/install/rosidl_typesupport_fastrtps_cpp/share/rosidl_typesupport_fastrtps_cpp/resource/srv__type_support.cpp.em",
-    "/home/soomi/project_ws/build/my_custom_msgs/rosidl_adapter/my_custom_msgs/msg/UpdateStatus.idl",
-    "/home/soomi/project_ws/build/my_custom_msgs/rosidl_adapter/my_custom_msgs/msg/OrderDetail.idl",
-    "/home/soomi/project_ws/build/my_custom_msgs/rosidl_adapter/my_custom_msgs/srv/ReceiveOrder.idl",
-    "/home/soomi/project_ws/build/my_custom_msgs/rosidl_adapter/my_custom_msgs/action/Cook.idl",
+    "/home/soomi/yori/build/my_custom_msgs/rosidl_adapter/my_custom_msgs/msg/UpdateStatus.idl",
+    "/home/soomi/yori/build/my_custom_msgs/rosidl_adapter/my_custom_msgs/msg/OrderDetail.idl",
+    "/home/soomi/yori/build/my_custom_msgs/rosidl_adapter/my_custom_msgs/srv/ReceiveOrder.idl",
+    "/home/soomi/yori/build/my_custom_msgs/rosidl_adapter/my_custom_msgs/action/Cook.idl",
     "/home/soomi/ros2_humble/install/std_msgs/share/std_msgs/msg/Bool.idl",
     "/home/soomi/ros2_humble/install/std_msgs/share/std_msgs/msg/Byte.idl",
     "/home/soomi/ros2_humble/install/std_msgs/share/std_msgs/msg/ByteMultiArray.idl",

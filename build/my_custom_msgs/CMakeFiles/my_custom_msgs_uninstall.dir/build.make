@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/soomi/project_ws/src/my_custom_msgs
+CMAKE_SOURCE_DIR = /home/soomi/yori/src/my_custom_msgs
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/soomi/project_ws/build/my_custom_msgs
+CMAKE_BINARY_DIR = /home/soomi/yori/build/my_custom_msgs
 
 # Utility rule file for my_custom_msgs_uninstall.
 
@@ -67,7 +67,7 @@ include CMakeFiles/my_custom_msgs_uninstall.dir/compiler_depend.make
 include CMakeFiles/my_custom_msgs_uninstall.dir/progress.make
 
 CMakeFiles/my_custom_msgs_uninstall:
-	/usr/bin/cmake -P /home/soomi/project_ws/build/my_custom_msgs/ament_cmake_uninstall_target/ament_cmake_uninstall_target.cmake
+	/usr/bin/cmake -P /home/soomi/yori/build/my_custom_msgs/ament_cmake_uninstall_target/ament_cmake_uninstall_target.cmake
 
 my_custom_msgs_uninstall: CMakeFiles/my_custom_msgs_uninstall
 my_custom_msgs_uninstall: CMakeFiles/my_custom_msgs_uninstall.dir/build.make
@@ -82,6 +82,6 @@ CMakeFiles/my_custom_msgs_uninstall.dir/clean:
 .PHONY : CMakeFiles/my_custom_msgs_uninstall.dir/clean
 
 CMakeFiles/my_custom_msgs_uninstall.dir/depend:
-	cd /home/soomi/project_ws/build/my_custom_msgs && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/soomi/project_ws/src/my_custom_msgs /home/soomi/project_ws/src/my_custom_msgs /home/soomi/project_ws/build/my_custom_msgs /home/soomi/project_ws/build/my_custom_msgs /home/soomi/project_ws/build/my_custom_msgs/CMakeFiles/my_custom_msgs_uninstall.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/soomi/yori/build/my_custom_msgs && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/soomi/yori/src/my_custom_msgs /home/soomi/yori/src/my_custom_msgs /home/soomi/yori/build/my_custom_msgs /home/soomi/yori/build/my_custom_msgs /home/soomi/yori/build/my_custom_msgs/CMakeFiles/my_custom_msgs_uninstall.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/my_custom_msgs_uninstall.dir/depend
 

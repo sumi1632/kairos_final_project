@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/soomi/project_ws/src/my_custom_msgs
+CMAKE_SOURCE_DIR = /home/soomi/yori/src/my_custom_msgs
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/soomi/project_ws/build/my_custom_msgs
+CMAKE_BINARY_DIR = /home/soomi/yori/build/my_custom_msgs
 
 # Utility rule file for ament_cmake_python_symlink_my_custom_msgs.
 
@@ -67,7 +67,7 @@ include CMakeFiles/ament_cmake_python_symlink_my_custom_msgs.dir/compiler_depend
 include CMakeFiles/ament_cmake_python_symlink_my_custom_msgs.dir/progress.make
 
 CMakeFiles/ament_cmake_python_symlink_my_custom_msgs:
-	/usr/bin/cmake -E create_symlink /home/soomi/project_ws/build/my_custom_msgs/rosidl_generator_py/my_custom_msgs /home/soomi/project_ws/build/my_custom_msgs/ament_cmake_python/my_custom_msgs/my_custom_msgs
+	/usr/bin/cmake -E create_symlink /home/soomi/yori/build/my_custom_msgs/rosidl_generator_py/my_custom_msgs /home/soomi/yori/build/my_custom_msgs/ament_cmake_python/my_custom_msgs/my_custom_msgs
 
 ament_cmake_python_symlink_my_custom_msgs: CMakeFiles/ament_cmake_python_symlink_my_custom_msgs
 ament_cmake_python_symlink_my_custom_msgs: CMakeFiles/ament_cmake_python_symlink_my_custom_msgs.dir/build.make
@@ -82,6 +82,6 @@ CMakeFiles/ament_cmake_python_symlink_my_custom_msgs.dir/clean:
 .PHONY : CMakeFiles/ament_cmake_python_symlink_my_custom_msgs.dir/clean
 
 CMakeFiles/ament_cmake_python_symlink_my_custom_msgs.dir/depend:
-	cd /home/soomi/project_ws/build/my_custom_msgs && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/soomi/project_ws/src/my_custom_msgs /home/soomi/project_ws/src/my_custom_msgs /home/soomi/project_ws/build/my_custom_msgs /home/soomi/project_ws/build/my_custom_msgs /home/soomi/project_ws/build/my_custom_msgs/CMakeFiles/ament_cmake_python_symlink_my_custom_msgs.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/soomi/yori/build/my_custom_msgs && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/soomi/yori/src/my_custom_msgs /home/soomi/yori/src/my_custom_msgs /home/soomi/yori/build/my_custom_msgs /home/soomi/yori/build/my_custom_msgs /home/soomi/yori/build/my_custom_msgs/CMakeFiles/ament_cmake_python_symlink_my_custom_msgs.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/ament_cmake_python_symlink_my_custom_msgs.dir/depend
 

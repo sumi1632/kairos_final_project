@@ -41,14 +41,14 @@ typedef struct my_custom_msgs__action__Cook_Goal__Sequence
 // Constants defined in the message
 
 // Include directives for member types
-// Member 'cook_status'
+// Member 'cook_result'
 // already included above
 // #include "rosidl_runtime_c/string.h"
 
 /// Struct defined in action/Cook in the package my_custom_msgs.
 typedef struct my_custom_msgs__action__Cook_Result
 {
-  rosidl_runtime_c__String cook_status;
+  rosidl_runtime_c__String cook_result;
 } my_custom_msgs__action__Cook_Result;
 
 // Struct for a sequence of my_custom_msgs__action__Cook_Result.
@@ -65,14 +65,14 @@ typedef struct my_custom_msgs__action__Cook_Result__Sequence
 // Constants defined in the message
 
 // Include directives for member types
-// Member 'cook_result'
+// Member 'cook_status'
 // already included above
 // #include "rosidl_runtime_c/string.h"
 
 /// Struct defined in action/Cook in the package my_custom_msgs.
 typedef struct my_custom_msgs__action__Cook_Feedback
 {
-  rosidl_runtime_c__String cook_result;
+  rosidl_runtime_c__String cook_status;
 } my_custom_msgs__action__Cook_Feedback;
 
 // Struct for a sequence of my_custom_msgs__action__Cook_Feedback.

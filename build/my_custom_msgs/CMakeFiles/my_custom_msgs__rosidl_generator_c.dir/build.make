@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/soomi/project_ws/src/my_custom_msgs
+CMAKE_SOURCE_DIR = /home/soomi/yori/src/my_custom_msgs
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/soomi/project_ws/build/my_custom_msgs
+CMAKE_BINARY_DIR = /home/soomi/yori/build/my_custom_msgs
 
 # Include any dependencies generated for this target.
 include CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/depend.make
@@ -123,8 +123,8 @@ rosidl_generator_c/my_custom_msgs/msg/update_status.h: /home/soomi/ros2_humble/i
 rosidl_generator_c/my_custom_msgs/msg/update_status.h: /home/soomi/ros2_humble/install/action_msgs/share/action_msgs/msg/GoalStatusArray.idl
 rosidl_generator_c/my_custom_msgs/msg/update_status.h: /home/soomi/ros2_humble/install/action_msgs/share/action_msgs/srv/CancelGoal.idl
 rosidl_generator_c/my_custom_msgs/msg/update_status.h: /home/soomi/ros2_humble/install/unique_identifier_msgs/share/unique_identifier_msgs/msg/UUID.idl
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/soomi/project_ws/build/my_custom_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C code for ROS interfaces"
-	/usr/bin/python3 /home/soomi/ros2_humble/install/rosidl_generator_c/share/rosidl_generator_c/cmake/../../../lib/rosidl_generator_c/rosidl_generator_c --generator-arguments-file /home/soomi/project_ws/build/my_custom_msgs/rosidl_generator_c__arguments.json
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/soomi/yori/build/my_custom_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C code for ROS interfaces"
+	/usr/bin/python3 /home/soomi/ros2_humble/install/rosidl_generator_c/share/rosidl_generator_c/cmake/../../../lib/rosidl_generator_c/rosidl_generator_c --generator-arguments-file /home/soomi/yori/build/my_custom_msgs/rosidl_generator_c__arguments.json
 
 rosidl_generator_c/my_custom_msgs/msg/detail/update_status__functions.h: rosidl_generator_c/my_custom_msgs/msg/update_status.h
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/my_custom_msgs/msg/detail/update_status__functions.h
@@ -186,58 +186,58 @@ rosidl_generator_c/my_custom_msgs/action/detail/cook__functions.c: rosidl_genera
 CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/msg/detail/update_status__functions.c.o: CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/flags.make
 CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/msg/detail/update_status__functions.c.o: rosidl_generator_c/my_custom_msgs/msg/detail/update_status__functions.c
 CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/msg/detail/update_status__functions.c.o: CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/soomi/project_ws/build/my_custom_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/msg/detail/update_status__functions.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/msg/detail/update_status__functions.c.o -MF CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/msg/detail/update_status__functions.c.o.d -o CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/msg/detail/update_status__functions.c.o -c /home/soomi/project_ws/build/my_custom_msgs/rosidl_generator_c/my_custom_msgs/msg/detail/update_status__functions.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/soomi/yori/build/my_custom_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/msg/detail/update_status__functions.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/msg/detail/update_status__functions.c.o -MF CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/msg/detail/update_status__functions.c.o.d -o CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/msg/detail/update_status__functions.c.o -c /home/soomi/yori/build/my_custom_msgs/rosidl_generator_c/my_custom_msgs/msg/detail/update_status__functions.c
 
 CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/msg/detail/update_status__functions.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/msg/detail/update_status__functions.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/soomi/project_ws/build/my_custom_msgs/rosidl_generator_c/my_custom_msgs/msg/detail/update_status__functions.c > CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/msg/detail/update_status__functions.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/soomi/yori/build/my_custom_msgs/rosidl_generator_c/my_custom_msgs/msg/detail/update_status__functions.c > CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/msg/detail/update_status__functions.c.i
 
 CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/msg/detail/update_status__functions.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/msg/detail/update_status__functions.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/soomi/project_ws/build/my_custom_msgs/rosidl_generator_c/my_custom_msgs/msg/detail/update_status__functions.c -o CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/msg/detail/update_status__functions.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/soomi/yori/build/my_custom_msgs/rosidl_generator_c/my_custom_msgs/msg/detail/update_status__functions.c -o CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/msg/detail/update_status__functions.c.s
 
 CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/msg/detail/order_detail__functions.c.o: CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/flags.make
 CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/msg/detail/order_detail__functions.c.o: rosidl_generator_c/my_custom_msgs/msg/detail/order_detail__functions.c
 CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/msg/detail/order_detail__functions.c.o: CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/soomi/project_ws/build/my_custom_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/msg/detail/order_detail__functions.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/msg/detail/order_detail__functions.c.o -MF CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/msg/detail/order_detail__functions.c.o.d -o CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/msg/detail/order_detail__functions.c.o -c /home/soomi/project_ws/build/my_custom_msgs/rosidl_generator_c/my_custom_msgs/msg/detail/order_detail__functions.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/soomi/yori/build/my_custom_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/msg/detail/order_detail__functions.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/msg/detail/order_detail__functions.c.o -MF CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/msg/detail/order_detail__functions.c.o.d -o CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/msg/detail/order_detail__functions.c.o -c /home/soomi/yori/build/my_custom_msgs/rosidl_generator_c/my_custom_msgs/msg/detail/order_detail__functions.c
 
 CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/msg/detail/order_detail__functions.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/msg/detail/order_detail__functions.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/soomi/project_ws/build/my_custom_msgs/rosidl_generator_c/my_custom_msgs/msg/detail/order_detail__functions.c > CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/msg/detail/order_detail__functions.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/soomi/yori/build/my_custom_msgs/rosidl_generator_c/my_custom_msgs/msg/detail/order_detail__functions.c > CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/msg/detail/order_detail__functions.c.i
 
 CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/msg/detail/order_detail__functions.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/msg/detail/order_detail__functions.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/soomi/project_ws/build/my_custom_msgs/rosidl_generator_c/my_custom_msgs/msg/detail/order_detail__functions.c -o CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/msg/detail/order_detail__functions.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/soomi/yori/build/my_custom_msgs/rosidl_generator_c/my_custom_msgs/msg/detail/order_detail__functions.c -o CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/msg/detail/order_detail__functions.c.s
 
 CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/srv/detail/receive_order__functions.c.o: CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/flags.make
 CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/srv/detail/receive_order__functions.c.o: rosidl_generator_c/my_custom_msgs/srv/detail/receive_order__functions.c
 CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/srv/detail/receive_order__functions.c.o: CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/soomi/project_ws/build/my_custom_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/srv/detail/receive_order__functions.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/srv/detail/receive_order__functions.c.o -MF CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/srv/detail/receive_order__functions.c.o.d -o CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/srv/detail/receive_order__functions.c.o -c /home/soomi/project_ws/build/my_custom_msgs/rosidl_generator_c/my_custom_msgs/srv/detail/receive_order__functions.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/soomi/yori/build/my_custom_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/srv/detail/receive_order__functions.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/srv/detail/receive_order__functions.c.o -MF CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/srv/detail/receive_order__functions.c.o.d -o CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/srv/detail/receive_order__functions.c.o -c /home/soomi/yori/build/my_custom_msgs/rosidl_generator_c/my_custom_msgs/srv/detail/receive_order__functions.c
 
 CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/srv/detail/receive_order__functions.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/srv/detail/receive_order__functions.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/soomi/project_ws/build/my_custom_msgs/rosidl_generator_c/my_custom_msgs/srv/detail/receive_order__functions.c > CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/srv/detail/receive_order__functions.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/soomi/yori/build/my_custom_msgs/rosidl_generator_c/my_custom_msgs/srv/detail/receive_order__functions.c > CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/srv/detail/receive_order__functions.c.i
 
 CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/srv/detail/receive_order__functions.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/srv/detail/receive_order__functions.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/soomi/project_ws/build/my_custom_msgs/rosidl_generator_c/my_custom_msgs/srv/detail/receive_order__functions.c -o CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/srv/detail/receive_order__functions.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/soomi/yori/build/my_custom_msgs/rosidl_generator_c/my_custom_msgs/srv/detail/receive_order__functions.c -o CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/srv/detail/receive_order__functions.c.s
 
 CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/action/detail/cook__functions.c.o: CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/flags.make
 CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/action/detail/cook__functions.c.o: rosidl_generator_c/my_custom_msgs/action/detail/cook__functions.c
 CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/action/detail/cook__functions.c.o: CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/soomi/project_ws/build/my_custom_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/action/detail/cook__functions.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/action/detail/cook__functions.c.o -MF CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/action/detail/cook__functions.c.o.d -o CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/action/detail/cook__functions.c.o -c /home/soomi/project_ws/build/my_custom_msgs/rosidl_generator_c/my_custom_msgs/action/detail/cook__functions.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/soomi/yori/build/my_custom_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/action/detail/cook__functions.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/action/detail/cook__functions.c.o -MF CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/action/detail/cook__functions.c.o.d -o CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/action/detail/cook__functions.c.o -c /home/soomi/yori/build/my_custom_msgs/rosidl_generator_c/my_custom_msgs/action/detail/cook__functions.c
 
 CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/action/detail/cook__functions.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/action/detail/cook__functions.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/soomi/project_ws/build/my_custom_msgs/rosidl_generator_c/my_custom_msgs/action/detail/cook__functions.c > CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/action/detail/cook__functions.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/soomi/yori/build/my_custom_msgs/rosidl_generator_c/my_custom_msgs/action/detail/cook__functions.c > CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/action/detail/cook__functions.c.i
 
 CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/action/detail/cook__functions.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/action/detail/cook__functions.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/soomi/project_ws/build/my_custom_msgs/rosidl_generator_c/my_custom_msgs/action/detail/cook__functions.c -o CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/action/detail/cook__functions.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/soomi/yori/build/my_custom_msgs/rosidl_generator_c/my_custom_msgs/action/detail/cook__functions.c -o CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_custom_msgs/action/detail/cook__functions.c.s
 
 # Object files for target my_custom_msgs__rosidl_generator_c
 my_custom_msgs__rosidl_generator_c_OBJECTS = \
@@ -261,7 +261,7 @@ libmy_custom_msgs__rosidl_generator_c.so: /home/soomi/ros2_humble/install/builti
 libmy_custom_msgs__rosidl_generator_c.so: /home/soomi/ros2_humble/install/rosidl_runtime_c/lib/librosidl_runtime_c.so
 libmy_custom_msgs__rosidl_generator_c.so: /home/soomi/ros2_humble/install/rcutils/lib/librcutils.so
 libmy_custom_msgs__rosidl_generator_c.so: CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/soomi/project_ws/build/my_custom_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking C shared library libmy_custom_msgs__rosidl_generator_c.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/soomi/yori/build/my_custom_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking C shared library libmy_custom_msgs__rosidl_generator_c.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -292,6 +292,6 @@ CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/my_
 CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/my_custom_msgs/srv/detail/receive_order__struct.h
 CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/my_custom_msgs/srv/detail/receive_order__type_support.h
 CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/my_custom_msgs/srv/receive_order.h
-	cd /home/soomi/project_ws/build/my_custom_msgs && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/soomi/project_ws/src/my_custom_msgs /home/soomi/project_ws/src/my_custom_msgs /home/soomi/project_ws/build/my_custom_msgs /home/soomi/project_ws/build/my_custom_msgs /home/soomi/project_ws/build/my_custom_msgs/CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/soomi/yori/build/my_custom_msgs && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/soomi/yori/src/my_custom_msgs /home/soomi/yori/src/my_custom_msgs /home/soomi/yori/build/my_custom_msgs /home/soomi/yori/build/my_custom_msgs /home/soomi/yori/build/my_custom_msgs/CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/my_custom_msgs__rosidl_generator_c.dir/depend
 
