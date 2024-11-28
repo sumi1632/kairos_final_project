@@ -1,1 +1,0 @@
-# yorizori project

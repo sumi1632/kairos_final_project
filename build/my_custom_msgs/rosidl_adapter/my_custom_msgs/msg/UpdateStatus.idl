@@ -1,0 +1,14 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from my_custom_msgs/msg/UpdateStatus.msg
+// generated code does not contain a copyright notice
+
+
+module my_custom_msgs {
+  module msg {
+    struct UpdateStatus {
+      uint32 id;
+
+      string status;
+    };
+  };
+};

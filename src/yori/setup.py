@@ -18,7 +18,7 @@ setup(
         (os.path.join('share', package_name, 'params'), glob('params/*')),
         (os.path.join('share', package_name, 'maps'), glob('maps/*')),
     ],
-    install_requires=['setuptools'],
+    install_requires=['setuptools', 'mysql-connector-python'],
     zip_safe=True,
     maintainer='soomi',
     maintainer_email='tnal1632@naver.com',
@@ -28,6 +28,7 @@ setup(
     entry_points={
         'console_scripts': [
        	    'nav2_controller=yori.nav2_controller:main',
+       	    'db_manager_node=yori.db_manager:main',
         ],
     },
 )

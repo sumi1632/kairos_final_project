@@ -9,7 +9,10 @@ resource/yori
 rviz/nav2_default_view.rviz
 urdf/myAGV.urdf
 yori/__init__.py
+yori/db_manager.py
+yori/mycobot_controller.py
 yori/nav2_controller.py
+yori/task_manager.py
 yori.egg-info/PKG-INFO
 yori.egg-info/SOURCES.txt
 yori.egg-info/dependency_links.txt

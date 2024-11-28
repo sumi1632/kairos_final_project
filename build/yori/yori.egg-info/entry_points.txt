@@ -1,3 +1,4 @@
 [console_scripts]
+db_manager_node = yori.db_manager:main
 nav2_controller = yori.nav2_controller:main
 

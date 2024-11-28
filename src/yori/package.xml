@@ -29,6 +29,10 @@
   <depend>sensor_msgs</depend>
   <depend>std_msgs</depend>
   <depend>std_srvs</depend>
+  
+  <depend>mysql-connector-python</depend>
+  <depend>my_custom_msgs</depend>
+
 
   <!-- Export section -->
   <export>

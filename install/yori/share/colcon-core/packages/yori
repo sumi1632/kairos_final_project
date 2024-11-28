@@ -1,1 +1,1 @@
-geometry_msgs:nav2_amcl:nav2_behavior_tree:nav2_bt_navigator:nav2_common:nav2_controller:nav2_core:nav2_map_server:nav2_msgs:nav2_planner:nav2_util:rclcpp:rclpy:sensor_msgs:std_msgs:std_srvs:tf2_ros
+geometry_msgs:my_custom_msgs:mysql-connector-python:nav2_amcl:nav2_behavior_tree:nav2_bt_navigator:nav2_common:nav2_controller:nav2_core:nav2_map_server:nav2_msgs:nav2_planner:nav2_util:rclcpp:rclpy:sensor_msgs:std_msgs:std_srvs:tf2_ros

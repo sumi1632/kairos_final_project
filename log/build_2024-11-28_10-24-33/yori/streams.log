@@ -1,0 +1,38 @@
+[0.973s] Invoking command in '/home/soomi/project_ws/build/yori': AMENT_PREFIX_PATH=/home/soomi/project_ws/install/my_custom_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/soomi/project_ws/install/my_custom_msgs:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/home/soomi/project_ws/install/my_custom_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/soomi/project_ws/build/yori/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/soomi/project_ws/install/yori/lib/python3.10/site-packages:/home/soomi/project_ws/install/my_custom_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/soomi/project_ws/build/yori/build --no-deps symlink_data
+[1.306s] running develop
+[1.307s] /usr/lib/python3/dist-packages/setuptools/command/easy_install.py:158: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.
+[1.307s]   warnings.warn(
+[1.461s] running egg_info
+[1.461s] creating yori.egg-info
+[1.461s] writing yori.egg-info/PKG-INFO
+[1.461s] writing dependency_links to yori.egg-info/dependency_links.txt
+[1.461s] writing entry points to yori.egg-info/entry_points.txt
+[1.461s] writing requirements to yori.egg-info/requires.txt
+[1.461s] writing top-level names to yori.egg-info/top_level.txt
+[1.464s] writing manifest file 'yori.egg-info/SOURCES.txt'
+[1.465s] reading manifest file 'yori.egg-info/SOURCES.txt'
+[1.466s] writing manifest file 'yori.egg-info/SOURCES.txt'
+[1.469s] running build_ext
+[1.469s] Creating /home/soomi/project_ws/install/yori/lib/python3.10/site-packages/yori.egg-link (link to .)
+[1.470s] Installing db_manager_node script to /home/soomi/project_ws/install/yori/lib/yori
+[1.470s] Installing nav2_controller script to /home/soomi/project_ws/install/yori/lib/yori
+[1.470s] 
+[1.470s] Installed /home/soomi/project_ws/build/yori
+[1.470s] running symlink_data
+[1.470s] creating /home/soomi/project_ws/install/yori/share/ament_index
+[1.470s] creating /home/soomi/project_ws/install/yori/share/ament_index/resource_index
+[1.470s] creating /home/soomi/project_ws/install/yori/share/ament_index/resource_index/packages
+[1.471s] symbolically linking /home/soomi/project_ws/build/yori/resource/yori -> /home/soomi/project_ws/install/yori/share/ament_index/resource_index/packages
+[1.471s] symbolically linking /home/soomi/project_ws/build/yori/package.xml -> /home/soomi/project_ws/install/yori/share/yori
+[1.471s] creating /home/soomi/project_ws/install/yori/share/yori/launch
+[1.471s] symbolically linking /home/soomi/project_ws/build/yori/launch/bringup_launch.py -> /home/soomi/project_ws/install/yori/share/yori/launch
+[1.471s] creating /home/soomi/project_ws/install/yori/share/yori/rviz
+[1.471s] symbolically linking /home/soomi/project_ws/build/yori/rviz/nav2_default_view.rviz -> /home/soomi/project_ws/install/yori/share/yori/rviz
+[1.471s] creating /home/soomi/project_ws/install/yori/share/yori/urdf
+[1.471s] symbolically linking /home/soomi/project_ws/build/yori/urdf/myAGV.urdf -> /home/soomi/project_ws/install/yori/share/yori/urdf
+[1.471s] creating /home/soomi/project_ws/install/yori/share/yori/params
+[1.471s] symbolically linking /home/soomi/project_ws/build/yori/params/nav2_params.yaml -> /home/soomi/project_ws/install/yori/share/yori/params
+[1.471s] creating /home/soomi/project_ws/install/yori/share/yori/maps
+[1.471s] symbolically linking /home/soomi/project_ws/build/yori/maps/map.yaml -> /home/soomi/project_ws/install/yori/share/yori/maps
+[1.471s] symbolically linking /home/soomi/project_ws/build/yori/maps/map.pgm -> /home/soomi/project_ws/install/yori/share/yori/maps
+[1.489s] Invoked command in '/home/soomi/project_ws/build/yori' returned '0': AMENT_PREFIX_PATH=/home/soomi/project_ws/install/my_custom_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/soomi/project_ws/install/my_custom_msgs:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/home/soomi/project_ws/install/my_custom_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/soomi/project_ws/build/yori/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/soomi/project_ws/install/yori/lib/python3.10/site-packages:/home/soomi/project_ws/install/my_custom_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/soomi/project_ws/build/yori/build --no-deps symlink_data

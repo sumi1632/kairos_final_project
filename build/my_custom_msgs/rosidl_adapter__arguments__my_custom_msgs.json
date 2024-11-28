@@ -1,0 +1,9 @@
+{
+  "package_name": "my_custom_msgs",
+  "non_idl_tuples": [
+    "/home/soomi/project_ws/src/my_custom_msgs:msg/UpdateStatus.msg",
+    "/home/soomi/project_ws/src/my_custom_msgs:msg/OrderDetail.msg",
+    "/home/soomi/project_ws/src/my_custom_msgs:srv/ReceiveOrder.srv",
+    "/home/soomi/project_ws/src/my_custom_msgs:action/Cook.action"
+  ]
+}
