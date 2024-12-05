@@ -1,0 +1,43 @@
+[1.232s] Invoking command in '/home/soomi/project3/computer/build/dine_bot': PYTHONPATH=/home/soomi/project3/computer/build/dine_bot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/soomi/project3/computer/install/dine_bot/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/soomi/project3/computer/build/dine_bot/build --no-deps symlink_data
+[1.642s] running develop
+[1.643s] /usr/lib/python3/dist-packages/setuptools/command/easy_install.py:158: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.
+[1.643s]   warnings.warn(
+[1.821s] running egg_info
+[1.821s] creating dine_bot.egg-info
+[1.821s] writing dine_bot.egg-info/PKG-INFO
+[1.821s] writing dependency_links to dine_bot.egg-info/dependency_links.txt
+[1.821s] writing entry points to dine_bot.egg-info/entry_points.txt
+[1.821s] writing requirements to dine_bot.egg-info/requires.txt
+[1.821s] writing top-level names to dine_bot.egg-info/top_level.txt
+[1.825s] writing manifest file 'dine_bot.egg-info/SOURCES.txt'
+[1.826s] reading manifest file 'dine_bot.egg-info/SOURCES.txt'
+[1.827s] writing manifest file 'dine_bot.egg-info/SOURCES.txt'
+[1.831s] running build_ext
+[1.831s] Creating /home/soomi/project3/computer/install/dine_bot/lib/python3.10/site-packages/dine-bot.egg-link (link to .)
+[1.832s] Installing db_manager_node script to /home/soomi/project3/computer/install/dine_bot/lib/dine_bot
+[1.832s] Installing line_tracer script to /home/soomi/project3/computer/install/dine_bot/lib/dine_bot
+[1.832s] Installing mycobot_controller script to /home/soomi/project3/computer/install/dine_bot/lib/dine_bot
+[1.833s] Installing nav2_controller script to /home/soomi/project3/computer/install/dine_bot/lib/dine_bot
+[1.833s] Installing task_manager_node script to /home/soomi/project3/computer/install/dine_bot/lib/dine_bot
+[1.833s] 
+[1.833s] Installed /home/soomi/project3/computer/build/dine_bot
+[1.833s] running symlink_data
+[1.833s] creating /home/soomi/project3/computer/install/dine_bot/share/ament_index
+[1.834s] creating /home/soomi/project3/computer/install/dine_bot/share/ament_index/resource_index
+[1.834s] creating /home/soomi/project3/computer/install/dine_bot/share/ament_index/resource_index/packages
+[1.834s] symbolically linking /home/soomi/project3/computer/build/dine_bot/resource/dine_bot -> /home/soomi/project3/computer/install/dine_bot/share/ament_index/resource_index/packages
+[1.834s] symbolically linking /home/soomi/project3/computer/build/dine_bot/package.xml -> /home/soomi/project3/computer/install/dine_bot/share/dine_bot
+[1.834s] creating /home/soomi/project3/computer/install/dine_bot/share/dine_bot/launch
+[1.834s] symbolically linking /home/soomi/project3/computer/build/dine_bot/launch/bringup_launch.py -> /home/soomi/project3/computer/install/dine_bot/share/dine_bot/launch
+[1.834s] creating /home/soomi/project3/computer/install/dine_bot/share/dine_bot/rviz
+[1.834s] symbolically linking /home/soomi/project3/computer/build/dine_bot/rviz/nav2_default_view.rviz -> /home/soomi/project3/computer/install/dine_bot/share/dine_bot/rviz
+[1.834s] creating /home/soomi/project3/computer/install/dine_bot/share/dine_bot/urdf
+[1.834s] symbolically linking /home/soomi/project3/computer/build/dine_bot/urdf/myAGV.urdf -> /home/soomi/project3/computer/install/dine_bot/share/dine_bot/urdf
+[1.834s] creating /home/soomi/project3/computer/install/dine_bot/share/dine_bot/params
+[1.835s] symbolically linking /home/soomi/project3/computer/build/dine_bot/params/nav2_params.yaml -> /home/soomi/project3/computer/install/dine_bot/share/dine_bot/params
+[1.835s] creating /home/soomi/project3/computer/install/dine_bot/share/dine_bot/maps
+[1.835s] symbolically linking /home/soomi/project3/computer/build/dine_bot/maps/map1.yaml -> /home/soomi/project3/computer/install/dine_bot/share/dine_bot/maps
+[1.835s] symbolically linking /home/soomi/project3/computer/build/dine_bot/maps/map.yaml -> /home/soomi/project3/computer/install/dine_bot/share/dine_bot/maps
+[1.835s] symbolically linking /home/soomi/project3/computer/build/dine_bot/maps/map1.pgm -> /home/soomi/project3/computer/install/dine_bot/share/dine_bot/maps
+[1.835s] symbolically linking /home/soomi/project3/computer/build/dine_bot/maps/map.pgm -> /home/soomi/project3/computer/install/dine_bot/share/dine_bot/maps
+[1.858s] Invoked command in '/home/soomi/project3/computer/build/dine_bot' returned '0': PYTHONPATH=/home/soomi/project3/computer/build/dine_bot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/soomi/project3/computer/install/dine_bot/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/soomi/project3/computer/build/dine_bot/build --no-deps symlink_data

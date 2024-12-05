@@ -1,1 +1,0 @@
-/home/soomi/yori/build/my_custom_msgs/rosidl_cmake/rosidl_cmake-extras.cmake

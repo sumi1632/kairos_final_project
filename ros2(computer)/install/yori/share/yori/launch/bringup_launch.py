@@ -1,1 +1,0 @@
-/home/soomi/yori/build/yori/launch/bringup_launch.py

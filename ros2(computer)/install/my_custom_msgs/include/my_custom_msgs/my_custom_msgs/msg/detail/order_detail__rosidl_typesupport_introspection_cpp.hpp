@@ -1,1 +1,0 @@
-/home/soomi/yori/build/my_custom_msgs/rosidl_typesupport_introspection_cpp/my_custom_msgs/msg/detail/order_detail__rosidl_typesupport_introspection_cpp.hpp

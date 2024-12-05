@@ -1,0 +1,22 @@
+// generated from rosidl_adapter/resource/action.idl.em
+// with input from custom_msgs/action/Serve.action
+// generated code does not contain a copyright notice
+
+
+module custom_msgs {
+  module action {
+    struct Serve_Goal {
+      int32 table_num;
+    };
+    struct Serve_Result {
+      string move_result;
+    };
+    struct Serve_Feedback {
+      double x;
+
+      double y;
+
+      double theta;
+    };
+  };
+};
