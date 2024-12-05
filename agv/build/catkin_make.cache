@@ -1,0 +1,2 @@
+yori
+-DCATKIN_DEVEL_PREFIX=/home/er/project_ws/devel -DCMAKE_INSTALL_PREFIX=/home/er/project_ws/install -G Unix Makefiles
