@@ -1,0 +1,8 @@
+prefix=/home/er/project_ws/devel
+
+Name: yori
+Description: Description of yori
+Version: 0.0.1
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: rospy std_msgs sensor_msgs geometry_msgs nav_msgs tf move_base amcl map_server joint_state_publisher robot_state_publisher rviz
