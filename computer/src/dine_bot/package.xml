@@ -10,6 +10,7 @@
 
   <!-- Dependencies -->
   <buildtool_depend>ament_python</buildtool_depend>
+  <buildtool_depend>ament_cmake</buildtool_depend>
 
   <!-- Runtime dependencies -->
   <depend>rclcpp</depend>
@@ -32,7 +33,8 @@
   
   <depend>mysql-connector-python</depend>
   <depend>my_custom_msgs</depend>
-
+  <depend>pymycobot</depend>	
+  <depend>machine</depend> 
 
   <!-- Export section -->
   <export>
