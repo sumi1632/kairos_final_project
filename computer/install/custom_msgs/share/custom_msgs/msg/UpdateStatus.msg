@@ -1,1 +1,1 @@
-/home/soomi/project3/computer/src/custom_msgs/msg/UpdateStatus.msg
+/home/sangyeon/project3/computer/src/custom_msgs/msg/UpdateStatus.msg

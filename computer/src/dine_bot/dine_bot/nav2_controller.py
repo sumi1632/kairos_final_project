@@ -2,7 +2,7 @@ import rclpy
 from rclpy.node import Node
 from rclpy.action import ActionServer, ActionClient
 from geometry_msgs.msg import PoseStamped, Twist
-from custom_msgs.action import Serve
+from my_custom_msgs.action import Serve
 from nav2_msgs.action import NavigateToPose
 from action_msgs.msg import GoalStatus
 from sensor_msgs.msg import Image
@@ -29,20 +29,16 @@ class Navigation2Controller(Node):
         # 이동 경로 정의
         self.paths = {
             "1": [
-                (-0.2538, 0.0370, 1.5708),
-                (-0.2326, 0.7032, 1.6030),
-                (-0.2855, 0.8512, 1.5708)
+                (-0.3642, 0.0091, 1.5708),
+                (-0.3824, 0.7860, 1.5708),
+                (-0.3460, 0.9803, 1.5708)
             ],
             "2": [
-               (0.7182, 0.0675, -0.0000),
-               (1.4263, 0.0591, -0.0000),
-               (1.6539, 0.1434, 1.4181),
-               (1.7635, 0.8852, 1.5338),
-               (1.8563, 0.7166, 1.5708),
-               (1.8478, 0.6998, 1.6133),
-               (1.8563, 0.7166, 1.6635)
-
-
+               (0.3332, 0.0581, -0.0000),
+               (0.7981, 0.0814, -0.0000),
+               (1.4256, 0.0968, -0.0000),
+               (1.7666, 0.1976, 1.6234),
+               (1.7433, 0.9491, 1.5708)
             ]
         }
 
@@ -58,6 +54,18 @@ class Navigation2Controller(Node):
 
         # 라인트레이싱 타이머 초기화
         self.line_tracing_timer = None
+
+        # 추가된 변수들
+        self.error_buffer = []
+        self.buffer_size = 5  # 이동 평균 필터 창 크기
+        self.lost_line_count = 0
+        self.MAX_LOST_COUNT = 5
+
+        # 상수 정의
+        self.LINE_TRACING_LINEAR_SPEED = 0.05
+        self.LINE_TRACING_ANGULAR_GAIN = 1.0 / 100.0
+        self.LINE_TRACING_ACTIVE_PIXELS_THRESHOLD = 100
+        self.MAX_ANGULAR_SPEED = 0.5
 
         self.get_logger().info('Navigation2 Controller Node Initialized')
 
@@ -91,21 +99,19 @@ class Navigation2Controller(Node):
         if table_num == "0":
             if self.last_location == "1":
                 self.paths["0"] = [
-                    (-0.2009, 0.5974, 3.1416),
-                    (-1.0151, 0.6609, -1.5708),
-                    (-0.9834, -0.0793, -0.0000)
-                   
+                    (-0.2489, 0.7618, -3.1059),
+                    (-1.0440, 0.6950, -1.5708),
+                    (-1.0076, -0.1548, -0.0000)
                 ]
             elif self.last_location == "2":
                 self.paths["0"] = [
-                    (1.9490, 1.6270, 1.5708),
-                    (1.9996, 2.0822, 3.1416),
-                    (0.2715, 2.0907, 3.1416),
-                    (-0.4180, 2.1551, -3.1071),
-                    (-0.9744, 2.1804, -1.5708),
-                    (-1.1599, 1.2532, -1.5708),
-                    (-1.1852, 0.7052, -1.5708),
-                    (-1.1346, -0.0366, -0.0238)
+                    (1.7356, 1.9409, -3.0792),
+                    (0.8678, 1.9564, -3.1083),
+                    (0.2712, 1.9719, 3.1416),
+                    (-0.8910, 1.9796, -1.5708),
+                    (-0.9065, 1.0499, -1.5708),
+                    (-0.9375, 0.5152, -1.5182),
+                    (-0.9530, -0.1898, -0.0000)
                 ]
             else:
                 self.get_logger().error('경로를 설정할 수 없습니다. 현재 위치가 초기 위치인지 확인하세요.')
@@ -141,10 +147,9 @@ class Navigation2Controller(Node):
         self.get_logger().info(f'Successfully served table: {table_num}')
         goal_handle.succeed()
 
-        # 네비게이션이 끝난 후 라인트레이싱 활성화 (예: 10초 동안 활성화)
+        # 네비게이션이 끝난 후 라인트레이싱 활성화 (예: 15초 동안 활성화)
         self.start_line_tracing(duration_sec=15)
         return Serve.Result(move_result='success')
-
 
     async def send_goal(self, pose: PoseStamped):
         """NavigateToPose 액션 클라이언트를 통해 목표로 이동."""
@@ -167,11 +172,11 @@ class Navigation2Controller(Node):
         result_future = goal_handle.get_result_async()
         result = await result_future
 
-        if result.status == 3 or result.status == 4 or result.status == 6:
+        if result.status in [GoalStatus.STATUS_SUCCEEDED]:
             self.get_logger().info('Navigation goal succeeded.')
             return True
         else:
-            self.get_logger().error(f'Navigation goal failed. {result.status}')
+            self.get_logger().error(f'Navigation goal failed with status: {result.status}')
             return False
 
     def create_pose(self, x, y, yaw):
@@ -190,49 +195,65 @@ class Navigation2Controller(Node):
         return pose
 
     def image_callback(self, msg):
-    	if not self.line_tracing_active:
-        	return
+        if not self.line_tracing_active:
+            return
 
-    	try:
-        	cv_image = self.bridge.imgmsg_to_cv2(msg, desired_encoding='bgr8')
-        	hsv = cv2.cvtColor(cv_image, cv2.COLOR_BGR2HSV)
+        try:
+            cv_image = self.bridge.imgmsg_to_cv2(msg, desired_encoding='bgr8')
+            hsv = cv2.cvtColor(cv_image, cv2.COLOR_BGR2HSV)
 
-        # 노란색 범위 정의 (조정 가능)
-        	lower_yellow = (20, 100, 100)
-        	upper_yellow = (40, 255, 255)
-        	mask = cv2.inRange(hsv, lower_yellow, upper_yellow)
+            # 노란색 범위 정의 (조정 가능)
+            lower_yellow = (20, 100, 100)
+            upper_yellow = (40, 255, 255)
+            mask = cv2.inRange(hsv, lower_yellow, upper_yellow)
 
-        # 노란색 라인을 인식하지 못할 경우 정지
-        	active_pixels = cv2.countNonZero(mask)
-        	if active_pixels < 100:  # 활성 픽셀 수가 충분히 작으면 정지
-        	    self.get_logger().info('Yellow line not detected or insufficient. Stopping AGV.')
-        	    self.cmd_vel_publisher.publish(Twist())  # 정지
-        	    return
+            # 노란색 라인을 인식하지 못할 경우 정지
+            active_pixels = cv2.countNonZero(mask)
+            if active_pixels < self.LINE_TRACING_ACTIVE_PIXELS_THRESHOLD:
+                self.get_logger().info('Yellow line not detected or insufficient. Stopping AGV.')
+                self.cmd_vel_publisher.publish(Twist())  # 정지
+                return
 
-        # 무게중심 계산
-        	moments = cv2.moments(mask)
-        	if moments['m00'] > 0:
-        	    cx = int(moments['m10'] / moments['m00'])
-        	    cy = int(moments['m01'] / moments['m00'])
-	
-            # AGV 제어
-        	    twist = Twist()
-        	    error = cx - (cv_image.shape[1] // 2)
+            # 무게중심 계산
+            moments = cv2.moments(mask)
+            if moments['m00'] > 0:
+                cx = int(moments['m10'] / moments['m00'])
+                cy = int(moments['m01'] / moments['m00'])
 
-            # 선형 속도 및 회전 속도 조정 (회전 반응을 완화)
-        	    twist.linear.x = 0.05  # 기본 선형 속도
-        	    twist.angular.z = -error / 100.0  # 회전 속도를 완화 (100 -> 300으로 조정)
-        	    self.cmd_vel_publisher.publish(twist)
+                # 오류 계산
+                error = cx - (cv_image.shape[1] // 2)
 
-            # 디버깅 정보 출력
-        	    self.get_logger().info(f'Center: ({cx}, {cy}), Error: {error}, Twist: linear.x={twist.linear.x}, angular.z={twist.angular.z}')
-        	else:
-        	    self.get_logger().info('Yellow line not detected. Stopping AGV.')
-        	    self.cmd_vel_publisher.publish(Twist())  # 정지
+                # 오류 버퍼 업데이트
+                self.error_buffer.append(error)
+                if len(self.error_buffer) > self.buffer_size:
+                    self.error_buffer.pop(0)
 
-    	except Exception as e:
-        	self.get_logger().error(f'Image processing error: {e}', exc_info=True)
+                # 이동 평균 필터 적용
+                avg_error = sum(self.error_buffer) / len(self.error_buffer)
 
+                # AGV 제어 (이동 평균 필터 적용된 오류 사용)
+                twist = Twist()
+                twist.linear.x = self.LINE_TRACING_LINEAR_SPEED
+                twist.angular.z = -avg_error * self.LINE_TRACING_ANGULAR_GAIN
+
+                # 회전 속도 제한
+                twist.angular.z = max(min(twist.angular.z, self.MAX_ANGULAR_SPEED), -self.MAX_ANGULAR_SPEED)
+
+                self.cmd_vel_publisher.publish(twist)
+
+                # 디버깅 정보 출력
+                self.get_logger().info(
+                    f'Center: ({cx}, {cy}), Error: {error}, '
+                    f'Avg Error: {avg_error:.2f}, Twist: linear.x={twist.linear.x}, angular.z={twist.angular.z:.4f}'
+                )
+            else:
+                self.lost_line_count += 1
+                if self.lost_line_count >= self.MAX_LOST_COUNT:
+                    self.get_logger().info('Yellow line not detected consistently. Stopping AGV.')
+                    self.cmd_vel_publisher.publish(Twist())  # 정지
+                    self.lost_line_count = 0
+        except Exception as e:
+            self.get_logger().error(f'Image processing error: {e}', exc_info=True)
 
 
 def main():

@@ -1,1 +1,1 @@
-/home/soomi/project3/computer/build/custom_msgs/rosidl_typesupport_introspection_c/custom_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
+/home/sangyeon/project3/computer/build/custom_msgs/rosidl_typesupport_introspection_c/custom_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h

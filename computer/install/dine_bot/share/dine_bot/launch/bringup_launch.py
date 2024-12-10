@@ -1,1 +1,1 @@
-/home/soomi/project3/computer/build/dine_bot/launch/bringup_launch.py
+/home/sangyeon/project3/computer/build/dine_bot/launch/bringup_launch.py

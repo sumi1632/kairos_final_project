@@ -31,7 +31,7 @@ from nav2_common.launch import RewrittenYaml, ReplaceString
 def generate_launch_description():
     # Get the launch directory
     bringup_dir = get_package_share_directory('nav2_bringup')
-    project_dir = get_package_share_directory('yori')
+    project_dir = get_package_share_directory('dine_bot')
     launch_dir = os.path.join(bringup_dir, 'launch')
 
     # Create the launch configuration variables
@@ -198,7 +198,7 @@ def generate_launch_description():
                               'use_respawn': use_respawn,
                               'container_name': 'nav2_container'}.items()),
         Node(
-	    package='yori',
+	    package='dine_bot',
 	    executable='nav2_controller',
 	    name='nav2_controller', 
 	    output='screen',

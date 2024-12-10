@@ -193,7 +193,7 @@ class TaskManager(Node):
             self.get_logger().error(f'Error finishing cooking: {e}')
 
     def start_serve(self, table_num):
-        if not self.start_serve_client.wait_for_server(timeout_sec=5.0):
+        if not self.start_serve_client.wait_for_server(timeout_sec=10.0):
             self.get_logger().error('start serve action server not available!')
             return
 
@@ -267,5 +267,5 @@ def main(args=None):
 
 
 if __name__ == '__main__':
-   
+    main()
 
