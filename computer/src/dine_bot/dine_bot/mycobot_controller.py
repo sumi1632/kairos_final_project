@@ -77,8 +77,8 @@ class CookActionServer(Node):
         self.send_feedback("Preparing")
         self.material_handling()           # 재료 이동 및 준비
         self.send_feedback("Cooking")
-        self.cooking_tool_handling()       # 조리도구 동작
         self.liquid_dispensing()           # 액체 디스펜서 동작
+        self.cooking_tool_handling()       # 조리도구 동작
         self.send_feedback("Plating")
         self.suction_cup_handling()        # 흡착 컵 동작
         self.complete_task()
@@ -135,6 +135,35 @@ class CookActionServer(Node):
         time.sleep(5)
         self.get_logger().info("재료 준비 완료")
 
+    def liquid_dispensing(self):
+        """액체 디스펜서 동작"""
+        self.get_logger().info("\n=== 액체 디스펜서 동작 단계 시작 ===")
+        self.get_logger().info("팬 위치로 이동")
+        self.mycobot.send_angles([3.86, -23.37, -34.01, -22.5, 88.5, 1.75], 30)
+        time.sleep(5)
+        self.get_logger().info("팬 잡기 위치")
+        self.mycobot.send_angles([1.75, -36.38, -38.05, -14.23, 90.79, 1.84], 30)
+        time.sleep(5)
+        self.get_logger().info("팬 잡기")
+        self.mycobot.set_gripper_state(1, 100)
+        time.sleep(4)
+        self.get_logger().info("팬 들어올리기")
+        self.mycobot.send_angles([-0.08, -23.55, -44.29, -18.1, 97.55, 0.26], 30)
+        time.sleep(5)
+        self.get_logger().info("디스펜서 위치 1")
+        self.mycobot.send_angles([-10.98, -45.86, 8.61, -41.74, 90.87, 13.97], 30)
+        time.sleep(5)
+        self.get_logger().info("디스펜서 위치 2")
+        self.mycobot.send_angles([3.77, -51.41, -1.05, -38.58, 91.23, 1.23], 30)
+        time.sleep(5)
+        self.get_logger().info("디스펜서 내려놓기")
+        self.mycobot.set_gripper_state(0, 100)
+        time.sleep(4)
+        self.get_logger().info("초기 위치로 복귀")
+        self.mycobot.send_angles([0, 0, 0, 0, 0, 0], 30)
+        time.sleep(5)
+        self.get_logger().info("액체 디스펜서 동작 완료")
+        
     def cooking_tool_handling(self):
         self.get_logger().info("\n=== 조리도구 동작 단계 시작 ===")
         self.get_logger().info("조리도구 위치로 이동")
@@ -172,73 +201,103 @@ class CookActionServer(Node):
         time.sleep(4)
         self.get_logger().info(">>> 조리도구 동작 완료\n")
 
-    def liquid_dispensing(self):
-        """액체 디스펜서 동작"""
-        self.get_logger().info("\n=== 액체 디스펜서 동작 단계 시작 ===")
-        self.get_logger().info("팬 위치로 이동")
-        self.mycobot.send_angles([3.86, -23.37, -34.01, -22.5, 88.5, 1.75], 30)
-        time.sleep(5)
-        self.get_logger().info("팬 잡기 위치")
-        self.mycobot.send_angles([1.75, -36.38, -38.05, -14.23, 90.79, 1.84], 30)
-        time.sleep(5)
-        self.get_logger().info("팬 잡기")
-        self.mycobot.set_gripper_state(1, 100)
-        time.sleep(4)
-        self.get_logger().info("팬 들어올리기")
-        self.mycobot.send_angles([-0.08, -23.55, -44.29, -18.1, 97.55, 0.26], 30)
-        time.sleep(5)
-        self.get_logger().info("디스펜서 위치 1")
-        self.mycobot.send_angles([-10.98, -45.86, 8.61, -41.74, 90.87, 13.97], 30)
-        time.sleep(5)
-        self.get_logger().info("디스펜서 위치 2")
-        self.mycobot.send_angles([3.77, -51.41, -1.05, -38.58, 91.23, 1.23], 30)
-        time.sleep(5)
-        self.get_logger().info("디스펜서 내려놓기")
-        self.mycobot.set_gripper_state(0, 100)
-        time.sleep(4)
-        self.get_logger().info("초기 위치로 복귀")
-        self.mycobot.send_angles([0, 0, 0, 0, 0, 0], 30)
-        time.sleep(5)
-        self.get_logger().info("액체 디스펜서 동작 완료")
 
     def suction_cup_handling(self):
         """흡착 컵 동작"""
-        self.get_logger().info("흡착 컵 동작 시작")
-        self.mycobot.send_angles([-6.5, 58.27, -45.61, -16.25, -32.16, -7.11], 30)
+        self.get_logger().info("석션 준비 자세")
+        self.mycobot.send_angles([-61.52, 55.98, -9.75, -42.09, -15.11, -9.66], 30)
         time.sleep(5)
-        self.mycobot.send_angles([3.25, 69.16, -42.18, -23.46, -36.56, -7.03], 30)
+        self.get_logger().info("석션 잡기 준비")
+        self.mycobot.send_angles([-50.71, 101.07, -20.56, -70.66, -20.03, -12.74], 30)
         time.sleep(5)
         self.mycobot.set_gripper_state(1, 100)
         time.sleep(4)
-        self.mycobot.send_angles([-6.5, 58.27, -45.61, -16.25, -32.16, -7.11], 30)
+        self.get_logger().info("석션 들어 올림")
+        self.mycobot.send_angles([-49.13, 85.51, -14.67, -63.28, -27.77, -10.1], 30)
         time.sleep(5)
-        self.mycobot.send_angles([-80.06, 71.01, -54.66, -7.29, 17.13, 11.07], 30)
+        self.get_logger().info("석접시 위 위치함")
+        self.mycobot.send_angles([-42.53, 86.04, -7.55, -68.55, 5.8, -12.74], 30)
         time.sleep(5)
-        self.mycobot.send_angles([-60.38, 111.7, -39.11, -91.05, 17.13, 11.07], 30)
+        self.get_logger().info("석션 위해 접시로 접근")
+        self.mycobot.send_angles([-43.5, 88.15, 18.8, -101.6, 5.36, -15.29], 30)
         time.sleep(5)
         suction_on_msg = String()
         suction_on_msg.data = "Suction ON"
         self.suction_publisher.publish(suction_on_msg)
         self.get_logger().info("Suction ON 명령 suction_cup_node로 전송")
-        self.mycobot.send_angles([-71.38, 77, -61, -21, 19, 0], 30)
+        self.get_logger().info("석션 위해 접시로 접근")
+        self.mycobot.send_angles([-45.0, 46.58, 24.16, -64.68, -3.33, -11.42], 30)
         time.sleep(5)
-        self.mycobot.send_angles([-150, 77, -61, -21, 19, 0], 30)
+        self.get_logger().info("접시 들어 올림")
+        self.mycobot.send_angles([-81.73, 69.34, -12.12, -55.72, -52.29, 0.08], 30)
         time.sleep(5)
-        self.mycobot.send_angles([-150, 77, 7, -86, 19, 0], 30)
+        self.get_logger().info("AGV 위에 접시 올림")
+        self.mycobot.send_angles([-82.35, 83.23, 3.07, -81.82, -54.66, -4.04], 30)
         time.sleep(5)
         suction_off_msg = String()
         suction_off_msg.data = "Suction OFF"
         self.suction_publisher.publish(suction_off_msg)
         self.get_logger().info("Suction OFF 명령 suction_cup_node로 전송")
-        self.mycobot.send_angles([-150, 77, -61, -21, 19, 0], 30)
+        
+        self.get_logger().info("접시 놓은 후 웨이 포인트")
+        self.mycobot.send_angles([-82.17, 57.74, -14.15, -41.3, -46.14, 1.23], 30)
         time.sleep(5)
-        self.mycobot.send_angles([-6.5, 58.27, -45.61, -16.25, -32.16, -7.11], 30)
+        self.get_logger().info("석션 내려놓기 중간 위치")
+        self.mycobot.send_angles([-51.59, 94.83, -17.22, -29.35, 5.53, -51.41], 30)
         time.sleep(5)
-        self.mycobot.send_angles([3.25, 69.16, -55, -23.46, -36.56, -6], 30)
+        self.get_logger().info("석션 내려 놓음")
+        self.mycobot.send_angles([-50.8, 100.98, -17.05, -28.12, 5.97, -60.73], 30)
         time.sleep(5)
+        self.get_logger().info("그리퍼 열기")
         self.mycobot.set_gripper_state(0, 100)
         time.sleep(4)
+       
         self.get_logger().info("흡착 컵 동작 완료")
+        
+    def fan_handling(self):
+    	"""조리 완료된 음식 담기"""
+    	self.get_logger().info("팬 다시 잡기 웨이 포인트1")
+        self.mycobot.send_angles([-5.18, -6.32, 10.45, 2.1, -87.53, 6.5], 30)
+        time.sleep(5)
+        
+        self.get_logger().info("팬 다시 잡기 웨이 포인트2")
+        self.mycobot.send_angles([-2.54, -15.9, 19.59, 5.62, 93.6, 6.15], 30)
+        time.sleep(5)
+        
+        self.get_logger().info("팬 잡기 위치")
+        self.mycobot.send_angles([0.35, -24.78, -69.96, 11.6, 100.89, 1.66], 30)
+        time.sleep(5)
+        
+        self.get_logger().info("그리퍼 닫기")
+        self.mycobot.set_gripper_state(1, 100)  # 그리퍼 닫기
+        time.sleep(4)
+        
+        self.get_logger().info("팬 들어 올림")
+        self.mycobot.send_angles([-4.21, -2.98, -5.18, -33.13, 95.18, -3.25], 30)
+        time.sleep(5)
+        
+        self.get_logger().info("AGV 위 접시로 접근")
+        self.mycobot.send_angles([144.66, -29.88, -1.4, -11.51, 65.03, -16.17], 30)
+        time.sleep(5)
+        
+        self.get_logger().info("쏟기 - 블로키로 예정")
+        # 쏟기 동작 블로키 명령 추가 예정
+        
+        self.get_logger().info("쏟고 들어 올리기")
+        self.mycobot.send_angles([130.16, -2.98, -2.54, -49.21, 92.1, -19.86], 30)
+        time.sleep(5)
+        
+        self.get_logger().info("팬 원위치 웨이 포인트")
+        self.mycobot.send_angles([1.75, 1.23, 1.23, -44.2, 86.57, -17.22], 30)
+        time.sleep(5)
+        
+        self.get_logger().info("팬 내려놓기 위치")
+        self.mycobot.send_angles([3.86, -45.7, -20.83, -27.24, 87.62, -6.67], 30)
+        time.sleep(5)
+        
+        self.get_logger().info("그리퍼 열기")
+        self.mycobot.set_gripper_state(0, 100)  # 그리퍼 열기
+        time.sleep(4)
 
     def complete_task(self):
         """작업 완료"""
