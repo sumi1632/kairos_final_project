@@ -1,0 +1,41 @@
+running develop
+/usr/lib/python3/dist-packages/setuptools/command/easy_install.py:158: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.
+  warnings.warn(
+running egg_info
+creating dine_bot.egg-info
+writing dine_bot.egg-info/PKG-INFO
+writing dependency_links to dine_bot.egg-info/dependency_links.txt
+writing entry points to dine_bot.egg-info/entry_points.txt
+writing requirements to dine_bot.egg-info/requires.txt
+writing top-level names to dine_bot.egg-info/top_level.txt
+writing manifest file 'dine_bot.egg-info/SOURCES.txt'
+reading manifest file 'dine_bot.egg-info/SOURCES.txt'
+writing manifest file 'dine_bot.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/sangyeon/project3/computer/install/dine_bot/lib/python3.10/site-packages/dine-bot.egg-link (link to .)
+Installing db_manager_node script to /home/sangyeon/project3/computer/install/dine_bot/lib/dine_bot
+Installing line_tracer script to /home/sangyeon/project3/computer/install/dine_bot/lib/dine_bot
+Installing mycobot_controller script to /home/sangyeon/project3/computer/install/dine_bot/lib/dine_bot
+Installing nav2_controller script to /home/sangyeon/project3/computer/install/dine_bot/lib/dine_bot
+Installing task_manager_node script to /home/sangyeon/project3/computer/install/dine_bot/lib/dine_bot
+
+Installed /home/sangyeon/project3/computer/build/dine_bot
+running symlink_data
+creating /home/sangyeon/project3/computer/install/dine_bot/share/ament_index
+creating /home/sangyeon/project3/computer/install/dine_bot/share/ament_index/resource_index
+creating /home/sangyeon/project3/computer/install/dine_bot/share/ament_index/resource_index/packages
+symbolically linking /home/sangyeon/project3/computer/build/dine_bot/resource/dine_bot -> /home/sangyeon/project3/computer/install/dine_bot/share/ament_index/resource_index/packages
+symbolically linking /home/sangyeon/project3/computer/build/dine_bot/package.xml -> /home/sangyeon/project3/computer/install/dine_bot/share/dine_bot
+creating /home/sangyeon/project3/computer/install/dine_bot/share/dine_bot/launch
+symbolically linking /home/sangyeon/project3/computer/build/dine_bot/launch/bringup_launch.py -> /home/sangyeon/project3/computer/install/dine_bot/share/dine_bot/launch
+creating /home/sangyeon/project3/computer/install/dine_bot/share/dine_bot/rviz
+symbolically linking /home/sangyeon/project3/computer/build/dine_bot/rviz/nav2_default_view.rviz -> /home/sangyeon/project3/computer/install/dine_bot/share/dine_bot/rviz
+creating /home/sangyeon/project3/computer/install/dine_bot/share/dine_bot/urdf
+symbolically linking /home/sangyeon/project3/computer/build/dine_bot/urdf/myAGV.urdf -> /home/sangyeon/project3/computer/install/dine_bot/share/dine_bot/urdf
+creating /home/sangyeon/project3/computer/install/dine_bot/share/dine_bot/params
+symbolically linking /home/sangyeon/project3/computer/build/dine_bot/params/nav2_params.yaml -> /home/sangyeon/project3/computer/install/dine_bot/share/dine_bot/params
+creating /home/sangyeon/project3/computer/install/dine_bot/share/dine_bot/maps
+symbolically linking /home/sangyeon/project3/computer/build/dine_bot/maps/map1.yaml -> /home/sangyeon/project3/computer/install/dine_bot/share/dine_bot/maps
+symbolically linking /home/sangyeon/project3/computer/build/dine_bot/maps/map.pgm -> /home/sangyeon/project3/computer/install/dine_bot/share/dine_bot/maps
+symbolically linking /home/sangyeon/project3/computer/build/dine_bot/maps/map1.pgm -> /home/sangyeon/project3/computer/install/dine_bot/share/dine_bot/maps
+symbolically linking /home/sangyeon/project3/computer/build/dine_bot/maps/map.yaml -> /home/sangyeon/project3/computer/install/dine_bot/share/dine_bot/maps

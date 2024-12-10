@@ -1,0 +1,43 @@
+[0.878s] Invoking command in '/home/sangyeon/project3/computer/build/dine_bot': PYTHONPATH=/home/sangyeon/project3/computer/build/dine_bot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sangyeon/project3/computer/install/dine_bot/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/sangyeon/project3/computer/build/dine_bot/build --no-deps symlink_data
+[1.266s] running develop
+[1.267s] /usr/lib/python3/dist-packages/setuptools/command/easy_install.py:158: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.
+[1.267s]   warnings.warn(
+[1.496s] running egg_info
+[1.496s] creating dine_bot.egg-info
+[1.496s] writing dine_bot.egg-info/PKG-INFO
+[1.496s] writing dependency_links to dine_bot.egg-info/dependency_links.txt
+[1.496s] writing entry points to dine_bot.egg-info/entry_points.txt
+[1.496s] writing requirements to dine_bot.egg-info/requires.txt
+[1.496s] writing top-level names to dine_bot.egg-info/top_level.txt
+[1.500s] writing manifest file 'dine_bot.egg-info/SOURCES.txt'
+[1.502s] reading manifest file 'dine_bot.egg-info/SOURCES.txt'
+[1.502s] writing manifest file 'dine_bot.egg-info/SOURCES.txt'
+[1.505s] running build_ext
+[1.505s] Creating /home/sangyeon/project3/computer/install/dine_bot/lib/python3.10/site-packages/dine-bot.egg-link (link to .)
+[1.505s] Installing db_manager_node script to /home/sangyeon/project3/computer/install/dine_bot/lib/dine_bot
+[1.506s] Installing line_tracer script to /home/sangyeon/project3/computer/install/dine_bot/lib/dine_bot
+[1.506s] Installing mycobot_controller script to /home/sangyeon/project3/computer/install/dine_bot/lib/dine_bot
+[1.506s] Installing nav2_controller script to /home/sangyeon/project3/computer/install/dine_bot/lib/dine_bot
+[1.506s] Installing task_manager_node script to /home/sangyeon/project3/computer/install/dine_bot/lib/dine_bot
+[1.506s] 
+[1.506s] Installed /home/sangyeon/project3/computer/build/dine_bot
+[1.506s] running symlink_data
+[1.506s] creating /home/sangyeon/project3/computer/install/dine_bot/share/ament_index
+[1.508s] creating /home/sangyeon/project3/computer/install/dine_bot/share/ament_index/resource_index
+[1.508s] creating /home/sangyeon/project3/computer/install/dine_bot/share/ament_index/resource_index/packages
+[1.508s] symbolically linking /home/sangyeon/project3/computer/build/dine_bot/resource/dine_bot -> /home/sangyeon/project3/computer/install/dine_bot/share/ament_index/resource_index/packages
+[1.508s] symbolically linking /home/sangyeon/project3/computer/build/dine_bot/package.xml -> /home/sangyeon/project3/computer/install/dine_bot/share/dine_bot
+[1.508s] creating /home/sangyeon/project3/computer/install/dine_bot/share/dine_bot/launch
+[1.508s] symbolically linking /home/sangyeon/project3/computer/build/dine_bot/launch/bringup_launch.py -> /home/sangyeon/project3/computer/install/dine_bot/share/dine_bot/launch
+[1.508s] creating /home/sangyeon/project3/computer/install/dine_bot/share/dine_bot/rviz
+[1.509s] symbolically linking /home/sangyeon/project3/computer/build/dine_bot/rviz/nav2_default_view.rviz -> /home/sangyeon/project3/computer/install/dine_bot/share/dine_bot/rviz
+[1.509s] creating /home/sangyeon/project3/computer/install/dine_bot/share/dine_bot/urdf
+[1.509s] symbolically linking /home/sangyeon/project3/computer/build/dine_bot/urdf/myAGV.urdf -> /home/sangyeon/project3/computer/install/dine_bot/share/dine_bot/urdf
+[1.509s] creating /home/sangyeon/project3/computer/install/dine_bot/share/dine_bot/params
+[1.509s] symbolically linking /home/sangyeon/project3/computer/build/dine_bot/params/nav2_params.yaml -> /home/sangyeon/project3/computer/install/dine_bot/share/dine_bot/params
+[1.509s] creating /home/sangyeon/project3/computer/install/dine_bot/share/dine_bot/maps
+[1.509s] symbolically linking /home/sangyeon/project3/computer/build/dine_bot/maps/map1.yaml -> /home/sangyeon/project3/computer/install/dine_bot/share/dine_bot/maps
+[1.509s] symbolically linking /home/sangyeon/project3/computer/build/dine_bot/maps/map.pgm -> /home/sangyeon/project3/computer/install/dine_bot/share/dine_bot/maps
+[1.509s] symbolically linking /home/sangyeon/project3/computer/build/dine_bot/maps/map1.pgm -> /home/sangyeon/project3/computer/install/dine_bot/share/dine_bot/maps
+[1.509s] symbolically linking /home/sangyeon/project3/computer/build/dine_bot/maps/map.yaml -> /home/sangyeon/project3/computer/install/dine_bot/share/dine_bot/maps
+[1.538s] Invoked command in '/home/sangyeon/project3/computer/build/dine_bot' returned '0': PYTHONPATH=/home/sangyeon/project3/computer/build/dine_bot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sangyeon/project3/computer/install/dine_bot/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/sangyeon/project3/computer/build/dine_bot/build --no-deps symlink_data

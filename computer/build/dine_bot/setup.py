@@ -1,1 +1,1 @@
-/home/soomi/project3/computer/src/dine_bot/setup.py
+/home/sangyeon/project3/computer/src/dine_bot/setup.py
