@@ -28,12 +28,17 @@ class PLCControlNode(Node):
         # 이전 상태 저장 변수
         self.previous_states = {self.m1_address: None, self.m2_address: None}
 
+        # mycobot에서 주문 들어올 때 동작
+        self.subscription = self.create_subscription(
+            String,
+            'plc_control',
+            self.listener_order,
+            10
+        )
+
         # ROS 2 Publisher 설정
         self.esp32_publisher = self.create_publisher(String, 'esp32_control', 10)
         self.robot_publisher = self.create_publisher(String, 'robot_control', 10)
-
-        # 터미널에서 입력받는 Timer 설정
-        self.timer = self.create_timer(0.1, self.get_terminal_input)
 
         # PLC 연결
         if self.client.connect():
@@ -43,15 +48,16 @@ class PLCControlNode(Node):
             self.get_logger().error("PLC 연결 실패")
             self.destroy_node()
 
-    def get_terminal_input(self):
-        """터미널에서 사용자 입력을 처리."""
+    def listener_order(self, msg):
+        """주문 받으면 처리."""
+        menu_name = msg.data
         try:
-            user_input = input("입력해주세요 ('주문을 받았습니다' 입력 시 M0 = 1): ").strip()
-            if user_input == "주문을 받았습니다":
-                self.set_m0_value(1)
-                self.send_esp32_command("1번 디스펜서 작동")
-            else:
-                self.get_logger().info("알 수 없는 입력입니다.")
+            # 추후 로직 다르게 작성
+            # if menu_name == "salad": 
+            self.set_m0_value(1)
+            self.send_esp32_command("1번 디스펜서 작동")
+            # else:
+            #     self.get_logger().info("알 수 없는 입력입니다.")
         except Exception as e:
             self.get_logger().error(f"[에러] 입력 처리 중 문제 발생: {e}")
 
