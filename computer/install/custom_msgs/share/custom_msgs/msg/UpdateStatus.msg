@@ -1,1 +1,0 @@
-/home/kim/project3/computer/src/custom_msgs/msg/UpdateStatus.msg

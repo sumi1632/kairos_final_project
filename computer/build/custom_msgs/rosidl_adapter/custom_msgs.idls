@@ -1,5 +1,0 @@
-/home/kim/project3/computer/build/custom_msgs/rosidl_adapter/custom_msgs:msg/UpdateStatus.idl
-/home/kim/project3/computer/build/custom_msgs/rosidl_adapter/custom_msgs:msg/OrderDetail.idl
-/home/kim/project3/computer/build/custom_msgs/rosidl_adapter/custom_msgs:srv/ReceiveOrder.idl
-/home/kim/project3/computer/build/custom_msgs/rosidl_adapter/custom_msgs:action/Cook.idl
-/home/kim/project3/computer/build/custom_msgs/rosidl_adapter/custom_msgs:action/Serve.idl
