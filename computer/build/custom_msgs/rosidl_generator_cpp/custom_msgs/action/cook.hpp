@@ -7,6 +7,5 @@
 #include "custom_msgs/action/detail/cook__struct.hpp"
 #include "custom_msgs/action/detail/cook__builder.hpp"
 #include "custom_msgs/action/detail/cook__traits.hpp"
-#include "custom_msgs/action/detail/cook__type_support.hpp"
 
 #endif  // CUSTOM_MSGS__ACTION__COOK_HPP_

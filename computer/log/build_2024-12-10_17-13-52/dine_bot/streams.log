@@ -1,0 +1,48 @@
+[0.553s] Invoking command in '/home/kim/project3/computer/src/dine_bot': PYTHONPATH=/home/kim/project3/computer/build/dine_bot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/kim/project3/computer/install/dine_bot/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/dine_bot build --build-base /home/kim/project3/computer/build/dine_bot/build install --record /home/kim/project3/computer/build/dine_bot/install.log --single-version-externally-managed install_data
+[0.651s] /home/kim/.local/lib/python3.10/site-packages/setuptools/_distutils/dist.py:261: UserWarning: Unknown distribution option: 'tests_require'
+[0.651s]   warnings.warn(msg)
+[0.702s] running egg_info
+[0.710s] writing ../../build/dine_bot/dine_bot.egg-info/PKG-INFO
+[0.710s] writing dependency_links to ../../build/dine_bot/dine_bot.egg-info/dependency_links.txt
+[0.711s] writing entry points to ../../build/dine_bot/dine_bot.egg-info/entry_points.txt
+[0.711s] writing requirements to ../../build/dine_bot/dine_bot.egg-info/requires.txt
+[0.711s] writing top-level names to ../../build/dine_bot/dine_bot.egg-info/top_level.txt
+[0.729s] reading manifest file '../../build/dine_bot/dine_bot.egg-info/SOURCES.txt'
+[0.730s] writing manifest file '../../build/dine_bot/dine_bot.egg-info/SOURCES.txt'
+[0.730s] running build
+[0.730s] running build_py
+[0.730s] copying dine_bot/suction_cup_node.py -> /home/kim/project3/computer/build/dine_bot/build/lib/dine_bot
+[0.730s] copying dine_bot/esp32_control_node.py -> /home/kim/project3/computer/build/dine_bot/build/lib/dine_bot
+[0.730s] copying dine_bot/monitor_plc_node.py -> /home/kim/project3/computer/build/dine_bot/build/lib/dine_bot
+[0.730s] copying dine_bot/mycobot_controller.py -> /home/kim/project3/computer/build/dine_bot/build/lib/dine_bot
+[0.730s] copying dine_bot/db_manager.py -> /home/kim/project3/computer/build/dine_bot/build/lib/dine_bot
+[0.731s] copying dine_bot/nav2_controller.py -> /home/kim/project3/computer/build/dine_bot/build/lib/dine_bot
+[0.731s] copying dine_bot/line_tracer.py -> /home/kim/project3/computer/build/dine_bot/build/lib/dine_bot
+[0.731s] copying dine_bot/__init__.py -> /home/kim/project3/computer/build/dine_bot/build/lib/dine_bot
+[0.731s] copying dine_bot/task_manager.py -> /home/kim/project3/computer/build/dine_bot/build/lib/dine_bot
+[0.731s] running install
+[0.734s] running install_lib
+[0.743s] running install_data
+[0.743s] copying resource/dine_bot -> /home/kim/project3/computer/install/dine_bot/share/ament_index/resource_index/packages
+[0.743s] copying package.xml -> /home/kim/project3/computer/install/dine_bot/share/dine_bot
+[0.744s] copying launch/bringup_launch.py -> /home/kim/project3/computer/install/dine_bot/share/dine_bot/launch
+[0.744s] copying rviz/nav2_default_view.rviz -> /home/kim/project3/computer/install/dine_bot/share/dine_bot/rviz
+[0.744s] copying urdf/myAGV.urdf -> /home/kim/project3/computer/install/dine_bot/share/dine_bot/urdf
+[0.744s] copying params/nav2_params.yaml -> /home/kim/project3/computer/install/dine_bot/share/dine_bot/params
+[0.744s] copying maps/map.pgm -> /home/kim/project3/computer/install/dine_bot/share/dine_bot/maps
+[0.744s] copying maps/map.yaml -> /home/kim/project3/computer/install/dine_bot/share/dine_bot/maps
+[0.744s] running install_egg_info
+[0.753s] removing '/home/kim/project3/computer/install/dine_bot/lib/python3.10/site-packages/dine_bot-0.0.0-py3.10.egg-info' (and everything under it)
+[0.754s] Copying ../../build/dine_bot/dine_bot.egg-info to /home/kim/project3/computer/install/dine_bot/lib/python3.10/site-packages/dine_bot-0.0.0-py3.10.egg-info
+[0.754s] running install_scripts
+[0.828s] Installing db_manager_node script to /home/kim/project3/computer/install/dine_bot/lib/dine_bot
+[0.828s] Installing esp32_control_node script to /home/kim/project3/computer/install/dine_bot/lib/dine_bot
+[0.828s] Installing line_tracer script to /home/kim/project3/computer/install/dine_bot/lib/dine_bot
+[0.828s] Installing monitor_plc_node script to /home/kim/project3/computer/install/dine_bot/lib/dine_bot
+[0.828s] Installing mycobot_controller script to /home/kim/project3/computer/install/dine_bot/lib/dine_bot
+[0.828s] Installing nav2_controller script to /home/kim/project3/computer/install/dine_bot/lib/dine_bot
+[0.828s] Installing robot_control_node script to /home/kim/project3/computer/install/dine_bot/lib/dine_bot
+[0.828s] Installing suction_cup_node script to /home/kim/project3/computer/install/dine_bot/lib/dine_bot
+[0.828s] Installing task_manager_node script to /home/kim/project3/computer/install/dine_bot/lib/dine_bot
+[0.828s] writing list of installed files to '/home/kim/project3/computer/build/dine_bot/install.log'
+[0.847s] Invoked command in '/home/kim/project3/computer/src/dine_bot' returned '0': PYTHONPATH=/home/kim/project3/computer/build/dine_bot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/kim/project3/computer/install/dine_bot/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/dine_bot build --build-base /home/kim/project3/computer/build/dine_bot/build install --record /home/kim/project3/computer/build/dine_bot/install.log --single-version-externally-managed install_data

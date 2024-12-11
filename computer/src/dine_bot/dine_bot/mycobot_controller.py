@@ -1,11 +1,13 @@
 import rclpy
 from rclpy.node import Node
 from rclpy.action import ActionServer
+from rclpy.executors import MultiThreadedExecutor
 from custom_msgs.action import Cook
 from std_msgs.msg import String
 from pymycobot.mycobot import MyCobot
 import time
 from collections import deque
+import threading
 
 class CookActionServer(Node):
     def __init__(self):
@@ -29,11 +31,14 @@ class CookActionServer(Node):
         self.mycobot = MyCobot('/dev/ttyACM0', 115200)
         self.get_logger().info("Robot Control Node Initialized")
         self.initialize_robot()
-
+        self.is_ready_for_robotarm_move = False
+        
         # 주문 관리
         self.orders = deque()
         self.is_cooking = False
         self.current_menu = ""
+        self.cooking_done_event = threading.Event()
+
 
     def initialize_robot(self):
         """로봇 초기화"""
@@ -45,49 +50,71 @@ class CookActionServer(Node):
         self.get_logger().info("로봇 초기화 완료")
 
     async def execute_callback(self, goal_handle):
-        # 주문 접수
+        """액션 서버의 메인 콜백"""
         self.goal_handle = goal_handle
         menu_name = goal_handle.request.menu_name
         self.orders.append(menu_name)
         self.get_logger().info(f'Received cooking request for: {menu_name}')
-        start_cook()
-    
-    def start_cook(self):
-        if self.is_cooking == False:
-            self.is_cooking = True
-            self.current_menu = self.orders.popleft()
-            self.get_logger().info(f'Cooking : {self.current_menu}')
 
-            # plc 동작
-            self.plc_publisher.publish(self.current_menu)
-        else:
-            self.get_logger().info(f'The first received dish is being cooked')
+        if not self.is_cooking:
+            self.cooking_done_event.clear()
+
+            thread = threading.Thread(target=self.start_cook)
+            thread.start()
+
+            while not self.cooking_done_event.is_set():
+                time.sleep(1)
+
+            # 결과 반환
+            result = Cook.Result()
+            result.cook_result = f'Cooking for {menu_name} is completed!'
+            goal_handle.succeed()
+            self.get_logger().info(result.cook_result)
+            return result
+
+    def start_cook(self):
+        """요리 시작"""
+        self.is_cooking = True
+        self.current_menu = self.orders.popleft()
+        self.get_logger().info(f'Starting to cook: {self.current_menu}')
+
+        # PLC 동작 시작 알림
+        plc_msg = String()
+        plc_msg.data = f"Start cooking: {self.current_menu}"
+        self.plc_publisher.publish(plc_msg)
+
+        while not self.is_ready_for_robotarm_move:
+            time.sleep(1)
+
+        self.is_ready_for_robotarm_move = False
+
+        # 작업 수행
+        self.send_feedback("Preparing")
+        self.material_handling()
+        self.send_feedback("Cooking")
+        self.liquid_dispensing()
+        self.cooking_tool_handling()
+        self.send_feedback("Plating")
+        self.suction_cup_handling()
+
+        self.complete_task()
+
+    def send_feedback(self, status):
+        """피드백 전송"""
+        if self.goal_handle:
+            feedback_msg = Cook.Feedback()
+            feedback_msg.cook_status = status
+            self.goal_handle.publish_feedback(feedback_msg)
+            self.get_logger().info(f'Feedback: {status}')
 
     def plc_callback(self, msg):
-        """plc 수신 및 작업 시작"""
+        """PLC 명령 수신"""
         command = msg.data
         if command == "작업 시작" or command == "재료 준비 완료":
             self.get_logger().info(f"명령 수신: {command}")
-            self.execute_task()
+            self.is_ready_for_robotarm_move = True  
         else:
             self.get_logger().warn(f"알 수 없는 명령: {command}")
-
-    def execute_task(self):
-        """작업 순서대로 수행"""
-        self.send_feedback("Preparing")
-        self.material_handling()           # 재료 이동 및 준비
-        self.send_feedback("Cooking")
-        self.liquid_dispensing()           # 액체 디스펜서 동작
-        self.cooking_tool_handling()       # 조리도구 동작
-        self.send_feedback("Plating")
-        self.suction_cup_handling()        # 흡착 컵 동작
-        self.complete_task()
-
-    def send_feedback(self, msg):
-        feedback_msg = Cook.Feedback()
-        feedback_msg.cook_status = msg
-        self.get_logger().info(f'Feedback: {msg}')
-        self.goal_handle.publish_feedback(feedback_msg)
 
     def material_handling(self):
         """재료 이동 및 준비"""
@@ -255,8 +282,8 @@ class CookActionServer(Node):
         self.get_logger().info("흡착 컵 동작 완료")
         
     def fan_handling(self):
-    	"""조리 완료된 음식 담기"""
-    	self.get_logger().info("팬 다시 잡기 웨이 포인트1")
+        """조리 완료된 음식 담기"""
+        self.get_logger().info("팬 다시 잡기 웨이 포인트1")
         self.mycobot.send_angles([-5.18, -6.32, 10.45, 2.1, -87.53, 6.5], 30)
         time.sleep(5)
         
@@ -300,27 +327,22 @@ class CookActionServer(Node):
         time.sleep(4)
 
     def complete_task(self):
-        """작업 완료"""
+        """작업 완료 처리"""
         self.mycobot.send_angles([0, 0, 0, 0, 0, 0], 20)
         time.sleep(3)
         self.get_logger().info("작업 완료 및 초기화 위치 복귀")
         self.is_cooking = False
+        self.cooking_done_event.set()
 
-        # Cooking complete
-        result = Cook.Result()
-        result.cook_result = f'Cooking for {self.current_menu} is completed!'
-        self.get_logger().info(result.cook_result)
-        self.goal_handle.succeed()
-
-        # 다음 주문 있으면 요리
-        if len(self.orders) > 0:
-            start_cook()
 
 def main(args=None):
     rclpy.init(args=args)
     cook_action_server = CookActionServer()
+
+    executor = MultiThreadedExecutor(num_threads=2)
+
     try:
-        rclpy.spin(cook_action_server)
+        rclpy.spin(cook_action_server, executor=executor)
     except KeyboardInterrupt:
         cook_action_server.get_logger().info('Cook Action Server shutting down.')
     finally:

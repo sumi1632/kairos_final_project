@@ -1,0 +1,56 @@
+[0.526s] Invoking command in '/home/kim/project3/computer/build/dine_bot': PYTHONPATH=/home/kim/project3/computer/build/dine_bot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/kim/project3/computer/install/dine_bot/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/kim/project3/computer/build/dine_bot/build --no-deps symlink_data
+[0.627s] /home/kim/.local/lib/python3.10/site-packages/setuptools/_distutils/dist.py:261: UserWarning: Unknown distribution option: 'tests_require'
+[0.627s]   warnings.warn(msg)
+[0.721s] running develop
+[0.722s] /home/kim/.local/lib/python3.10/site-packages/setuptools/command/develop.py:41: EasyInstallDeprecationWarning: easy_install command is deprecated.
+[0.722s] !!
+[0.722s] 
+[0.722s]         ********************************************************************************
+[0.722s]         Please avoid running ``setup.py`` and ``easy_install``.
+[0.722s]         Instead, use pypa/build, pypa/installer or other
+[0.722s]         standards-based tools.
+[0.722s] 
+[0.722s]         See https://github.com/pypa/setuptools/issues/917 for details.
+[0.722s]         ********************************************************************************
+[0.722s] 
+[0.722s] !!
+[0.723s]   easy_install.initialize_options(self)
+[0.838s] running egg_info
+[0.846s] creating dine_bot.egg-info
+[0.846s] writing dine_bot.egg-info/PKG-INFO
+[0.847s] writing dependency_links to dine_bot.egg-info/dependency_links.txt
+[0.847s] writing entry points to dine_bot.egg-info/entry_points.txt
+[0.847s] writing requirements to dine_bot.egg-info/requires.txt
+[0.847s] writing top-level names to dine_bot.egg-info/top_level.txt
+[0.847s] writing manifest file 'dine_bot.egg-info/SOURCES.txt'
+[0.864s] reading manifest file 'dine_bot.egg-info/SOURCES.txt'
+[0.865s] writing manifest file 'dine_bot.egg-info/SOURCES.txt'
+[0.907s] running build_ext
+[0.907s] Creating /home/kim/project3/computer/install/dine_bot/lib/python3.10/site-packages/dine-bot.egg-link (link to .)
+[0.907s] Installing db_manager_node script to /home/kim/project3/computer/install/dine_bot/lib/dine_bot
+[0.907s] Installing esp32_control_node script to /home/kim/project3/computer/install/dine_bot/lib/dine_bot
+[0.908s] Installing line_tracer script to /home/kim/project3/computer/install/dine_bot/lib/dine_bot
+[0.908s] Installing monitor_plc_node script to /home/kim/project3/computer/install/dine_bot/lib/dine_bot
+[0.908s] Installing mycobot_controller script to /home/kim/project3/computer/install/dine_bot/lib/dine_bot
+[0.908s] Installing nav2_controller script to /home/kim/project3/computer/install/dine_bot/lib/dine_bot
+[0.908s] Installing robot_control_node script to /home/kim/project3/computer/install/dine_bot/lib/dine_bot
+[0.908s] Installing suction_cup_node script to /home/kim/project3/computer/install/dine_bot/lib/dine_bot
+[0.908s] Installing task_manager_node script to /home/kim/project3/computer/install/dine_bot/lib/dine_bot
+[0.908s] 
+[0.909s] Installed /home/kim/project3/computer/build/dine_bot
+[0.909s] running symlink_data
+[0.909s] creating /home/kim/project3/computer/install/dine_bot/share/ament_index/resource_index/packages
+[0.909s] symbolically linking /home/kim/project3/computer/build/dine_bot/resource/dine_bot -> /home/kim/project3/computer/install/dine_bot/share/ament_index/resource_index/packages
+[0.909s] symbolically linking /home/kim/project3/computer/build/dine_bot/package.xml -> /home/kim/project3/computer/install/dine_bot/share/dine_bot
+[0.909s] creating /home/kim/project3/computer/install/dine_bot/share/dine_bot/launch
+[0.909s] symbolically linking /home/kim/project3/computer/build/dine_bot/launch/bringup_launch.py -> /home/kim/project3/computer/install/dine_bot/share/dine_bot/launch
+[0.909s] creating /home/kim/project3/computer/install/dine_bot/share/dine_bot/rviz
+[0.909s] symbolically linking /home/kim/project3/computer/build/dine_bot/rviz/nav2_default_view.rviz -> /home/kim/project3/computer/install/dine_bot/share/dine_bot/rviz
+[0.909s] creating /home/kim/project3/computer/install/dine_bot/share/dine_bot/urdf
+[0.909s] symbolically linking /home/kim/project3/computer/build/dine_bot/urdf/myAGV.urdf -> /home/kim/project3/computer/install/dine_bot/share/dine_bot/urdf
+[0.910s] creating /home/kim/project3/computer/install/dine_bot/share/dine_bot/params
+[0.910s] symbolically linking /home/kim/project3/computer/build/dine_bot/params/nav2_params.yaml -> /home/kim/project3/computer/install/dine_bot/share/dine_bot/params
+[0.910s] creating /home/kim/project3/computer/install/dine_bot/share/dine_bot/maps
+[0.910s] symbolically linking /home/kim/project3/computer/build/dine_bot/maps/map.pgm -> /home/kim/project3/computer/install/dine_bot/share/dine_bot/maps
+[0.910s] symbolically linking /home/kim/project3/computer/build/dine_bot/maps/map.yaml -> /home/kim/project3/computer/install/dine_bot/share/dine_bot/maps
+[0.934s] Invoked command in '/home/kim/project3/computer/build/dine_bot' returned '0': PYTHONPATH=/home/kim/project3/computer/build/dine_bot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/kim/project3/computer/install/dine_bot/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/kim/project3/computer/build/dine_bot/build --no-deps symlink_data

@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/sangyeon/project3/computer/src/custom_msgs
+CMAKE_SOURCE_DIR = /home/kim/project3/computer/src/custom_msgs
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/sangyeon/project3/computer/build/custom_msgs
+CMAKE_BINARY_DIR = /home/kim/project3/computer/build/custom_msgs
 
 # Utility rule file for uninstall.
 
@@ -78,6 +78,6 @@ CMakeFiles/uninstall.dir/clean:
 .PHONY : CMakeFiles/uninstall.dir/clean
 
 CMakeFiles/uninstall.dir/depend:
-	cd /home/sangyeon/project3/computer/build/custom_msgs && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/sangyeon/project3/computer/src/custom_msgs /home/sangyeon/project3/computer/src/custom_msgs /home/sangyeon/project3/computer/build/custom_msgs /home/sangyeon/project3/computer/build/custom_msgs /home/sangyeon/project3/computer/build/custom_msgs/CMakeFiles/uninstall.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/kim/project3/computer/build/custom_msgs && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/kim/project3/computer/src/custom_msgs /home/kim/project3/computer/src/custom_msgs /home/kim/project3/computer/build/custom_msgs /home/kim/project3/computer/build/custom_msgs /home/kim/project3/computer/build/custom_msgs/CMakeFiles/uninstall.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/uninstall.dir/depend
 

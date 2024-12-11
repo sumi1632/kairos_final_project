@@ -1,1 +1,1 @@
-/home/sangyeon/project3/computer/build/custom_msgs/rosidl_generator_py/custom_msgs/msg/_order_detail.py
+/home/kim/project3/computer/build/custom_msgs/rosidl_generator_py/custom_msgs/msg/_order_detail.py

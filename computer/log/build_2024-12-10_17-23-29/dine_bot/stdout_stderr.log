@@ -1,0 +1,49 @@
+/home/kim/.local/lib/python3.10/site-packages/setuptools/_distutils/dist.py:261: UserWarning: Unknown distribution option: 'tests_require'
+  warnings.warn(msg)
+running egg_info
+writing ../../build/dine_bot/dine_bot.egg-info/PKG-INFO
+writing dependency_links to ../../build/dine_bot/dine_bot.egg-info/dependency_links.txt
+writing entry points to ../../build/dine_bot/dine_bot.egg-info/entry_points.txt
+writing requirements to ../../build/dine_bot/dine_bot.egg-info/requires.txt
+writing top-level names to ../../build/dine_bot/dine_bot.egg-info/top_level.txt
+reading manifest file '../../build/dine_bot/dine_bot.egg-info/SOURCES.txt'
+writing manifest file '../../build/dine_bot/dine_bot.egg-info/SOURCES.txt'
+running build
+running build_py
+copying dine_bot/suction_cup_node.py -> /home/kim/project3/computer/build/dine_bot/build/lib/dine_bot
+copying dine_bot/esp32_control_node.py -> /home/kim/project3/computer/build/dine_bot/build/lib/dine_bot
+copying dine_bot/monitor_plc_node.py -> /home/kim/project3/computer/build/dine_bot/build/lib/dine_bot
+copying dine_bot/mycobot_controller.py -> /home/kim/project3/computer/build/dine_bot/build/lib/dine_bot
+copying dine_bot/db_manager.py -> /home/kim/project3/computer/build/dine_bot/build/lib/dine_bot
+copying dine_bot/nav2_controller.py -> /home/kim/project3/computer/build/dine_bot/build/lib/dine_bot
+copying dine_bot/line_tracer.py -> /home/kim/project3/computer/build/dine_bot/build/lib/dine_bot
+copying dine_bot/__init__.py -> /home/kim/project3/computer/build/dine_bot/build/lib/dine_bot
+copying dine_bot/task_manager.py -> /home/kim/project3/computer/build/dine_bot/build/lib/dine_bot
+running install
+running install_lib
+copying /home/kim/project3/computer/build/dine_bot/build/lib/dine_bot/mycobot_controller.py -> /home/kim/project3/computer/install/dine_bot/lib/python3.10/site-packages/dine_bot
+byte-compiling /home/kim/project3/computer/install/dine_bot/lib/python3.10/site-packages/dine_bot/mycobot_controller.py to mycobot_controller.cpython-310.pyc
+Sorry: TabError: inconsistent use of tabs and spaces in indentation (mycobot_controller.py, line 271)
+running install_data
+copying resource/dine_bot -> /home/kim/project3/computer/install/dine_bot/share/ament_index/resource_index/packages
+copying package.xml -> /home/kim/project3/computer/install/dine_bot/share/dine_bot
+copying launch/bringup_launch.py -> /home/kim/project3/computer/install/dine_bot/share/dine_bot/launch
+copying rviz/nav2_default_view.rviz -> /home/kim/project3/computer/install/dine_bot/share/dine_bot/rviz
+copying urdf/myAGV.urdf -> /home/kim/project3/computer/install/dine_bot/share/dine_bot/urdf
+copying params/nav2_params.yaml -> /home/kim/project3/computer/install/dine_bot/share/dine_bot/params
+copying maps/map.pgm -> /home/kim/project3/computer/install/dine_bot/share/dine_bot/maps
+copying maps/map.yaml -> /home/kim/project3/computer/install/dine_bot/share/dine_bot/maps
+running install_egg_info
+removing '/home/kim/project3/computer/install/dine_bot/lib/python3.10/site-packages/dine_bot-0.0.0-py3.10.egg-info' (and everything under it)
+Copying ../../build/dine_bot/dine_bot.egg-info to /home/kim/project3/computer/install/dine_bot/lib/python3.10/site-packages/dine_bot-0.0.0-py3.10.egg-info
+running install_scripts
+Installing db_manager_node script to /home/kim/project3/computer/install/dine_bot/lib/dine_bot
+Installing esp32_control_node script to /home/kim/project3/computer/install/dine_bot/lib/dine_bot
+Installing line_tracer script to /home/kim/project3/computer/install/dine_bot/lib/dine_bot
+Installing monitor_plc_node script to /home/kim/project3/computer/install/dine_bot/lib/dine_bot
+Installing mycobot_controller script to /home/kim/project3/computer/install/dine_bot/lib/dine_bot
+Installing nav2_controller script to /home/kim/project3/computer/install/dine_bot/lib/dine_bot
+Installing robot_control_node script to /home/kim/project3/computer/install/dine_bot/lib/dine_bot
+Installing suction_cup_node script to /home/kim/project3/computer/install/dine_bot/lib/dine_bot
+Installing task_manager_node script to /home/kim/project3/computer/install/dine_bot/lib/dine_bot
+writing list of installed files to '/home/kim/project3/computer/build/dine_bot/install.log'

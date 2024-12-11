@@ -4,6 +4,3 @@ source;share/dine_bot/hook/pythonpath.sh
 source;share/dine_bot/hook/ament_prefix_path.ps1
 source;share/dine_bot/hook/ament_prefix_path.dsv
 source;share/dine_bot/hook/ament_prefix_path.sh
-source;../../build/dine_bot/share/dine_bot/hook/pythonpath_develop.ps1
-source;../../build/dine_bot/share/dine_bot/hook/pythonpath_develop.dsv
-source;../../build/dine_bot/share/dine_bot/hook/pythonpath_develop.sh

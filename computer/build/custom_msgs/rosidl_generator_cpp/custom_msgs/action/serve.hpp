@@ -7,6 +7,5 @@
 #include "custom_msgs/action/detail/serve__struct.hpp"
 #include "custom_msgs/action/detail/serve__builder.hpp"
 #include "custom_msgs/action/detail/serve__traits.hpp"
-#include "custom_msgs/action/detail/serve__type_support.hpp"
 
 #endif  // CUSTOM_MSGS__ACTION__SERVE_HPP_
