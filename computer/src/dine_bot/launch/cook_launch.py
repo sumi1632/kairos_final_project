@@ -5,37 +5,37 @@ def generate_launch_description():
     return LaunchDescription([
         Node(
             package='dine_bot',
-            executable='db_manager.py',
+            executable='db_manager_node',
             name='db_manager',
             output='screen'
         ),
         Node(
             package='dine_bot',
-            executable='esp32_control_node.py',
+            executable='esp32_control_node',
             name='esp32_control_node',
             output='screen'
         ),
         Node(
             package='dine_bot',
-            executable='monitor_plc_node.py',
+            executable='monitor_plc_node',
             name='monitor_plc_node',
             output='screen'
         ),
         Node(
             package='dine_bot',
-            executable='mycobot_controller.py',
+            executable='mycobot_controller',
             name='mycobot_controller',
             output='screen'
         ),
         Node(
             package='dine_bot',
-            executable='suction_cup_node.py',
+            executable='suction_cup_node',
             name='suction_cup_node',
             output='screen'
         ),
         Node(
             package='dine_bot',
-            executable='task_manager.py',
+            executable='task_manager_node',
             name='task_manager',
             output='screen'
         )
