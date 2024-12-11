@@ -1,5 +1,0 @@
-/home/sangyeon/project3/computer/build/custom_msgs/rosidl_adapter/custom_msgs:msg/UpdateStatus.idl
-/home/sangyeon/project3/computer/build/custom_msgs/rosidl_adapter/custom_msgs:msg/OrderDetail.idl
-/home/sangyeon/project3/computer/build/custom_msgs/rosidl_adapter/custom_msgs:srv/ReceiveOrder.idl
-/home/sangyeon/project3/computer/build/custom_msgs/rosidl_adapter/custom_msgs:action/Cook.idl
-/home/sangyeon/project3/computer/build/custom_msgs/rosidl_adapter/custom_msgs:action/Serve.idl

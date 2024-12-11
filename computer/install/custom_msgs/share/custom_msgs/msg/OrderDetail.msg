@@ -1,1 +1,0 @@
-/home/sangyeon/project3/computer/src/custom_msgs/msg/OrderDetail.msg
