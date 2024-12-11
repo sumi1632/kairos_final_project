@@ -59,10 +59,10 @@ class TaskManager(Node):
     def handle_return_message(self, msg):
         """Handle messages from the `/return` topic."""
         if self.is_serving == False and msg.data.strip() == "return":
-            self.get_logger().info('Received return message. Executing start_serve with table_num=0.')
+            self.get_logger().info('Received return message. Executing start_serve with table_num=0')
 
             # `start_serve` 액션 호출
-            self.start_serve(0)
+            self.start_serve(1)
 
     def start_web_server(self):
         try:
@@ -141,7 +141,7 @@ class TaskManager(Node):
 
         order_detail_id, menu_name, table_num = self.order_queue.get()
 
-        self.current_order_detail_id = order_detail_id
+        self.current_order_detail_id = int(order_detail_id)
         self.current_menu_name = menu_name
         self.current_table_num = int(table_num)
 
@@ -200,7 +200,7 @@ class TaskManager(Node):
         goal_msg = Serve.Goal()
         goal_msg.table_num = table_num  # 요청 값으로 테이블 번호 설정
 
-        self.update_status(self.current_order_detail_id, "Delivering", 'cook')
+        #self.update_status(self.current_order_detail_id, "Delivering", 'cook')
         self.get_logger().info(f'Sending AGV to Table {table_num}')
         
         self.is_serving = True
@@ -230,7 +230,7 @@ class TaskManager(Node):
         try:
             result = future.result().result
             move_result = result.move_result  # 결과 값
-            self.get_logger().info(f'AGV arrived at Table: {self.current_table_num}, Move Result: {move_result}')
+            self.get_logger().info(f'AGV arrived at Table: , Move Result: {move_result}')
 
             # 상태 업데이트: 음식 배달 완료
             self.update_status(self.current_order_detail_id, "Completed", 'cook')
@@ -241,7 +241,7 @@ class TaskManager(Node):
 
     def update_status(self, id, status, cook_or_order):
         status_msg = UpdateStatus()
-        status_msg.id = id
+        status_msg.id = int(id)
         status_msg.status = status
 
         if cook_or_order == 'cook':

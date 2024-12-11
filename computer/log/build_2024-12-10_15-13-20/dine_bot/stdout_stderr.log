@@ -1,4 +1,6 @@
 running develop
+/usr/lib/python3/dist-packages/setuptools/command/easy_install.py:158: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.
+  warnings.warn(
 running egg_info
 creating dine_bot.egg-info
 writing dine_bot.egg-info/PKG-INFO
@@ -12,9 +14,13 @@ writing manifest file 'dine_bot.egg-info/SOURCES.txt'
 running build_ext
 Creating /home/sangyeon/project3/computer/install/dine_bot/lib/python3.10/site-packages/dine-bot.egg-link (link to .)
 Installing db_manager_node script to /home/sangyeon/project3/computer/install/dine_bot/lib/dine_bot
+Installing esp32_control_node script to /home/sangyeon/project3/computer/install/dine_bot/lib/dine_bot
 Installing line_tracer script to /home/sangyeon/project3/computer/install/dine_bot/lib/dine_bot
+Installing monitor_plc_node script to /home/sangyeon/project3/computer/install/dine_bot/lib/dine_bot
 Installing mycobot_controller script to /home/sangyeon/project3/computer/install/dine_bot/lib/dine_bot
 Installing nav2_controller script to /home/sangyeon/project3/computer/install/dine_bot/lib/dine_bot
+Installing robot_control_node script to /home/sangyeon/project3/computer/install/dine_bot/lib/dine_bot
+Installing suction_cup_node script to /home/sangyeon/project3/computer/install/dine_bot/lib/dine_bot
 Installing task_manager_node script to /home/sangyeon/project3/computer/install/dine_bot/lib/dine_bot
 
 Installed /home/sangyeon/project3/computer/build/dine_bot
@@ -33,7 +39,5 @@ symbolically linking /home/sangyeon/project3/computer/build/dine_bot/urdf/myAGV.
 creating /home/sangyeon/project3/computer/install/dine_bot/share/dine_bot/params
 symbolically linking /home/sangyeon/project3/computer/build/dine_bot/params/nav2_params.yaml -> /home/sangyeon/project3/computer/install/dine_bot/share/dine_bot/params
 creating /home/sangyeon/project3/computer/install/dine_bot/share/dine_bot/maps
-symbolically linking /home/sangyeon/project3/computer/build/dine_bot/maps/map1.yaml -> /home/sangyeon/project3/computer/install/dine_bot/share/dine_bot/maps
 symbolically linking /home/sangyeon/project3/computer/build/dine_bot/maps/map.pgm -> /home/sangyeon/project3/computer/install/dine_bot/share/dine_bot/maps
-symbolically linking /home/sangyeon/project3/computer/build/dine_bot/maps/map1.pgm -> /home/sangyeon/project3/computer/install/dine_bot/share/dine_bot/maps
 symbolically linking /home/sangyeon/project3/computer/build/dine_bot/maps/map.yaml -> /home/sangyeon/project3/computer/install/dine_bot/share/dine_bot/maps

@@ -1,1 +1,1 @@
-/opt/ros/humble/lib/python3.10/site-packages/ament_package/template/environment_hook/library_path.sh
+/home/sangyeon/ros2_humble/install/ament_package/lib/python3.10/site-packages/ament_package/template/environment_hook/library_path.sh

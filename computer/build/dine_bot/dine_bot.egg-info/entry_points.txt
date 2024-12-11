@@ -1,7 +1,11 @@
 [console_scripts]
 db_manager_node = dine_bot.db_manager:main
+esp32_control_node = yorizori.esp32_control_node:main
 line_tracer = dine_bot.line_tracer:main
+monitor_plc_node = yorizori.monitor_plc_node:main
 mycobot_controller = dine_bot.mycobot_controller:main
 nav2_controller = dine_bot.nav2_controller:main
+robot_control_node = yorizori.robot_control_node:main
+suction_cup_node = yorizori.suction_cup_node:main
 task_manager_node = dine_bot.task_manager:main
 

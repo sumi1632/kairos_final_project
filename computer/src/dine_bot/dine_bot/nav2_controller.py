@@ -1,14 +1,15 @@
 import rclpy
 from rclpy.node import Node
 from rclpy.action import ActionServer, ActionClient
-from geometry_msgs.msg import PoseStamped, Twist
-from my_custom_msgs.action import Serve
+from geometry_msgs.msg import PoseStamped, Twist, PoseWithCovarianceStamped
+from custom_msgs.action import Serve
 from nav2_msgs.action import NavigateToPose
 from action_msgs.msg import GoalStatus
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge
 import cv2
 import math
+import time
 
 
 class Navigation2Controller(Node):
@@ -29,16 +30,15 @@ class Navigation2Controller(Node):
         # 이동 경로 정의
         self.paths = {
             "1": [
-                (-0.3642, 0.0091, 1.5708),
-                (-0.3824, 0.7860, 1.5708),
-                (-0.3460, 0.9803, 1.5708)
+                (-0.3965, 0.0437, 1.5708),
+                (-0.3427, 0.7627, 1.5708),
+                (-0.3562, 0.9711, 1.5708)
             ],
             "2": [
-               (0.3332, 0.0581, -0.0000),
-               (0.7981, 0.0814, -0.0000),
-               (1.4256, 0.0968, -0.0000),
-               (1.7666, 0.1976, 1.6234),
-               (1.7433, 0.9491, 1.5708)
+                (0.6345, 0.0899, -0.0000),
+                (1.3324, 0.0582, -0.0000),
+                (1.8505, 0.2062, 1.5708),
+                (1.8611, 0.9675, 1.5708)
             ]
         }
 
@@ -57,17 +57,46 @@ class Navigation2Controller(Node):
 
         # 추가된 변수들
         self.error_buffer = []
-        self.buffer_size = 5  # 이동 평균 필터 창 크기
+        self.buffer_size = 12  # 이동 평균 필터 창 크기
         self.lost_line_count = 0
         self.MAX_LOST_COUNT = 5
 
         # 상수 정의
         self.LINE_TRACING_LINEAR_SPEED = 0.05
-        self.LINE_TRACING_ANGULAR_GAIN = 1.0 / 100.0
+        self.LINE_TRACING_ANGULAR_GAIN = 0.005
         self.LINE_TRACING_ACTIVE_PIXELS_THRESHOLD = 100
         self.MAX_ANGULAR_SPEED = 0.5
 
+        # 초기 위치 게시 관련
+        self.initial_pose_publisher = self.create_publisher(PoseWithCovarianceStamped, '/initialpose', 10)
+        self.publish_initial_pose_once()
+
         self.get_logger().info('Navigation2 Controller Node Initialized')
+        
+
+    def publish_initial_pose_once(self):
+        time.sleep(5)
+        msg = PoseWithCovarianceStamped()
+        msg.header.frame_id = 'map'
+        msg.header.stamp = self.get_clock().now().to_msg()
+
+        # Set initial position
+        msg.pose.pose.position.x = -0.3489495515823364
+        msg.pose.pose.position.y = 0.005288539454340935
+        msg.pose.pose.position.z = 0.0
+
+        # Set initial orientation (quaternion)
+        msg.pose.pose.orientation.x = 0.0
+        msg.pose.pose.orientation.y = 0.0
+        msg.pose.pose.orientation.z = 0.008193985547100957
+        msg.pose.pose.orientation.w = 0.9999664287369121
+
+        # Set covariance
+        msg.pose.covariance = [0.1] * 36
+
+        # Publish the message
+        self.initial_pose_publisher.publish(msg)
+        self.get_logger().info('Published initial pose!')
 
     def start_line_tracing(self, duration_sec):
         """라인 트레이싱 활성화 및 타이머 설정."""
@@ -99,19 +128,22 @@ class Navigation2Controller(Node):
         if table_num == "0":
             if self.last_location == "1":
                 self.paths["0"] = [
-                    (-0.2489, 0.7618, -3.1059),
-                    (-1.0440, 0.6950, -1.5708),
-                    (-1.0076, -0.1548, -0.0000)
+                    (-0.3696, 0.8299, 3.1416),
+                    (-1.1491, 0.7829, -1.5708),
+                    (-1.0483, 0.1982, -1.5708),
+                    (-1.0954, -0.1714, -0.0000)
                 ]
             elif self.last_location == "2":
                 self.paths["0"] = [
-                    (1.7356, 1.9409, -3.0792),
-                    (0.8678, 1.9564, -3.1083),
-                    (0.2712, 1.9719, 3.1416),
-                    (-0.8910, 1.9796, -1.5708),
-                    (-0.9065, 1.0499, -1.5708),
-                    (-0.9375, 0.5152, -1.5182),
-                    (-0.9530, -0.1898, -0.0000)
+                    (1.9034, 1.5174, 1.5708),
+                    (1.9034, 2.0038, 3.1416),
+                    (1.2160, 2.0567, 3.1416),
+                    (0.6345, 2.0567, 3.1416),
+                    (-0.1163, 2.0038, 3.1416),
+                    (-0.9517, 2.0567, -1.5941),
+                    (-0.9517, 0.9464, -1.5708),
+                    (-1.0046, 0.3119, -1.5708),
+                    (-1.0046, -0.1216, -0.0000)
                 ]
             else:
                 self.get_logger().error('경로를 설정할 수 없습니다. 현재 위치가 초기 위치인지 확인하세요.')
@@ -147,8 +179,8 @@ class Navigation2Controller(Node):
         self.get_logger().info(f'Successfully served table: {table_num}')
         goal_handle.succeed()
 
-        # 네비게이션이 끝난 후 라인트레이싱 활성화 (예: 15초 동안 활성화)
-        self.start_line_tracing(duration_sec=15)
+        # 네비게이션이 끝난 후 라인트레이싱 활성화 (예: 30초 동안 활성화)
+        self.start_line_tracing(duration_sec=30)
         return Serve.Result(move_result='success')
 
     async def send_goal(self, pose: PoseStamped):
@@ -207,6 +239,10 @@ class Navigation2Controller(Node):
             upper_yellow = (40, 255, 255)
             mask = cv2.inRange(hsv, lower_yellow, upper_yellow)
 
+            # 노이즈 제거
+            mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, cv2.getStructuringElement(cv2.MORPH_RECT, (5, 5)))
+            mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, cv2.getStructuringElement(cv2.MORPH_RECT, (5, 5)))
+
             # 노란색 라인을 인식하지 못할 경우 정지
             active_pixels = cv2.countNonZero(mask)
             if active_pixels < self.LINE_TRACING_ACTIVE_PIXELS_THRESHOLD:
@@ -222,29 +258,29 @@ class Navigation2Controller(Node):
 
                 # 오류 계산
                 error = cx - (cv_image.shape[1] // 2)
+                normalized_error = error / (cv_image.shape[1] // 2)
 
-                # 오류 버퍼 업데이트
-                self.error_buffer.append(error)
-                if len(self.error_buffer) > self.buffer_size:
-                    self.error_buffer.pop(0)
-
-                # 이동 평균 필터 적용
-                avg_error = sum(self.error_buffer) / len(self.error_buffer)
-
-                # AGV 제어 (이동 평균 필터 적용된 오류 사용)
                 twist = Twist()
-                twist.linear.x = self.LINE_TRACING_LINEAR_SPEED
-                twist.angular.z = -avg_error * self.LINE_TRACING_ANGULAR_GAIN
 
-                # 회전 속도 제한
-                twist.angular.z = max(min(twist.angular.z, self.MAX_ANGULAR_SPEED), -self.MAX_ANGULAR_SPEED)
+                if abs(normalized_error) > 0.15:
+                    # 중심 맞추기: 측면 이동
+                    twist.linear.x = 0.0  # 정지
+                    if normalized_error > 0:
+                        twist.linear.y = -1 * self.LINE_TRACING_LINEAR_SPEED
+                    else:
+                        twist.linear.y = self.LINE_TRACING_LINEAR_SPEED
+                    twist.angular.z = 0.0
+                else:
+                    # 위치가 맞으면 앞으로 이동
+                    twist.linear.x = self.LINE_TRACING_LINEAR_SPEED
+                    twist.linear.y = 0.0  # 측면 이동 비활성화
+                    twist.angular.z = 0.0
 
                 self.cmd_vel_publisher.publish(twist)
 
                 # 디버깅 정보 출력
                 self.get_logger().info(
-                    f'Center: ({cx}, {cy}), Error: {error}, '
-                    f'Avg Error: {avg_error:.2f}, Twist: linear.x={twist.linear.x}, angular.z={twist.angular.z:.4f}'
+                    f'Center: ({cx}, {cy}), Error: {error}, normalized_error: {normalized_error:.2f}'
                 )
             else:
                 self.lost_line_count += 1

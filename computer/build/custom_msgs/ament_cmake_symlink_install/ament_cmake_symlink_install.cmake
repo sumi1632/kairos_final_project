@@ -316,26 +316,26 @@ ament_cmake_symlink_install_files("/home/sangyeon/project3/computer/src/custom_m
 # install(DIRECTORY "/home/sangyeon/project3/computer/build/custom_msgs/rosidl_generator_c/custom_msgs/" "DESTINATION" "include/custom_msgs/custom_msgs" "PATTERN" "*.h")
 ament_cmake_symlink_install_directory("/home/sangyeon/project3/computer/src/custom_msgs" DIRECTORY "/home/sangyeon/project3/computer/build/custom_msgs/rosidl_generator_c/custom_msgs/" "DESTINATION" "include/custom_msgs/custom_msgs" "PATTERN" "*.h")
 
-# install(FILES "/opt/ros/humble/lib/python3.10/site-packages/ament_package/template/environment_hook/library_path.sh" "DESTINATION" "share/custom_msgs/environment")
-ament_cmake_symlink_install_files("/home/sangyeon/project3/computer/src/custom_msgs" FILES "/opt/ros/humble/lib/python3.10/site-packages/ament_package/template/environment_hook/library_path.sh" "DESTINATION" "share/custom_msgs/environment")
+# install(FILES "/home/sangyeon/ros2_humble/install/ament_package/lib/python3.10/site-packages/ament_package/template/environment_hook/library_path.sh" "DESTINATION" "share/custom_msgs/environment")
+ament_cmake_symlink_install_files("/home/sangyeon/project3/computer/src/custom_msgs" FILES "/home/sangyeon/ros2_humble/install/ament_package/lib/python3.10/site-packages/ament_package/template/environment_hook/library_path.sh" "DESTINATION" "share/custom_msgs/environment")
 
 # install(FILES "/home/sangyeon/project3/computer/build/custom_msgs/ament_cmake_environment_hooks/library_path.dsv" "DESTINATION" "share/custom_msgs/environment")
 ament_cmake_symlink_install_files("/home/sangyeon/project3/computer/src/custom_msgs" FILES "/home/sangyeon/project3/computer/build/custom_msgs/ament_cmake_environment_hooks/library_path.dsv" "DESTINATION" "share/custom_msgs/environment")
 
-# install(DIRECTORY "/home/sangyeon/project3/computer/build/custom_msgs/rosidl_typesupport_fastrtps_c/custom_msgs/" "DESTINATION" "include/custom_msgs/custom_msgs" "PATTERN_EXCLUDE" "*.cpp")
-ament_cmake_symlink_install_directory("/home/sangyeon/project3/computer/src/custom_msgs" DIRECTORY "/home/sangyeon/project3/computer/build/custom_msgs/rosidl_typesupport_fastrtps_c/custom_msgs/" "DESTINATION" "include/custom_msgs/custom_msgs" "PATTERN_EXCLUDE" "*.cpp")
-
 # install(DIRECTORY "/home/sangyeon/project3/computer/build/custom_msgs/rosidl_typesupport_introspection_c/custom_msgs/" "DESTINATION" "include/custom_msgs/custom_msgs" "PATTERN" "*.h")
 ament_cmake_symlink_install_directory("/home/sangyeon/project3/computer/src/custom_msgs" DIRECTORY "/home/sangyeon/project3/computer/build/custom_msgs/rosidl_typesupport_introspection_c/custom_msgs/" "DESTINATION" "include/custom_msgs/custom_msgs" "PATTERN" "*.h")
+
+# install(DIRECTORY "/home/sangyeon/project3/computer/build/custom_msgs/rosidl_typesupport_fastrtps_c/custom_msgs/" "DESTINATION" "include/custom_msgs/custom_msgs" "PATTERN_EXCLUDE" "*.cpp")
+ament_cmake_symlink_install_directory("/home/sangyeon/project3/computer/src/custom_msgs" DIRECTORY "/home/sangyeon/project3/computer/build/custom_msgs/rosidl_typesupport_fastrtps_c/custom_msgs/" "DESTINATION" "include/custom_msgs/custom_msgs" "PATTERN_EXCLUDE" "*.cpp")
 
 # install(DIRECTORY "/home/sangyeon/project3/computer/build/custom_msgs/rosidl_generator_cpp/custom_msgs/" "DESTINATION" "include/custom_msgs/custom_msgs" "PATTERN" "*.hpp")
 ament_cmake_symlink_install_directory("/home/sangyeon/project3/computer/src/custom_msgs" DIRECTORY "/home/sangyeon/project3/computer/build/custom_msgs/rosidl_generator_cpp/custom_msgs/" "DESTINATION" "include/custom_msgs/custom_msgs" "PATTERN" "*.hpp")
 
-# install(DIRECTORY "/home/sangyeon/project3/computer/build/custom_msgs/rosidl_typesupport_fastrtps_cpp/custom_msgs/" "DESTINATION" "include/custom_msgs/custom_msgs" "PATTERN_EXCLUDE" "*.cpp")
-ament_cmake_symlink_install_directory("/home/sangyeon/project3/computer/src/custom_msgs" DIRECTORY "/home/sangyeon/project3/computer/build/custom_msgs/rosidl_typesupport_fastrtps_cpp/custom_msgs/" "DESTINATION" "include/custom_msgs/custom_msgs" "PATTERN_EXCLUDE" "*.cpp")
-
 # install(DIRECTORY "/home/sangyeon/project3/computer/build/custom_msgs/rosidl_typesupport_introspection_cpp/custom_msgs/" "DESTINATION" "include/custom_msgs/custom_msgs" "PATTERN" "*.hpp")
 ament_cmake_symlink_install_directory("/home/sangyeon/project3/computer/src/custom_msgs" DIRECTORY "/home/sangyeon/project3/computer/build/custom_msgs/rosidl_typesupport_introspection_cpp/custom_msgs/" "DESTINATION" "include/custom_msgs/custom_msgs" "PATTERN" "*.hpp")
+
+# install(DIRECTORY "/home/sangyeon/project3/computer/build/custom_msgs/rosidl_typesupport_fastrtps_cpp/custom_msgs/" "DESTINATION" "include/custom_msgs/custom_msgs" "PATTERN_EXCLUDE" "*.cpp")
+ament_cmake_symlink_install_directory("/home/sangyeon/project3/computer/src/custom_msgs" DIRECTORY "/home/sangyeon/project3/computer/build/custom_msgs/rosidl_typesupport_fastrtps_cpp/custom_msgs/" "DESTINATION" "include/custom_msgs/custom_msgs" "PATTERN_EXCLUDE" "*.cpp")
 
 # install(FILES "/home/sangyeon/project3/computer/build/custom_msgs/ament_cmake_environment_hooks/pythonpath.sh" "DESTINATION" "share/custom_msgs/environment")
 ament_cmake_symlink_install_files("/home/sangyeon/project3/computer/src/custom_msgs" FILES "/home/sangyeon/project3/computer/build/custom_msgs/ament_cmake_environment_hooks/pythonpath.sh" "DESTINATION" "share/custom_msgs/environment")
@@ -349,10 +349,10 @@ ament_cmake_symlink_install_directory("/home/sangyeon/project3/computer/src/cust
 # install(DIRECTORY "/home/sangyeon/project3/computer/build/custom_msgs/rosidl_generator_py/custom_msgs/" "DESTINATION" "local/lib/python3.10/dist-packages/custom_msgs" "PATTERN_EXCLUDE" "*.pyc" "PATTERN_EXCLUDE" "__pycache__")
 ament_cmake_symlink_install_directory("/home/sangyeon/project3/computer/src/custom_msgs" DIRECTORY "/home/sangyeon/project3/computer/build/custom_msgs/rosidl_generator_py/custom_msgs/" "DESTINATION" "local/lib/python3.10/dist-packages/custom_msgs" "PATTERN_EXCLUDE" "*.pyc" "PATTERN_EXCLUDE" "__pycache__")
 
-# install("TARGETS" "custom_msgs__rosidl_typesupport_fastrtps_c__pyext" "DESTINATION" "local/lib/python3.10/dist-packages/custom_msgs")
+# install("TARGETS" "custom_msgs__rosidl_typesupport_introspection_c__pyext" "DESTINATION" "local/lib/python3.10/dist-packages/custom_msgs")
 include("/home/sangyeon/project3/computer/build/custom_msgs/ament_cmake_symlink_install_targets_0_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
 
-# install("TARGETS" "custom_msgs__rosidl_typesupport_introspection_c__pyext" "DESTINATION" "local/lib/python3.10/dist-packages/custom_msgs")
+# install("TARGETS" "custom_msgs__rosidl_typesupport_fastrtps_c__pyext" "DESTINATION" "local/lib/python3.10/dist-packages/custom_msgs")
 include("/home/sangyeon/project3/computer/build/custom_msgs/ament_cmake_symlink_install_targets_1_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
 
 # install("TARGETS" "custom_msgs__rosidl_typesupport_c__pyext" "DESTINATION" "local/lib/python3.10/dist-packages/custom_msgs")
