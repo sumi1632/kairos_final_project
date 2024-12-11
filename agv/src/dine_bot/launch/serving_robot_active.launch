@@ -1,0 +1,17 @@
+<launch>
+    <node name="agv_lidar_node" pkg="dine_bot" type="lidar_active.py" output="screen"/>
+    <node name="arduino_control_node" pkg="dine_bot" type="arduino_controller.py" output="screen"/>
+    <node name="myagv_camera_node" pkg="dine_bot" type="optimized_camera_publisher.py" output="screen"/>
+    <node name="line_trace_node" pkg="dine_bot" type="line_trace.py" output="screen"/>
+    <param name="camera_device" value="/dev/video0" />
+    
+    <node pkg="myagv_odometry" type="myagv_odometry_node" name="myagv_odometry_node" output="screen"/>
+    <include file="$(find ydlidar_ros_driver)/launch/X2.launch" />
+        
+    <param name = "robot_description" textfile = "$(find dine_bot)/urdf/myagv/myAGV.urdf"/> 
+    <node name="joint_state_publisher_myagv" pkg="joint_state_publisher" type="joint_state_publisher" />
+    <node name="robot_state_publisher_myagv" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+     <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser_link" args="0.065 0.0 0.08 3.14159265 0.0 0.0 /base_footprint /laser_frame 10" />
+     <node pkg="tf" type="static_transform_publisher" name="base_link_to_imu_link" args="-0.015 0.0 0.0 0.0 0.0 0.0 /base_footprint /imu_raw 10" /> 
+</launch>
