@@ -7,6 +7,5 @@
 #include "custom_msgs/srv/detail/receive_order__struct.hpp"
 #include "custom_msgs/srv/detail/receive_order__builder.hpp"
 #include "custom_msgs/srv/detail/receive_order__traits.hpp"
-#include "custom_msgs/srv/detail/receive_order__type_support.hpp"
 
 #endif  // CUSTOM_MSGS__SRV__RECEIVE_ORDER_HPP_

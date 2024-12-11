@@ -7,6 +7,5 @@
 #include "custom_msgs/msg/detail/update_status__struct.hpp"
 #include "custom_msgs/msg/detail/update_status__builder.hpp"
 #include "custom_msgs/msg/detail/update_status__traits.hpp"
-#include "custom_msgs/msg/detail/update_status__type_support.hpp"
 
 #endif  // CUSTOM_MSGS__MSG__UPDATE_STATUS_HPP_

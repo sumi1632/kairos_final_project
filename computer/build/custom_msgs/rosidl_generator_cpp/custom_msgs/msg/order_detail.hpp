@@ -7,6 +7,5 @@
 #include "custom_msgs/msg/detail/order_detail__struct.hpp"
 #include "custom_msgs/msg/detail/order_detail__builder.hpp"
 #include "custom_msgs/msg/detail/order_detail__traits.hpp"
-#include "custom_msgs/msg/detail/order_detail__type_support.hpp"
 
 #endif  // CUSTOM_MSGS__MSG__ORDER_DETAIL_HPP_

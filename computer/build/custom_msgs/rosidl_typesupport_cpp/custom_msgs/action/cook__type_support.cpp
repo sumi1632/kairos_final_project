@@ -660,21 +660,6 @@ get_service_type_support_handle<custom_msgs::action::Cook_SendGoal>()
 
 }  // namespace rosidl_typesupport_cpp
 
-#ifdef __cplusplus
-extern "C"
-{
-#endif
-
-ROSIDL_TYPESUPPORT_CPP_PUBLIC
-const rosidl_service_type_support_t *
-ROSIDL_TYPESUPPORT_INTERFACE__SERVICE_SYMBOL_NAME(rosidl_typesupport_cpp, custom_msgs, action, Cook_SendGoal)() {
-  return ::rosidl_typesupport_cpp::get_service_type_support_handle<custom_msgs::action::Cook_SendGoal>();
-}
-
-#ifdef __cplusplus
-}
-#endif
-
 // already included above
 // #include "cstddef"
 // already included above
@@ -1003,21 +988,6 @@ get_service_type_support_handle<custom_msgs::action::Cook_GetResult>()
 
 }  // namespace rosidl_typesupport_cpp
 
-#ifdef __cplusplus
-extern "C"
-{
-#endif
-
-ROSIDL_TYPESUPPORT_CPP_PUBLIC
-const rosidl_service_type_support_t *
-ROSIDL_TYPESUPPORT_INTERFACE__SERVICE_SYMBOL_NAME(rosidl_typesupport_cpp, custom_msgs, action, Cook_GetResult)() {
-  return ::rosidl_typesupport_cpp::get_service_type_support_handle<custom_msgs::action::Cook_GetResult>();
-}
-
-#ifdef __cplusplus
-}
-#endif
-
 // already included above
 // #include "cstddef"
 // already included above
@@ -1182,18 +1152,3 @@ get_action_type_support_handle<custom_msgs::action::Cook>()
 }
 
 }  // namespace rosidl_typesupport_cpp
-
-#ifdef __cplusplus
-extern "C"
-{
-#endif
-
-ROSIDL_TYPESUPPORT_CPP_PUBLIC
-const rosidl_action_type_support_t *
-ROSIDL_TYPESUPPORT_INTERFACE__ACTION_SYMBOL_NAME(rosidl_typesupport_cpp, custom_msgs, action, Cook)() {
-  return ::rosidl_typesupport_cpp::get_action_type_support_handle<custom_msgs::action::Cook>();
-}
-
-#ifdef __cplusplus
-}
-#endif
