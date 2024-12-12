@@ -200,8 +200,9 @@ class TaskManager(Node):
         goal_msg = Serve.Goal()
         goal_msg.table_num = table_num  # 요청 값으로 테이블 번호 설정
 
-        self.update_status(self.current_order_detail_id, "Delivering", 'cook')
-        self.get_logger().info(f'Sending AGV to Table {table_num}')
+        if table_num != 0:
+            self.update_status(self.current_order_detail_id, "Delivering", 'cook')
+            self.get_logger().info(f'Sending AGV to Table {table_num}')
         
         self.is_serving = True
 
@@ -233,8 +234,10 @@ class TaskManager(Node):
             self.get_logger().info(f'AGV arrived at Table: {self.current_table_num}, Move Result: {move_result}')
 
             # 상태 업데이트: 음식 배달 완료
-            self.update_status(self.current_order_detail_id, "Completed", 'cook')
-            self.is_serving = False
+            if self.current_table_num != 0:
+                self.update_status(self.current_order_detail_id, "Completed", 'cook')
+            else:
+                self.is_serving = False
 
         except Exception as e:
             self.get_logger().error(f'Error handling move result: {e}')
