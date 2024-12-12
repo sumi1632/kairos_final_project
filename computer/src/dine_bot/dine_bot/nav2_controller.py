@@ -30,10 +30,11 @@ class Navigation2Controller(Node):
                 (-0.3562, 0.9711, 1.5708)
             ],
             "2": [
-                (0.6345, 0.0899, -0.0000),
-                (1.3324, 0.0582, -0.0000),
-                (1.8505, 0.2062, 1.5708),
-                (1.8611, 0.9675, 1.5708)
+                (0.5816, 0.0687, -0.0000),
+		(1.2160, 0.1110, -0.0000),
+		(1.8611, 0.3331, 1.5708),
+		(1.8188, 0.9570, 1.5708),
+		(1.9457, 0.8618, -1.5452)
             ]
         }
         # 상태 변수 초기화
@@ -60,6 +61,7 @@ class Navigation2Controller(Node):
         self.initial_pose_publisher = self.create_publisher(PoseWithCovarianceStamped, '/initialpose', 10)
         self.publish_initial_pose_once()
         self.get_logger().info('Navigation2 Controller Node Initialized')
+
     def publish_initial_pose_once(self):
         time.sleep(5)
         msg = PoseWithCovarianceStamped()
@@ -79,6 +81,7 @@ class Navigation2Controller(Node):
         # Publish the message
         self.initial_pose_publisher.publish(msg)
         self.get_logger().info('Published initial pose!')
+
     def start_line_tracing(self, duration_sec):
         """라인 트레이싱 활성화 및 타이머 설정."""
         self.line_tracing_active = True
@@ -87,6 +90,7 @@ class Navigation2Controller(Node):
         if self.line_tracing_timer:
             self.line_tracing_timer.cancel()  # 기존 타이머 취소
         self.line_tracing_timer = self.create_timer(duration_sec, self.disable_line_tracing)
+
     def disable_line_tracing(self):
         """라인 트레이싱 비활성화."""
         self.line_tracing_active = False
@@ -95,6 +99,7 @@ class Navigation2Controller(Node):
         if self.line_tracing_timer:
             self.line_tracing_timer.cancel()  # 타이머 정리
             self.line_tracing_timer = None
+
     async def execute_serve_callback(self, goal_handle):
         """start_serve 액션 서버의 콜백 함수."""
         self.line_tracing_active = False  # 네비게이션 중 라인트레이싱 비활성화
@@ -111,15 +116,16 @@ class Navigation2Controller(Node):
                 ]
             elif self.last_location == "2":
                 self.paths["0"] = [
-                    (1.9034, 1.5174, 1.5708),
-                    (1.9034, 2.0038, 3.1416),
-                    (1.2160, 2.0567, 3.1416),
-                    (0.6345, 2.0567, 3.1416),
-                    (-0.1163, 2.0038, 3.1416),
-                    (-0.9517, 2.0567, -1.5941),
-                    (-0.9517, 0.9464, -1.5708),
-                    (-1.0046, 0.3119, -1.5708),
-                    (-1.0046, -0.1216, -0.0000)
+                    (1.9101, 0.9013, 1.5708),
+		    (1.8411, 1.6915, 1.5708),
+		    (1.8104, 2.1287, 3.1416),
+		    (1.0433, 1.9983, 3.1416),
+		    (-0.0614, 2.006, 3.1416),
+		    (-0.3835, 1.9983, 3.1416),
+		    (-0.8055, 2.0443, -1.5708),
+		    (-0.8668, 1.0011, -1.5708),
+		    (-0.9819, 0.3644, -1.5708),
+		    (-1.0049, -0.0038, -0.0000)
                 ]
             else:
                 self.get_logger().error('경로를 설정할 수 없습니다. 현재 위치가 초기 위치인지 확인하세요.')
@@ -148,9 +154,13 @@ class Navigation2Controller(Node):
         self.last_location = table_num
         self.get_logger().info(f'Successfully served table: {table_num}')
         goal_handle.succeed()
-        # 네비게이션이 끝난 후 라인트레이싱 활성화 (예: 30초 동안 활성화)
-        self.start_line_tracing(duration_sec=30)
+        if table_num == "0":
+            # 네비게이션이 끝난 후 라인트레이싱 활성화 (예: 30초 동안 활성화)
+            self.start_line_tracing(duration_sec=30)
+        else:
+            self.get_logger().info('Line tracing remains deactivated for this path.')
         return Serve.Result(move_result='success')
+
     async def send_goal(self, pose: PoseStamped):
         """NavigateToPose 액션 클라이언트를 통해 목표로 이동."""
         if not self.nav_action_client.wait_for_server(timeout_sec=10.0):
@@ -173,6 +183,7 @@ class Navigation2Controller(Node):
         else:
             self.get_logger().error(f'Navigation goal failed with status: {result.status}')
             return False
+
     def create_pose(self, x, y, yaw):
         """Create a PoseStamped message for a given x, y, yaw."""
         pose = PoseStamped()
@@ -184,6 +195,7 @@ class Navigation2Controller(Node):
         pose.pose.orientation.z = math.sin(yaw / 2.0)
         pose.pose.orientation.w = math.cos(yaw / 2.0)
         return pose
+
     def image_callback(self, msg):
         if not self.line_tracing_active:
             return
@@ -238,6 +250,7 @@ class Navigation2Controller(Node):
                     self.lost_line_count = 0
         except Exception as e:
             self.get_logger().error(f'Image processing error: {e}', exc_info=True)
+            
 def main():
     rclpy.init()
     node = Navigation2Controller()
