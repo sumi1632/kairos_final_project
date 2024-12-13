@@ -1,75 +1,75 @@
 #include <WiFi.h>
-#include <Servo.h>
+#include <ESP32Servo.h>
 
 // Wi-Fi 설정
-#define ssid "ConnectValue_C403_2G"  // Wi-Fi SSID
-#define password "CVC403!@#$"         // Wi-Fi 비밀번호
+#define ssid "ConnectValue_C403_2G"        // Wi-Fi SSID
+#define password "CVC403!@#$" // Wi-Fi password
 
-// 서보 모터 객체 선언
-Servo myservo0; // 진공 펌프 제어용 서보
-Servo myservo1; // 솔레노이드 밸브 제어용 서보
+// 서보 모터 설정
+Servo vacuumServo;   // 진공 펌프 제어 서보
+Servo valveServo;    // 솔레노이드 밸브 제어 서보
 
 void setup() {
-  // 시리얼 통신 초기화
   Serial.begin(115200);
-  
-  // 서보 모터 핀 설정
-  myservo0.attach(9);  // 진공 펌프 제어용 서보를 핀 9에 연결
-  myservo1.attach(8);  // 솔레노이드 밸브 제어용 서보를 핀 8에 연결
-  
-  // 서보 초기 상태 설정
-  myservo0.write(0);   // 진공 펌프 OFF (서보 초기 위치: 0도)
-  myservo1.write(0);   // 솔레노이드 밸브 닫힘 (서보 초기 위치: 0도)
+
+  // 서보 모터 핀에 연결
+  vacuumServo.attach(2);  // 진공 서보를 9번 핀에 연결
+  valveServo.attach(4);   // 밸브 서보를 8번 핀에 연결
+
+  // 서보 초기화
+  vacuumServo.write(0);   // 진공 펌프 끄기
+  valveServo.write(0);    // 밸브 닫기
+  delay(1000);
+
+  Serial.println("시스템 초기화 완료");
+  Serial.println("진공: OFF, 밸브: 닫힘");
 
   // Wi-Fi 연결
   WiFi.begin(ssid, password);
-  Serial.println("Connecting to Wi-Fi...");
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
     Serial.print(".");
   }
-  Serial.println("\nWi-Fi connected!");
-  Serial.print("IP address: ");
+  Serial.println("Wi-Fi 연결됨");
+  Serial.print("IP 주소: ");
   Serial.println(WiFi.localIP());
-
-  // 소켓 서버 시작
-  WiFiServer server(10000);  // 포트 10000에서 서버 시작
-  server.begin();
-  Serial.println("Server started, waiting for clients...");
 }
 
 void loop() {
-  WiFiServer server(10000);
-  WiFiClient client = server.available();
+  WiFiClient client;
   
-  if (client) {
-    Serial.println("Client connected");
-    
-    // 명령을 받는 부분
-    while (client.connected()) {
-      if (client.available()) {
-        char command = client.read();
-        Serial.print("Command received: ");
-        Serial.println(command);
+  // Python 서버에 연결
+  if (!client.connect("172.30.1.11", 8882)) {  // 서버의 IP를 적절히 변경하세요.
+    Serial.println("서버에 연결 실패. 재시도 중...");
+    delay(2000);
+    return;
+  }
+  
+  Serial.println("Python 서버에 연결됨.");
 
-        // 명령에 따라 서보 제어
-        if (command == '1') {  // 진공 펌프 작동 (모터 1: 시계방향)
-          Serial.println("Pump ON, Valve Closed");
-          myservo0.write(180);  // 진공 펌프 ON (서보 모터 180도)
-          myservo1.write(0);    // 솔레노이드 밸브 닫힘 (서보 모터 0도)
-          client.println("Pump ON, Valve Closed");
-        } else if (command == '2') {  // 진공 펌프 해제 (모터 1: 반시계방향)
-          Serial.println("Pump OFF, Valve Open");
-          myservo0.write(0);    // 진공 펌프 OFF (서보 모터 0도)
-          myservo1.write(180);  // 솔레노이드 밸브 열림 (서보 모터 180도)
-          client.println("Pump OFF, Valve Open");
-        } else {
-          Serial.println("Invalid command received.");
-          client.println("Invalid command");
-        }
+  // Python에서 명령을 수신
+  while (client.connected()) {
+    while (client.available()) {
+      String command = client.readString();
+      Serial.println("받은 명령: " + command);
+
+      if (command == "Suction ON") {
+        vacuumServo.write(180);  // 진공 펌프 ON
+        valveServo.write(0);     // 밸브 닫기
+        client.println("진공 ON, 밸브 닫힘");
+      }
+      else if (command == "Suction OFF") {
+        vacuumServo.write(0);    // 진공 펌프 OFF
+        valveServo.write(180);   // 밸브 열기
+        client.println("진공 OFF, 밸브 열림");
+      }
+      else {
+        client.println("알 수 없는 명령");
       }
     }
-    client.stop();  // 클라이언트 연결 종료
-    Serial.println("Client disconnected");
   }
+
+  client.stop();  // 연결 종료
+  delay(100);  // 잠시 대기 후 반복
 }
+
