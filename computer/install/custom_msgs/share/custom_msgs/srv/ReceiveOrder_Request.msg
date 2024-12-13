@@ -1,1 +1,0 @@
-/home/kim/project3/computer/build/custom_msgs/rosidl_cmake/srv/ReceiveOrder_Request.msg

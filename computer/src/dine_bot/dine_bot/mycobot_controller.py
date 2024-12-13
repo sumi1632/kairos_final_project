@@ -4,6 +4,7 @@ from rclpy.action import ActionServer
 from rclpy.executors import MultiThreadedExecutor
 from custom_msgs.action import Cook
 from std_msgs.msg import String
+from std_srvs.srv import Trigger
 from pymycobot.mycobot import MyCobot
 import time
 from collections import deque
@@ -27,6 +28,13 @@ class CookActionServer(Node):
         self.plc_publisher = self.create_publisher(String, 'plc_control', 10)
         self.suction_publisher = self.create_publisher(String, 'suction_command', 10)
 
+        # 접시 거리값 받아오기
+        self.client = self.create_client(Trigger, 'get_plate_distance')
+        while not self.client.wait_for_service(timeout_sec=1.0):
+            self.get_logger().info('Waiting for the service to become available...')
+        self.send_plate_distance_request()
+        self.distance_plate = 0
+
         # 로봇 초기화
         try:
             self.mycobot = MyCobot('/dev/ttyACM0', 115200)
@@ -43,6 +51,23 @@ class CookActionServer(Node):
         self.is_cooking = False
         self.current_menu = ""
         self.cooking_done_event = threading.Event()
+
+    def send_plate_distance_request(self):
+        request = Trigger.Request()
+
+        future = self.client.call_async(request)
+        future.add_done_callback(self.handle_response_distance)
+
+    def handle_response_distance(self, future):
+        try:
+            response = future.result()
+            if response.success:
+                self.get_logger().info(f'Success: {response.message}')
+                self.distance_plate = int(float(response.message))
+            else:
+                self.get_logger().error(f'Failed: {response.message}')
+        except Exception as e:
+            self.get_logger().error(f'Service call failed: {e}')
 
     def initialize_robot(self):
         """로봇 초기화"""
@@ -351,9 +376,15 @@ class CookActionServer(Node):
             self.mycobot.send_angles([-42.53, 86.04, -7.55, -68.55, 5.8, -12.74], 30)
             time.sleep(6)
 
-            self.get_logger().info("석션 위해 접시로 접근")
-            self.mycobot.send_angles([-43.5, 88.15, 18.8, -101.6, 5.36, -15.29], 30)
-            time.sleep(9)
+            # 접시 거리만큼 내려가기
+            coords = self.mycobot.get_coords()
+            print(coords)
+            self.mycobot.send_coords([coords[0], coords[1], coords[2] - (self.distance_plate - 340), coords[3], coords[4], coords[5]], 30, 1)
+            time.sleep(5)
+
+            # self.get_logger().info("석션 위해 접시로 접근")
+            # self.mycobot.send_angles([-43.5, 88.15, 18.8, -101.6, 5.36, -15.29], 30)
+            # time.sleep(9)
 
             self.suction_command_callback("Suction ON")
             time.sleep(5)

@@ -1,7 +1,0 @@
-int32 table_num
----
-string move_result
----
-float64 x
-float64 y
-float64 theta

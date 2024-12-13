@@ -1,9 +1,0 @@
-[console_scripts]
-db_manager_node = dine_bot.db_manager:main
-esp32_control_node = dine_bot.esp32_control_node:main
-monitor_plc_node = dine_bot.monitor_plc_node:main
-mycobot_controller = dine_bot.mycobot_controller:main
-nav2_controller = dine_bot.nav2_controller:main
-plate_distance_node = dine_bot.plate_distance_node:main
-suction_cup_node = dine_bot.suction_cup_node:main
-task_manager_node = dine_bot.task_manager:main

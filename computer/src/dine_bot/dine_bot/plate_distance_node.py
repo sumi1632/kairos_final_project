@@ -79,7 +79,7 @@ class PlateDistanceService(Node):
             cx, cy, width_in_pixels, class_name, x1, y1, x2, y2 = result
             distance = self.calculate_distance_to_object(width_in_pixels)
             response.success = True
-            response.message = f"Detected {class_name}, Distance: {distance:.2f} mm"
+            response.message = f"{distance:.2f}"
             self.get_logger().info(response.message)
         else:
             response.success = False
