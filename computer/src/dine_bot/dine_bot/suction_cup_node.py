@@ -14,7 +14,7 @@ class SuctionControlNode(Node):
         
         # 소켓 서버 설정
         self.server_ip = '0.0.0.0'
-        self.server_port = 9000
+        self.server_port = 8882
         self.get_logger().info("Starting server...")
         self.server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.server.bind((self.server_ip, self.server_port))

@@ -50,7 +50,7 @@ class CookActionServer(Node):
             self.mycobot.set_gripper_mode(0)
             self.mycobot.init_eletric_gripper()
             self.mycobot.set_gripper_state(0, 50)
-            self.mycobot.send_angles([0, 0, 0, 0, 0, 0], 100)
+            self.mycobot.send_angles([0, 0, 0, 0, 0, 0], 30)
             time.sleep(2)
             self.get_logger().info("로봇 초기화 완료")
         except Exception as e:
@@ -143,6 +143,24 @@ class CookActionServer(Node):
             self.is_ready_for_robotarm_move = True
         else:
             self.get_logger().warn(f"알 수 없는 명령: {command}")
+    def suction_command_callback(self, command: str):
+        """
+        흡착 컵 명령을 suction_cup_node로 전송
+        :param command: "Suction ON" 또는 "Suction OFF"
+        """
+        try:
+            # 명령 유효성 확인
+            if command not in ["Suction ON", "Suction OFF"]:
+                self.get_logger().warn(f"유효하지 않은 석션 명령: {command}")
+                return
+            
+            # 메시지 생성 및 발행
+            suction_msg = String()
+            suction_msg.data = command
+            self.suction_publisher.publish(suction_msg)
+            self.get_logger().info(f"{command} 명령 suction_cup_node로 전송 완료")
+        except Exception as e:
+            self.get_logger().error(f"suction_command_callback 중 오류 발생: {e}")
 
     def material_handling(self):
         """재료 이동 및 준비"""
@@ -259,7 +277,7 @@ class CookActionServer(Node):
             time.sleep(5)
 
             self.get_logger().info("조리도구 잡기 위치")
-            self.mycobot.send_angles([-10.1, -57.65, -36.05, 102.26, 107.31, 1.4], 30)
+            self.mycobot.send_angles([-9, -57.65, -36.05, 102.26, 107.31, 1.4], 30)
             time.sleep(5)
 
             self.get_logger().info("조리도구 잡기")
@@ -267,7 +285,7 @@ class CookActionServer(Node):
             time.sleep(4)
 
             self.get_logger().info("조리도구 들어올리기")
-            self.mycobot.send_angles([-13.97, -14.06, -99.75, 108.1, 107.92, 0.7], 30)
+            self.mycobot.send_angles([-9, -14.06, -99.75, 108.1, 107.92, 0.7], 30)
             time.sleep(5)
 
             # 젓기 동작 시작
@@ -284,16 +302,20 @@ class CookActionServer(Node):
                 time.sleep(2)
 
             self.get_logger().info("조리도구 회수 시작")
-            self.mycobot.send_angles([-8, -22, -99.75, 132, 100, 6], 30)
+            self.mycobot.send_angles([-9, -14.06, -99.75, 108.1, 107.92, 0.7], 30)
             time.sleep(5)
 
             self.get_logger().info("조리도구 되돌리기")
-            self.mycobot.send_angles([-55, -22, -99.75, 132, 100, 6], 30)
+            self.mycobot.send_angles([-9, -66.65, -23.55, 102.26, 107.31, 1.4], 30)
             time.sleep(5)
 
             self.get_logger().info("조리도구 내려놓기")
             self.mycobot.set_gripper_state(0, 100)
             time.sleep(4)
+            
+            self.get_logger().info("빠지기")
+            self.mycobot.send_angles([-9, -46.65, -33.55, 102.26, 107.31, 1.4], 30)
+            time.sleep(5)
 
             self.get_logger().info(">>> 조리도구 동작 완료\n")
         except Exception as e:
@@ -321,16 +343,14 @@ class CookActionServer(Node):
 
             self.get_logger().info("석션 접시 위 위치함")
             self.mycobot.send_angles([-42.53, 86.04, -7.55, -68.55, 5.8, -12.74], 30)
-            time.sleep(5)
+            time.sleep(20)
 
             self.get_logger().info("석션 위해 접시로 접근")
             self.mycobot.send_angles([-43.5, 88.15, 18.8, -101.6, 5.36, -15.29], 30)
-            time.sleep(5)
+            time.sleep(9)
 
-            suction_on_msg = String()
-            suction_on_msg.data = "Suction ON"
-            self.suction_publisher.publish(suction_on_msg)
-            self.get_logger().info("Suction ON 명령 suction_cup_node로 전송")
+            self.suction_command_callback("Suction ON")
+            time.sleep(5)
 
             self.get_logger().info("석션 위해 접시로 접근")
             self.mycobot.send_angles([-45.0, 46.58, 24.16, -64.68, -3.33, -11.42], 30)
@@ -342,12 +362,10 @@ class CookActionServer(Node):
 
             self.get_logger().info("AGV 위에 접시 올림")
             self.mycobot.send_angles([-82.35, 83.23, 3.07, -81.82, -54.66, -4.04], 30)
-            time.sleep(5)
+            time.sleep(15)
 
-            suction_off_msg = String()
-            suction_off_msg.data = "Suction OFF"
-            self.suction_publisher.publish(suction_off_msg)
-            self.get_logger().info("Suction OFF 명령 suction_cup_node로 전송")
+            self.suction_command_callback("Suction OFF")
+            time.sleep(5)
 
             self.get_logger().info("접시 놓은 후 웨이 포인트")
             self.mycobot.send_angles([-82.17, 57.74, -14.15, -41.3, -46.14, 1.23], 30)
@@ -398,15 +416,24 @@ class CookActionServer(Node):
             time.sleep(4)
 
             self.get_logger().info("팬 들어 올림")
-            self.mycobot.send_angles([-4.21, -2.98, -5.18, -33.13, 95.18, -3.25], 30)
+            self.mycobot.send_angles([45, -51.41, -1.05, -38.58, 91.23, 1.23], 30)
             time.sleep(5)
 
             self.get_logger().info("AGV 위 접시로 접근")
             self.mycobot.send_angles([144.66, -29.88, -1.4, -11.51, 65.03, -16.17], 30)
             time.sleep(5)
 
-            self.get_logger().info("쏟기 - 블로키로 예정")
-            # 쏟기 동작 블로키 명령 추가 예정
+            self.get_logger().info("쏟기 1")
+            self.mycobot.send_angles([144.75, -45.43, 37.0, -20.3, 58.71, -37.17], 30)
+            time.sleep(5)
+
+            self.get_logger().info("쏟기 2")
+            self.mycobot.send_angles([158.55, -66.5, 13.79, -27.68, -31.64, -33.66], 30)
+            time.sleep(5)
+            
+            self.get_logger().info("쏟기 3")
+            self.mycobot.send_angles([158.9, -4.21, 25.4, -26.19, 17.13, -13.27], 30)
+            time.sleep(5)
 
             self.get_logger().info("쏟고 들어 올리기")
             self.mycobot.send_angles([130.16, -2.98, -2.54, -49.21, 92.1, -19.86], 30)
