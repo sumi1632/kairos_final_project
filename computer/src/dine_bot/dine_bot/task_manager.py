@@ -40,7 +40,7 @@ class TaskManager(Node):
 
         # TCP 서버 설정 (웹 클라이언트용)
         self.web_host = '0.0.0.0'
-        self.web_port = 12345
+        self.web_port = 12344
         self.server_socket = None
 
         # `return` 토픽 구독
