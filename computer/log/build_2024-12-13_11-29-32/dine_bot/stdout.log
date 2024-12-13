@@ -1,0 +1,22 @@
+running develop
+running egg_info
+writing dine_bot.egg-info/PKG-INFO
+writing dependency_links to dine_bot.egg-info/dependency_links.txt
+writing entry points to dine_bot.egg-info/entry_points.txt
+writing requirements to dine_bot.egg-info/requires.txt
+writing top-level names to dine_bot.egg-info/top_level.txt
+reading manifest file 'dine_bot.egg-info/SOURCES.txt'
+writing manifest file 'dine_bot.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/kim/project3/computer/install/dine_bot/lib/python3.10/site-packages/dine-bot.egg-link (link to .)
+Installing db_manager_node script to /home/kim/project3/computer/install/dine_bot/lib/dine_bot
+Installing esp32_control_node script to /home/kim/project3/computer/install/dine_bot/lib/dine_bot
+Installing monitor_plc_node script to /home/kim/project3/computer/install/dine_bot/lib/dine_bot
+Installing mycobot_controller script to /home/kim/project3/computer/install/dine_bot/lib/dine_bot
+Installing nav2_controller script to /home/kim/project3/computer/install/dine_bot/lib/dine_bot
+Installing plate_distance_node script to /home/kim/project3/computer/install/dine_bot/lib/dine_bot
+Installing suction_cup_node script to /home/kim/project3/computer/install/dine_bot/lib/dine_bot
+Installing task_manager_node script to /home/kim/project3/computer/install/dine_bot/lib/dine_bot
+
+Installed /home/kim/project3/computer/build/dine_bot
+running symlink_data
