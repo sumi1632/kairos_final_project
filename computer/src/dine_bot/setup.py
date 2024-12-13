@@ -17,6 +17,7 @@ setup(
         (os.path.join('share', package_name, 'urdf'), glob('urdf/*.urdf')),
         (os.path.join('share', package_name, 'params'), glob('params/*')),
         (os.path.join('share', package_name, 'maps'), glob('maps/*')),
+        (os.path.join('share', package_name, 'models'), glob('models/*')),
     ],
     install_requires=['setuptools', 'mysql-connector-python'],
     zip_safe=True,
@@ -34,6 +35,7 @@ setup(
             'esp32_control_node = dine_bot.esp32_control_node:main',
             'suction_cup_node = dine_bot.suction_cup_node:main',
             'monitor_plc_node = dine_bot.monitor_plc_node:main',
+            'plate_distance_node = dine_bot.plate_distance_node:main',
         ],
     },
 )
