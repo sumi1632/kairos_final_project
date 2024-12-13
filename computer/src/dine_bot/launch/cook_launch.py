@@ -6,7 +6,7 @@ def generate_launch_description():
         Node(
             package='dine_bot',
             executable='db_manager_node',
-            name='db_manager',
+            name='db_manager_node',
             output='screen'
         ),
         Node(
@@ -36,7 +36,13 @@ def generate_launch_description():
         Node(
             package='dine_bot',
             executable='task_manager_node',
-            name='task_manager',
+            name='task_manager_node',
+            output='screen'
+        ),
+        Node(
+            package='dine_bot',
+            executable='plate_distance_node',
+            name='plate_distance_node',
             output='screen'
         )
     ])
