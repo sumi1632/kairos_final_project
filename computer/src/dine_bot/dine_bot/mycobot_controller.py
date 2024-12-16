@@ -32,7 +32,6 @@ class CookActionServer(Node):
         self.client = self.create_client(Trigger, 'get_plate_distance')
         while not self.client.wait_for_service(timeout_sec=1.0):
             self.get_logger().info('Waiting for the service to become available...')
-        self.send_plate_distance_request()
         self.distance_plate = 0
 
         # 로봇 초기화
@@ -111,6 +110,9 @@ class CookActionServer(Node):
         try:
             self.current_menu = self.orders.popleft()
             self.get_logger().info(f'Starting to cook: {self.current_menu}')
+
+            # 접시 거리 받아오기
+            self.send_plate_distance_request()
 
             # PLC 동작 시작 알림
             plc_msg = String()
@@ -304,13 +306,13 @@ class CookActionServer(Node):
             time.sleep(5)
 
             self.get_logger().info("조리도구 잡기 위치")
-            self.mycobot.send_angles([-9.5, -57.65, -36.05, 102.26, 107.31, 1.4], 30)
+            self.mycobot.send_angles([-10.1, -57.65, -36.05, 102.26, 107.31, 1.4], 30)
             time.sleep(5)
 
             self.get_logger().info("조리도구 잡기")
             self.mycobot.set_gripper_state(1, 100)
             time.sleep(4)
-
+            
             self.get_logger().info("조리도구 들어올리기")
             self.mycobot.send_angles([-9, -14.06, -99.75, 108.1, 107.92, 0.7], 30)
             time.sleep(5)
@@ -333,11 +335,11 @@ class CookActionServer(Node):
             time.sleep(5)
 
             self.get_logger().info("조리도구 되걸기 중간 위치")
-            self.mycobot.send_angles([-10, -66.65, -23.55, 103.5, 107.31, 1.4], 30)
+            self.mycobot.send_angles([-10.1, -66.65, -23.55, 103.5, 107.31, 1.4], 30)
             time.sleep(5)
 
             self.get_logger().info("조리도구 되걸기")
-            self.mycobot.send_angles([-9.5, -59, -36.05, 102.26, 107.31, 1.4], 30)
+            self.mycobot.send_angles([-7.5, -59, -36.05, 102.26, 107.31, 1.4], 30)
             time.sleep(5)
 
             self.get_logger().info("조리도구 내려놓기")
@@ -368,29 +370,39 @@ class CookActionServer(Node):
             self.get_logger().info("그리퍼로 석션 잡기")
             time.sleep(4)
 
-            self.get_logger().info("석션 들어 올림")
+            self.get_logger().info("석션 들어올림1")
+            self.mycobot.send_angles([-50.71, 80, -20.56, -70.66, -20.03, -12.74], 30)
+            time.sleep(5)
+
+
+            self.get_logger().info("석션 들어 올림2")
             self.mycobot.send_angles([-49.13, 85.51, -14.67, -63.28, -27.77, -10.1], 30)
             time.sleep(5)
 
             self.get_logger().info("석션 접시 위 위치함")
             self.mycobot.send_angles([-42.53, 86.04, -7.55, -68.55, 5.8, -12.74], 30)
-            time.sleep(6)
+            time.sleep(5)
 
             # 접시 거리만큼 내려가기
             coords = self.mycobot.get_coords()
             print(coords)
-            self.mycobot.send_coords([coords[0], coords[1], coords[2] - (self.distance_plate - 340), coords[3], coords[4], coords[5]], 30, 1)
-            time.sleep(5)
+            self.mycobot.send_coords([coords[0], coords[1], coords[2] - (self.distance_plate - 320), coords[3], coords[4], coords[5]], 30, 1)
+            time.sleep(4)
 
             # self.get_logger().info("석션 위해 접시로 접근")
             # self.mycobot.send_angles([-43.5, 88.15, 18.8, -101.6, 5.36, -15.29], 30)
             # time.sleep(9)
+            self.get_logger().info("석션온")
 
             self.suction_command_callback("Suction ON")
-            time.sleep(5)
+            time.sleep(4)
 
-            self.get_logger().info("석션 위해 접시로 접근")
-            self.mycobot.send_angles([-45.0, 46.58, 24.16, -64.68, -3.33, -11.42], 30)
+            # self.get_logger().info("석션 위해 접시로 접근1")
+            # self.mycobot.send_angles([-45.0, 46.58, 24.16, -64.68, -3.33, -11.42], 30)
+            # time.sleep(5)
+
+            self.get_logger().info("석션 위해 접시로 접근2")
+            self.mycobot.send_angles([-45.0, 56.58, 24.16, -64.68, -3.33, -11.42], 30)
             time.sleep(5)
 
             self.get_logger().info("접시 들어 올림")
@@ -399,18 +411,19 @@ class CookActionServer(Node):
 
             self.get_logger().info("AGV 위에 접시 올림")
             self.mycobot.send_angles([-82.35, 83.23, 3.07, -81.82, -54.66, -4.04], 30)
-            time.sleep(6)
-
+            time.sleep(2)
+            self.get_logger().info("석션오프")
+		
             self.suction_command_callback("Suction OFF")
             time.sleep(5)
 
             self.get_logger().info("접시 놓은 후 웨이 포인트")
-            self.mycobot.send_angles([-82.17, 57.74, -14.15, -41.3, -46.14, 1.23], 30)
+            self.mycobot.send_angles([-82.17, 57.74, -14.15, -41.3, -46.14, 1.23], 5)
             time.sleep(5)
 
-            self.get_logger().info("석션 내려놓기 중간 위치")
-            self.mycobot.send_angles([-51.59, 94.83, -17.22, -29.35, 5.53, -51.41], 30)
-            time.sleep(5)
+            # self.get_logger().info("석션 내려놓기 중간 위치")
+            # self.mycobot.send_angles([-51.59, 94.83, -17.22, -29.35, 5.53, -51.41], 30)
+            # time.sleep(5)
 
             self.get_logger().info("석션 내려 놓음")
             self.mycobot.send_angles([-50.71, 99, -20.56, -70.66, -20.03, -12.74], 30)

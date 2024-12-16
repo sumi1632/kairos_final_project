@@ -2,7 +2,6 @@
     <node name="agv_lidar_node" pkg="dine_bot" type="lidar_active.py" output="screen"/>
     <node name="arduino_control_node" pkg="dine_bot" type="arduino_controller.py" output="screen"/>
     <node name="myagv_camera_node" pkg="dine_bot" type="optimized_camera_publisher.py" output="screen"/>
-    <node name="line_trace_node" pkg="dine_bot" type="line_trace.py" output="screen"/>
     <param name="camera_device" value="/dev/video0" />
     
     <node pkg="myagv_odometry" type="myagv_odometry_node" name="myagv_odometry_node" output="screen"/>
