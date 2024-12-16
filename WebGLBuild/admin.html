@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>요리조리 식당 - 관리자 페이지</title>
+    <script>
+        // 메뉴 이름 매핑 객체 수정
+        const menuNameMap = {
+            '튀김덮밥': 'tempura_bowl',
+            '장어덮밥': 'eel_bowl',
+            '비빔밥': 'bibimbap',
+            '국수': 'noodles'
+        };
+
+        // 역방향 매핑 추가
+        const reverseMenuNameMap = {
+            'tempura_bowl': '튀김덮밥',
+            'eel_bowl': '장어덮밥',
+            'bibimbap': '비빔밥',
+            'noodles': '국수'
+        };
+
+        // 현재 조리 상태를 저장할 객체
+        let currentStates = {};
+
+        // 자동 새로고침 비활성화
+        let autoRefreshEnabled = false;
+
+        // 통계 데이터만 새로고침하는 함수
+        function refreshStats() {
+            if (!autoRefreshEnabled) return;
+            
+            fetch('/admin')
+                .then(response => response.text())
+                .then(html => {
+                    const parser = new DOMParser();
+                    const newDoc = parser.parseFromString(html, 'text/html');
+                    
+                    // 통계 카드 업데이트
+                    const statsCards = document.querySelectorAll('.stats-card');
+                    const newStatsCards = newDoc.querySelectorAll('.stats-card');
+                    
+                    statsCards.forEach((card, index) => {
+                        const newCard = newStatsCards[index];
+                        if (newCard) {
+                            // 매출 통계 업데이트
+                            const statsGrid = card.querySelector('.stats-grid');
+                            const newStatsGrid = newCard.querySelector('.stats-grid');
+                            if (statsGrid && newStatsGrid) {
+                                statsGrid.innerHTML = newStatsGrid.innerHTML;
+                            }
+                            
+                            // 총 매출 업데이트
+                            const totalRevenue = card.querySelector('.total-revenue');
+                            const newTotalRevenue = newCard.querySelector('.total-revenue');
+                            if (totalRevenue && newTotalRevenue) {
+                                totalRevenue.innerHTML = newTotalRevenue.innerHTML;
+                            }
+
+                            // 현재 조리 상태 업데이트
+                            const currentCookingStatus = card.querySelector('.current-cooking-status');
+                            const newCookingStatus = newCard.querySelector('.current-cooking-status');
+                            if (currentCookingStatus && newCookingStatus) {
+                                currentCookingStatus.innerHTML = newCookingStatus.innerHTML;
+                            }
+                        }
+                    });
+
+                    // 상태 뱃지에 이벤트 리스너 다시 연결
+                    document.querySelectorAll('.status-badge').forEach(badge => {
+                        if (!badge.hasAttribute('data-listener-attached')) {
+                            badge.setAttribute('data-listener-attached', 'true');
+                            badge.addEventListener('click', function() {
+                                const orderId = this.getAttribute('data-order-id');
+                                const menuName = this.getAttribute('data-menu-name');
+                                const currentStatus = this.getAttribute('data-status');
+                                updateCookingStatus(orderId, menuName, getNextStatus(currentStatus));
+                            });
+                        }
+                    });
+                })
+                .catch(error => console.error('통계 새로고침 중 오류:', error));
+        }
+
+        // 페이지 로드 시 자동 새로고침 간격을 더 짧게 설정
+        document.addEventListener('DOMContentLoaded', () => {
+            autoRefreshEnabled = true;
+            setInterval(refreshStats, 1000); // 1초마다 새로고침
+        });
+
+        // 페이지 언로드 시 자동 새로고침 중지
+        window.addEventListener('beforeunload', () => {
+            autoRefreshEnabled = false;
+        });
+
+        // 다음 상태를 가져오는 함수
+        function getNextStatus(currentStatus) {
+            const statusOrder = ['Waiting', 'Preparing', 'Cooking', 'Plating', 'Delivering', 'Completed'];
+            const currentIndex = statusOrder.indexOf(currentStatus);
+            if (currentIndex < statusOrder.length - 1) {
+                return statusOrder[currentIndex + 1];
+            }
+            return currentStatus;
+        }
+
+        // updateCookingStatus 함수 수정
+        function updateCookingStatus(element) {
+            const itemId = parseInt(element.dataset.itemId);
+            const orderId = element.dataset.orderId;
+            const menuName = element.dataset.menuName;
+            const currentStatus = element.dataset.status;
+            const newStatus = getNextStatus(currentStatus);
+
+            console.log('상태 업데이트 시도:', {
+                itemId,
+                orderId,
+                menuName,
+                currentStatus,
+                newStatus
+            });
+
+            // 키 입력 시뮬레이션
+            const statusMap = {
+                'Waiting': 1,
+                'Preparing': 2,
+                'Cooking': 3,
+                'Plating': 4,
+                'Delivering': 5,
+                'Completed': 6
+            };
+
+            simulateKeyPress(statusMap[newStatus]);
+
+            // 서버에 상태 업데이트
+            fetch(`/api/order/${orderId}/menu/${menuName}/status`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ 
+                    status: newStatus,
+                    item_id: itemId
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('서버 응답:', data);
+                if (data.success) {
+                    // 상태 뱃지 업데이트
+                    element.className = `status-badge ${newStatus.toLowerCase()}`;
+                    element.textContent = getStatusText(newStatus);
+                    element.dataset.status = newStatus;
+                    
+                    // 즉시 새로고침 실행
+                    refreshStats();
+                    
+                    // 3초 후에 자동 새로고침 재시작
+                    setTimeout(() => {
+                        autoRefreshEnabled = true;
+                    }, 3000);
+                }
+            })
+            .catch(error => {
+                console.error('상태 업데이트 실패:', error);
+                setTimeout(() => {
+                    autoRefreshEnabled = true;
+                }, 3000);
+            });
+
+            // 상태 업데이트 중에는 자동 새로고침 일시 중지
+            autoRefreshEnabled = false;
+        }
+
+        // getStatusText 함수 추가 (없다면)
+        function getStatusText(status) {
+            return {
+                'Waiting': '대기중',
+                'Preparing': '재료 준비중',
+                'Cooking': '조리중',
+                'Plating': '플레이팅중',
+                'Delivering': '서빙중',
+                'Completed': '완료'
+            }[status] || status;
+        }
+    </script>
+    <style>
+        :root {
+            --primary: #ff6b6b;
+            --secondary: #4ecdc4;
+            --background: #1a1a1a;
+            --surface: #2a2a2a;
+            --text: #ffffff;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            background: var(--background);
+            color: var(--text);
+            font-family: 'Pretendard', sans-serif;
+        }
+
+        .header {
+            text-align: center;
+            padding: 20px;
+            background: var(--surface);
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .stats-container {
+            display: grid;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            transition: opacity 0.2s ease-in-out;
+        }
+
+        .stats-card {
+            background: var(--surface);
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .stats-card h2 {
+            color: var(--secondary);
+            margin-top: 0;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .menu-stat {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .menu-stat h3 {
+            color: var(--primary);
+            margin: 0 0 10px 0;
+        }
+
+        .stat-value {
+            display: flex;
+            justify-content: space-between;
+            margin: 5px 0;
+            color: #e0e0e0;
+        }
+
+        .total-revenue {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 1.2em;
+            color: var(--primary);
+            text-align: right;
+        }
+
+        .current-cooking-status {
+            background: rgba(78, 205, 196, 0.1);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid rgba(78, 205, 196, 0.2);
+        }
+
+        .current-cooking-status p {
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .status-badge {
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: white;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            cursor: pointer;
+            border: none;
+            transition: transform 0.2s;
+        }
+
+        .status-badge:hover {
+            transform: translateY(-2px);
+        }
+
+        .status-badge.active {
+            transform: scale(1.1);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .status-badge.waiting {
+            background: linear-gradient(135deg, #ff9800, #ff5722);
+        }
+        .status-badge.preparing {
+            background: linear-gradient(135deg, #2196f3, #1976d2);
+        }
+        .status-badge.cooking {
+            background: linear-gradient(135deg, #9c27b0, #7b1fa2);
+        }
+        .status-badge.plating {
+            background: linear-gradient(135deg, #4caf50, #388e3c);
+        }
+        .status-badge.delivering {
+            background: linear-gradient(135deg, #795548, #5d4037);
+        }
+        .status-badge.completed {
+            background: linear-gradient(135deg, #4ecdc4, #45b7af);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .menu-stat {
+                padding: 10px;
+            }
+
+            .current-cooking-status {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+                padding: 15px;
+            }
+
+            .current-cooking-status p {
+                font-size: 1.1rem;
+            }
+
+            .status-badge {
+                font-size: 1rem;
+                padding: 6px 14px;
+            }
+        }
+
+        /* 새로고침 트랜지션 효과 추가 */
+        .stats-container {
+            transition: opacity 0.2s ease-in-out;
+        }
+        
+        /* 데이터 업데이트 시 깜빡임 효과 */
+        @keyframes highlight {
+            0% { background-color: rgba(78, 205, 196, 0.2); }
+            100% { background-color: transparent; }
+        }
+        
+        .value-updated {
+            animation: highlight 1s ease-out;
+        }
+
+        .status-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+
+        .current-cooking-status {
+            background: rgba(78, 205, 196, 0.1);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid rgba(78, 205, 196, 0.2);
+        }
+
+        .cooking-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .status-controls {
+            display: flex;
+            gap: 10px;
+        }
+
+        .status-control {
+            background: var(--surface);
+            border: none;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.2s;
+        }
+
+        .status-control:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .status-control:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        @media (max-width: 768px) {
+            .current-cooking-status {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .cooking-info {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .status-controls {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>요리조리 식당 관리자 페이지</h1>
+    </div>
+
+    <div class="stats-container">
+        <!-- 전체 통계 -->
+        <div class="stats-card">
+            <h2>전체 통계</h2>
+            <div class="stats-grid">
+                {% for menu in menu_data %}
+                <div class="menu-stat">
+                    <h3>{{ menu.name }}</h3>
+                    <div class="stat-value">
+                        <span>판매 수량:</span>
+                        <span>{{ total_stats.menu_stats[menu.name].quantity }}개</span>
+                    </div>
+                    <div class="stat-value">
+                        <span>매출액:</span>
+                        <span>{{ "{:,}".format(total_stats.menu_stats[menu.name].revenue) }}원</span>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="total-revenue">
+                총 매출: {{ "{:,}".format(total_stats.total_revenue) }}원
+            </div>
+        </div>
+
+        <!-- 테이블 1 상태 -->
+        <div class="stats-card">
+            <h2>테이블 1 상태</h2>
+            {% if current_cooking[1].menu_name %}
+            <div class="current-cooking-status">
+                <p>현재 조리중: {{ current_cooking[1].menu_name }}</p>
+                <div class="status-badge {{ current_cooking[1].status.lower() }}"
+                     data-item-id="{{ current_cooking[1].item_id }}"
+                     data-order-id="{{ current_cooking[1].order_id }}"
+                     data-menu-name="{{ current_cooking[1].menu_name }}"
+                     data-status="{{ current_cooking[1].status }}"
+                     onclick="updateCookingStatus(this)">
+                    {{ get_status_text(current_cooking[1].status) }}
+                </div>
+            </div>
+            {% else %}
+            <div class="current-cooking-status">
+                <p>현재 진행중인 주문이 없습니다</p>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- 테이블 2 상태 -->
+        <div class="stats-card">
+            <h2>테이블 2 상태</h2>
+            {% if current_cooking[2].menu_name %}
+            <div class="current-cooking-status">
+                <p>현재 조리중: {{ current_cooking[2].menu_name }}</p>
+                <div class="status-badge {{ current_cooking[2].status.lower() }}"
+                     data-item-id="{{ current_cooking[2].item_id }}"
+                     data-order-id="{{ current_cooking[2].order_id }}"
+                     data-menu-name="{{ current_cooking[2].menu_name }}"
+                     data-status="{{ current_cooking[2].status }}"
+                     onclick="updateCookingStatus(this)">
+                    {{ get_status_text(current_cooking[2].status) }}
+                </div>
+            </div>
+            {% else %}
+            <div class="current-cooking-status">
+                <p>현재 진행중인 주문이 없습니다</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html> 
