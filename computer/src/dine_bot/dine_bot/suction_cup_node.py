@@ -13,7 +13,7 @@ class SuctionCupNode(Node):
         self.publisher = self.create_publisher(String, 'suction_response', 10)
 
         # 소켓 설정
-        self.server_ip = "172.30.1.86"  # ESP32 IP 주소
+        self.server_ip = "172.30.1.64"  # ESP32 IP 주소
         self.server_port = 8882
         self.client = None
         self.connect_to_esp32()
